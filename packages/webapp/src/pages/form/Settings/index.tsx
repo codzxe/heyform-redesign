@@ -147,11 +147,10 @@ export default function FormSettings() {
             <FormSettingsProtection />
 
             <div
-              className="sticky bottom-0 mt-10 flex items-center justify-end gap-x-4 rounded-2xl border px-4 py-4"
+              className="sticky bottom-0 mt-10 flex items-center justify-end gap-x-4 rounded-2xl border px-4 py-4 shadow-[0_-8px_24px_-16px_rgba(38,53,43,0.25)]"
               style={{
                 borderColor: 'rgba(var(--hf-dashboard-border))',
-                background: 'rgba(var(--hf-foreground), 0.92)',
-                backdropFilter: 'blur(8px)'
+                background: 'rgba(var(--hf-foreground))'
               }}
             >
               {error && !loading && <div className="text-error text-sm/6">{error.message}</div>}
@@ -160,6 +159,9 @@ export default function FormSettings() {
                 {t('components.saveChanges')}
               </Button>
             </div>
+
+            {/* Clearance so the last section can scroll clear of the sticky bar */}
+            <div className="h-8" />
           </Form>
         </div>
       </div>

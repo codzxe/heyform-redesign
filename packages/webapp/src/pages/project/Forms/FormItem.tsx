@@ -396,10 +396,10 @@ const FormItem: FC<FormItemProps> = ({ form, isInTrash, onChange, compact = fals
             </div>
 
             <div className="mt-3 flex items-center justify-between gap-2">
-              <FormStatus form={form} />
+              {!isInTrash && <FormStatus form={form} />}
 
               {!form.suspended && (
-                <div className="flex items-center">
+                <div className={cn('flex items-center', isInTrash && 'ml-auto')}>
                   {!isInTrash && (
                     <Button.Copy
                       size="sm"

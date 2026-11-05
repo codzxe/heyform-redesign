@@ -314,6 +314,9 @@ const MultiSelect: FC<MultiSelectProps> = ({
   const { t } = useTranslation()
   const [open, setOpen] = useState(false)
 
+  // Server can return null (e.g. form.settings.languages) — fall back to []
+  const normalizedValue: string[] = value ?? []
+
   const options = useMemo(
     () =>
       rawOptions.map(row => {
@@ -330,15 +333,20 @@ const MultiSelect: FC<MultiSelectProps> = ({
     [rawOptions, valueKey, labelKey, multiLanguage, t]
   )
 
-  const selected = useMemo(() => options.filter(row => value.includes(row.value)), [options, value])
+  const selected = useMemo(
+    () => options.filter(row => normalizedValue.includes(row.value)),
+    [options, normalizedValue]
+  )
 
   const handleSelect = useCallback(
     (itemValue: string) => {
       onChange?.(
-        value.includes(itemValue) ? value.filter(v => v !== itemValue) : [...value, itemValue]
+        normalizedValue.includes(itemValue)
+          ? normalizedValue.filter(v => v !== itemValue)
+          : [...normalizedValue, itemValue]
       )
     },
-    [onChange, value]
+    [onChange, normalizedValue]
   )
 
   const handleRemove = useCallback(
@@ -426,7 +434,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
                   className="text-primary aria-selected:bg-accent-light grid cursor-pointer grid-cols-[theme(spacing.5),1fr] items-center gap-x-2.5 rounded-lg py-2.5 pl-2 pr-3.5 text-base/6 outline-none sm:grid-cols-[theme(spacing.4),1fr] sm:py-1.5 sm:pl-1.5 sm:pr-3 sm:text-sm/6 [&_[data-slot=item]]:col-start-2 [&_[data-slot=item]]:flex [&_[data-slot=item]]:items-center [&_[data-slot=item]]:gap-x-2.5 [&_[data-slot=item]]:sm:gap-x-2"
                   onSelect={handleSelect}
                 >
-                  {value.includes(row.value) && <IconCheck className="h-4 w-4" />}
+                  {normalizedValue.includes(row.value) && <IconCheck className="h-4 w-4" />}
                   <div data-slot="item">
                     {row.icon}
                     {row.label}
