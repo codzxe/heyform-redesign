@@ -104,6 +104,53 @@ pnpm lint           # oxlint across packages
 pnpm test           # unit + integration tests
 ```
 
+## Validation
+
+Two zero-dependency Node scripts guard repository hygiene. Both are plain
+Node (no install step) and exit non-zero on violations, so they should gate
+CI and pre-commit/pre-push hooks — a red run means the change must be fixed
+(or, for hardcoded values, the audited allowlist in the script header must be
+consciously widened in review).
+
+```bash
+node scripts/validate-branding.js               # old brand name must not survive
+node scripts/validate-hardcoded-values.js       # no machine-specific values in source
+```
+
+### Branding check — `scripts/validate-branding.js`
+
+Fails when the old brand name (`heyform`, any case — this also catches
+`@heyform-inc/*` package names) appears in any scanned file. Files are
+enumerated with `git ls-files` (filesystem walk fallback). Skipped:
+`node_modules`, `.git`, `dist`, `build`, `coverage`, `.turbo`, `.next`;
+binary/asset extensions (png jpg jpeg gif ico woff woff2 ttf eot mp3 mp4
+webm wav ogg zip pdf); `.env` local secret files. SVG files and tracked
+`.env.example` templates **are** scanned.
+
+Flags: `--exclude-lockfile` (transitional — the default strict run **does**
+scan `pnpm-lock.yaml`; drop the flag once lockfiles are regenerated and
+clean), `--strict` (explicit no-op for self-documenting CI calls), `--help`.
+
+### Hardcoded-value check — `scripts/validate-hardcoded-values.js`
+
+Fails when deployment- or machine-specific values are hardcoded instead of
+coming from configuration. Scope: `packages/*/src/**` (including translation
+files), `packages/*/test/**` (tests and fixtures) and
+`packages/server/scripts/**`. Never scanned: `.env*` files, binary assets.
+Detected patterns, reported as `path:line [rule]`:
+
+- **A** — loopback URL literals `http(s)://localhost|127.0.0.1|0.0.0.0[:port]`
+- **B** — bare `localhost` / `127.0.0.1` inside string literals
+- **C** — machine-specific paths inside string literals (`/home/<user>` and
+  `/Users/<user>` always; `/workspace/…` and `/project/…/` only when the
+  literal is file-shaped, since bare forms are legitimate app routes)
+
+The SSRF guard and its tests legitimately reference loopback literals to
+block them; they sit on an audited allowlist at the top of the script, each
+entry with a reason. Allowlisted hits are counted in a one-line summary by
+default; `--verbose` prints every suppressed line with its reason. Keep the
+allowlist as narrow as possible — widening it is a review decision.
+
 ## License
 
 MyForm is licensed under the [GNU AGPL-3.0](./LICENSE).

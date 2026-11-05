@@ -15,7 +15,8 @@ import {
   STATIC_DIR,
   TRUST_PROXY,
   UPLOAD_DIR,
-  VIEW_DIR
+  VIEW_DIR,
+  validateEnvironment
 } from '@environments'
 import { helper, ms } from '@myform/utils'
 import { Logger, hbs } from '@utils'
@@ -24,6 +25,30 @@ import { AppModule } from './app.module'
 import { AllExceptionsFilter } from './common/filter'
 
 async function bootstrap() {
+  // Validate the environment before anything else is created, so a
+  // misconfigured deployment fails fast with the complete problem list
+  // instead of crashing later inside a service that needs a missing value.
+  const environmentProblems = validateEnvironment()
+
+  for (const problem of environmentProblems) {
+    const message = `${problem.field}: ${problem.message}`
+
+    if (problem.severity === 'error') {
+      Logger.error(message, undefined, 'Environment')
+    } else {
+      Logger.warn(message, 'Environment')
+    }
+  }
+
+  if (environmentProblems.some(problem => problem.severity === 'error')) {
+    Logger.error(
+      'Invalid environment configuration, see the problems above. Exiting.',
+      undefined,
+      'Environment'
+    )
+    process.exit(1)
+  }
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     bodyParser: false
   })

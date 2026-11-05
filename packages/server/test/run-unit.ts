@@ -13,6 +13,7 @@ const tests = [
   'form-schema.test.ts',
   'ai-resolver.test.ts',
   'redis-config.test.ts',
+  'environment-validation.test.ts',
   'oauth-state.test.ts',
   'oidc-security.test.ts',
   'oidc-provisioning.test.ts',
