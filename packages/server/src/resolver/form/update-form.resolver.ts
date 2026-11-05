@@ -1,8 +1,8 @@
 import { Auth, Form, FormGuard, User } from '@decorator'
 import { BCRYPT_SALT } from '@environments'
 import { UpdateFormInput } from '@graphql'
-import { helper, pickValidValues } from '@myform/utils'
 import { FormModel, UserModel } from '@model'
+import { helper, pickValidValues } from '@myform/utils'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import { FormService } from '@service'
 import {
@@ -54,7 +54,18 @@ export class UpdateFormResolver {
       ['enableEmailNotification', 'settings.enableEmailNotification'],
       ['notificationReplyToRespondent', 'settings.notificationReplyToRespondent'],
       ['notificationSubjectRespondent', 'settings.notificationSubjectRespondent'],
-      ['notificationSkipOwner', 'settings.notificationSkipOwner']
+      ['notificationSkipOwner', 'settings.notificationSkipOwner'],
+      ['responseLayout', 'settings.responseLayout'],
+      ['showResultsOnCompletion', 'settings.showResultsOnCompletion'],
+      ['quizPassingScore', 'settings.quizPassingScore'],
+      ['showLeaderboard', 'settings.showLeaderboard'],
+      ['leaderboardSize', 'settings.leaderboardSize'],
+      ['anonymousLeaderboard', 'settings.anonymousLeaderboard'],
+      ['enableResponseConsent', 'settings.enableResponseConsent'],
+      ['consentText', 'settings.consentText'],
+      ['consentVersion', 'settings.consentVersion'],
+      ['enableResume', 'settings.enableResume'],
+      ['resumeExpirationDays', 'settings.resumeExpirationDays']
     ])
 
     if (helper.isValid(input.password)) {
@@ -66,6 +77,12 @@ export class UpdateFormResolver {
       updates['settings.notificationRecipients'] = normalizeNotificationRecipients(
         input.notificationRecipients
       )
+    }
+
+    // `pickValidValues` drops nulls, but an explicit null must clear the
+    // per-form retention override (unset means the workspace default applies).
+    if (input.retentionDays !== undefined) {
+      updates['settings.retentionDays'] = input.retentionDays
     }
 
     if (helper.isTrue(input.redirectOnCompletion)) {

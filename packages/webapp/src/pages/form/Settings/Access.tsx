@@ -62,7 +62,9 @@ export default function FormSettingsAccess() {
 
   return (
     <section id="access" className="pt-10">
-      <h2 className="font-serif text-xl font-semibold tracking-tight">{t('form.settings.access.title')}</h2>
+      <h2 className="font-serif text-xl font-semibold tracking-tight">
+        {t('form.settings.access.title')}
+      </h2>
 
       <div className="mt-4 space-y-8">
         <Form.Item
@@ -137,6 +139,33 @@ export default function FormSettingsAccess() {
             <Form.Item name="_timeLimit">
               <Input.TypeNumber className="[&_[data-slot=number]]:w-16" options={countdownItems} />
             </Form.Item>
+          )}
+        </div>
+
+        <div>
+          <Form.Item
+            className="[&_[data-slot=content]]:pt-1.5"
+            name="enableResume"
+            label={t('form.settings.access.resume.headline')}
+            description={t('form.settings.access.resume.subHeadline')}
+            isInline
+          >
+            <Switch />
+          </Form.Item>
+
+          {tempSettings?.enableResume && (
+            <div className="flex flex-col gap-1.5">
+              <Form.Item name="resumeExpirationDays">
+                <Input
+                  type="number"
+                  className="[&_[data-slot=number]]:w-16"
+                  trailing={t('form.settings.access.resume.expirationDays')}
+                />
+              </Form.Item>
+              <div className="text-secondary text-xs">
+                {t('form.settings.access.resume.expirationHint')}
+              </div>
+            </div>
           )}
         </div>
 

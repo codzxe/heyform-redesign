@@ -164,6 +164,18 @@ export const WORKSPACE_RECENT_FORMS_GQL = gql`
         enableClosedMessage
         closedFormTitle
         closedFormDescription
+        responseLayout
+        showResultsOnCompletion
+        quizPassingScore
+        showLeaderboard
+        leaderboardSize
+        anonymousLeaderboard
+        enableResponseConsent
+        consentText
+        consentVersion
+        retentionDays
+        enableResume
+        resumeExpirationDays
       }
       retentionAt
       suspended
@@ -441,6 +453,18 @@ export const FORMS_GQL = gql`
         enableClosedMessage
         closedFormTitle
         closedFormDescription
+        responseLayout
+        showResultsOnCompletion
+        quizPassingScore
+        showLeaderboard
+        leaderboardSize
+        anonymousLeaderboard
+        enableResponseConsent
+        consentText
+        consentVersion
+        retentionDays
+        enableResume
+        resumeExpirationDays
       }
       version
       isDraft
@@ -528,6 +552,18 @@ export const FORM_SUMMARY_GQL = gql`
         enableClosedMessage
         closedFormTitle
         closedFormDescription
+        responseLayout
+        showResultsOnCompletion
+        quizPassingScore
+        showLeaderboard
+        leaderboardSize
+        anonymousLeaderboard
+        enableResponseConsent
+        consentText
+        consentVersion
+        retentionDays
+        enableResume
+        resumeExpirationDays
       }
       retentionAt
       suspended
@@ -590,6 +626,18 @@ export const FORM_DETAIL_GQL = gql`
         metaTitle
         metaDescription
         metaOGImageUrl
+        responseLayout
+        showResultsOnCompletion
+        quizPassingScore
+        showLeaderboard
+        leaderboardSize
+        anonymousLeaderboard
+        enableResponseConsent
+        consentText
+        consentVersion
+        retentionDays
+        enableResume
+        resumeExpirationDays
       }
       drafts {
         id
@@ -1547,6 +1595,18 @@ export const PUBLIC_FORM_GQL = gql`
         closedFormTitle
         closedFormDescription
         removeBranding
+        responseLayout
+        showResultsOnCompletion
+        quizPassingScore
+        showLeaderboard
+        leaderboardSize
+        anonymousLeaderboard
+        enableResponseConsent
+        consentText
+        consentVersion
+        retentionDays
+        enableResume
+        resumeExpirationDays
       }
       drafts {
         id
@@ -1595,5 +1655,156 @@ export const PUBLIC_FORM_GQL = gql`
 export const VERIFY_FORM_PASSWORD_GQL = gql`
   query verifyFormPassword($input: VerifyPasswordInput!) {
     verifyFormPassword(input: $input)
+  }
+`
+
+// ---- Analytics v2 (overview, heatmap, dashboard shares, scheduled reports) ----
+
+export const FORM_ANALYTICS_OVERVIEW_GQL = gql`
+  query formAnalyticsOverview($input: FormAnalyticsOverviewInput!) {
+    formAnalyticsOverview(input: $input) {
+      totalVisits
+      totalResponses
+      completionRate
+      abandonmentRate
+      avgCompletionTimeSeconds
+      responseTrend {
+        date
+        count
+      }
+      deviceBreakdown {
+        label
+        count
+      }
+      browserBreakdown {
+        label
+        count
+      }
+      mediaCounts {
+        voice
+        video
+        screen
+      }
+      quiz {
+        averageScore
+        averagePercentage
+        highestScore
+        passingRate
+        responseCount
+      }
+    }
+  }
+`
+
+export const FORM_HEATMAP_GQL = gql`
+  query formHeatmap($input: FormHeatmapInput!) {
+    formHeatmap(input: $input) {
+      fieldId
+      visits
+      avgTimeMs
+      answerChanges
+      validationErrors
+      abandonments
+    }
+  }
+`
+
+export const DASHBOARD_SHARES_GQL = gql`
+  query dashboardShares($input: DashboardSharesInput!) {
+    dashboardShares(input: $input) {
+      id
+      token
+      url
+      metrics
+      expiresAt
+      revokedAt
+      createdAt
+    }
+  }
+`
+
+export const CREATE_DASHBOARD_SHARE_GQL = gql`
+  mutation createDashboardShare($input: CreateDashboardShareInput!) {
+    createDashboardShare(input: $input) {
+      id
+      token
+      url
+      metrics
+      expiresAt
+      revokedAt
+      createdAt
+    }
+  }
+`
+
+export const REVOKE_DASHBOARD_SHARE_GQL = gql`
+  mutation revokeDashboardShare($input: RevokeDashboardShareInput!) {
+    revokeDashboardShare(input: $input)
+  }
+`
+
+export const SCHEDULED_REPORTS_GQL = gql`
+  query scheduledReports($input: ScheduledReportsInput!) {
+    scheduledReports(input: $input) {
+      id
+      formId
+      frequency
+      dayOfWeek
+      dayOfMonth
+      timezone
+      recipients
+      enabled
+      nextRunAt
+      lastRunAt
+      status
+      lastError
+      createdAt
+    }
+  }
+`
+
+export const CREATE_SCHEDULED_REPORT_GQL = gql`
+  mutation createScheduledReport($input: CreateScheduledReportInput!) {
+    createScheduledReport(input: $input) {
+      id
+      formId
+      frequency
+      dayOfWeek
+      dayOfMonth
+      timezone
+      recipients
+      enabled
+      nextRunAt
+      lastRunAt
+      status
+      lastError
+      createdAt
+    }
+  }
+`
+
+export const UPDATE_SCHEDULED_REPORT_GQL = gql`
+  mutation updateScheduledReport($input: UpdateScheduledReportInput!) {
+    updateScheduledReport(input: $input) {
+      id
+      formId
+      frequency
+      dayOfWeek
+      dayOfMonth
+      timezone
+      recipients
+      enabled
+      nextRunAt
+      lastRunAt
+      status
+      lastError
+      createdAt
+    }
+  }
+`
+
+export const DELETE_SCHEDULED_REPORT_GQL = gql`
+  mutation deleteScheduledReport($input: DeleteScheduledReportInput!) {
+    deleteScheduledReport(input: $input)
   }
 `

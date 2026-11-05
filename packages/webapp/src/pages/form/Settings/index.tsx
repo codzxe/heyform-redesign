@@ -13,7 +13,9 @@ import { useFormStore } from '@/store'
 import FormSettingsAccess from './Access'
 import FormSettingsEmailNotification from './EmailNotification'
 import FormSettingsGeneral from './General'
+import FormSettingsPrivacy from './Privacy'
 import FormSettingsProtection from './Protection'
+import FormSettingsQuiz from './Quiz'
 import FormSettingsTranslations from './Translations'
 import { parseNotificationRecipients } from './notificationRecipients'
 
@@ -58,6 +60,16 @@ export default function FormSettings() {
         )
         delete settings._notificationRecipients
       }
+
+      // The quiz time limit is edited in the Access section (`_timeLimit`),
+      // no separate conversion is needed here.
+
+      // Response retention: retentionDays only applies while the retention
+      // switch is on; null falls back to the workspace default
+      if (!settings.enableRetention) {
+        settings.retentionDays = null
+      }
+      delete settings.enableRetention
 
       settings.active = !settings.closeForm
       delete settings.closeForm
@@ -127,6 +139,14 @@ export default function FormSettings() {
               {
                 label: t('form.settings.protection.title'),
                 value: 'protection'
+              },
+              {
+                label: t('form.settings.quiz.title'),
+                value: 'quiz'
+              },
+              {
+                label: t('form.settings.privacy.title'),
+                value: 'privacy'
               }
             ]}
           />
@@ -136,7 +156,12 @@ export default function FormSettings() {
           <Form
             className="divide-accent-light space-y-10 divide-y"
             form={rcForm}
-            initialValues={tempSettings}
+            initialValues={{
+              ...tempSettings,
+              // `enableRetention` is a settings-page-only toggle derived from
+              // retentionDays (unset means the workspace default applies)
+              enableRetention: helper.isValid(tempSettings?.retentionDays)
+            }}
             onValuesChange={handleValuesChange}
             onFinish={run}
           >
@@ -145,6 +170,8 @@ export default function FormSettings() {
             <FormSettingsEmailNotification />
             <FormSettingsTranslations />
             <FormSettingsProtection />
+            <FormSettingsQuiz />
+            <FormSettingsPrivacy />
 
             <div
               className="sticky bottom-0 mt-10 flex items-center justify-end gap-x-4 rounded-2xl border px-4 py-4 shadow-[0_-8px_24px_-16px_rgba(38,53,43,0.25)]"

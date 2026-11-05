@@ -47,8 +47,11 @@ function round(value: number | undefined, precision: number): number {
  * The first day of a range, so that a range labelled "7d" covers the last
  * seven calendar days including today. Ranges always end at the end of today,
  * mirroring FormAnalyticResolver's windows.
+ *
+ * Exported for the public dashboard share payload, which must aggregate over
+ * exactly the same window as the overview it is served beside.
  */
-function rangeStartAt(range: FormAnalyticRangeEnum): Date {
+export function rangeStartAt(range: FormAnalyticRangeEnum): Date {
   const today = date().startOf('day')
 
   switch (range) {

@@ -1388,6 +1388,12 @@
           "subHeadline": "This is what the recipients will see if you closed the form with one of the options above.",
           "title": "Title of closed message",
           "description": "Description of closed message"
+        },
+        "resume": {
+          "headline": "Save and resume later",
+          "subHeadline": "Respondents get a secure link to continue where they left off, on any device.",
+          "expirationDays": "Link valid for (days)",
+          "expirationHint": "How long a resume link stays valid. Unfinished sessions are cleaned up after it expires."
         }
       },
       "translations": {

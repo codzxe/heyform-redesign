@@ -154,9 +154,9 @@ const ALLOWLIST = [
   // - packages/server/src/environments/load-env.ts was inspected per the task
   //   brief and contains NO loopback/localhost/machine-path string literals —
   //   it is intentionally NOT allowlisted.
-  // - packages/webapp/pnpm-lock.yaml contains @heyform-inc/* stale workspace
-  //   names; it is a BRANDING finding handled by validate-branding.js and is
-  //   resolved by regenerating the lockfile (scheduled integration task).
+  // - packages/webapp/pnpm-lock.yaml contains stale old-brand workspace
+  //   package names; it is a BRANDING finding handled by validate-branding.js
+  //   and is resolved by regenerating the lockfile (scheduled integration task).
 ]
 
 // ---------------------------------------------------------------------------

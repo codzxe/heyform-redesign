@@ -5,6 +5,7 @@ import { hasInvitationCookie } from '@/utils'
 
 import { isRegistrationDisabled } from '@/consts'
 import { AuthLayout, BaseLayout, WorkspaceGuard, WorkspaceLayout } from '@/layouts'
+import PublicDashboardShare from '@/pages/analytics/share'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
 import Login from '@/pages/auth/Login'
 import ResetPassword from '@/pages/auth/ResetPassword'
@@ -220,6 +221,14 @@ const routes = [
     options: {
       loginRequired: false,
       title: 'form.render.title'
+    }
+  },
+  {
+    path: '/analytics/share/:token',
+    component: PublicDashboardShare,
+    options: {
+      loginRequired: false,
+      title: 'form.analytics.title'
     }
   }
 ]

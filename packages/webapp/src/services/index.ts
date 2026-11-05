@@ -1,4 +1,5 @@
 export * from './app'
+export * from './analytics'
 export * from './auth'
 export * from './changelog'
 export * from './form'

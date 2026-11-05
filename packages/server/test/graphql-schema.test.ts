@@ -110,6 +110,37 @@ async function run() {
     assert.ok(mutations.includes(name), `Mutation.${name} missing from the schema`)
   }
 
+  // The settings surface must keep listing every FormSettings field the
+  // dashboard Settings page can save, on both the write and the read side.
+  const expectedSettingsFields = [
+    'responseLayout',
+    'showResultsOnCompletion',
+    'quizPassingScore',
+    'showLeaderboard',
+    'leaderboardSize',
+    'anonymousLeaderboard',
+    'enableResponseConsent',
+    'consentText',
+    'consentVersion',
+    'retentionDays'
+  ]
+
+  const updateFormInputType = schema.getType('UpdateFormInput')
+  assert.ok(updateFormInputType, 'UpdateFormInput must exist in the schema')
+  const updateFormInputFields = Object.keys((updateFormInputType as any).getFields())
+
+  const formSettingType = schema.getType('FormSettingType')
+  assert.ok(formSettingType, 'FormSettingType must exist in the schema')
+  const formSettingFields = Object.keys((formSettingType as any).getFields())
+
+  for (const name of expectedSettingsFields) {
+    assert.ok(
+      updateFormInputFields.includes(name),
+      `UpdateFormInput.${name} missing from the schema`
+    )
+    assert.ok(formSettingFields.includes(name), `FormSettingType.${name} missing from the schema`)
+  }
+
   console.log(
     `GraphQL schema built: ${queries.length} queries, ${mutations.length} mutations, all MyForm fields present`
   )

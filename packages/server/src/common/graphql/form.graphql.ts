@@ -9,6 +9,7 @@ import {
   FieldLayoutAlignEnum,
   FormField,
   FormKindEnum,
+  FormResponseLayoutEnum,
   FormSettings,
   FormStatusEnum,
   HiddenField,
@@ -29,6 +30,7 @@ import {
   IsBoolean,
   IsEnum,
   IsIn,
+  IsInt,
   IsNumber,
   IsObject,
   IsOptional,
@@ -42,7 +44,7 @@ import {
 
 import { TeamDetailInput } from './team.graphql'
 import { FormAnalyticRangeEnum, FormModel, IntegrationStatusEnum } from '@model'
-import { Field, InputType, ObjectType } from '@nestjs/graphql'
+import { Field, InputType, Int, ObjectType } from '@nestjs/graphql'
 import { SUPPORTED_TRANSLATION_LANGUAGES } from '@utils'
 import GraphQLJSON, { GraphQLJSONObject } from 'graphql-type-json'
 
@@ -630,6 +632,72 @@ export class UpdateFormInput extends FormDetailInput {
   @Field({ nullable: true })
   @IsOptional()
   notificationSkipOwner?: boolean
+
+  // Response layout: conversational (one question at a time) or classic
+  @Field(type => String, { nullable: true })
+  @IsOptional()
+  @IsEnum(FormResponseLayoutEnum)
+  responseLayout?: FormResponseLayoutEnum
+
+  // Quiz & gamification
+  @Field({ nullable: true })
+  @IsOptional()
+  showResultsOnCompletion?: boolean
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @Min(0)
+  @Max(100)
+  quizPassingScore?: number
+
+  @Field({ nullable: true })
+  @IsOptional()
+  showLeaderboard?: boolean
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @Min(1)
+  @Max(100)
+  leaderboardSize?: number
+
+  @Field({ nullable: true })
+  @IsOptional()
+  anonymousLeaderboard?: boolean
+
+  // GDPR response consent (separate from legal-terms questions)
+  @Field({ nullable: true })
+  @IsOptional()
+  enableResponseConsent?: boolean
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @MaxLength(2000)
+  consentText?: string
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @MaxLength(32)
+  consentVersion?: string
+
+  // Explicit null clears the per-form override (workspace default applies)
+  @Field(type => Int, { nullable: true })
+  @IsOptional()
+  @IsInt()
+  @Min(1)
+  @Max(3650)
+  retentionDays?: number | null
+
+  // Save & resume: respondents continue later via a secure link
+  @Field({ nullable: true })
+  @IsOptional()
+  enableResume?: boolean
+
+  @Field(type => Int, { nullable: true })
+  @IsOptional()
+  @IsInt()
+  @Min(1)
+  @Max(365)
+  resumeExpirationDays?: number
 }
 
 @InputType()
@@ -1083,6 +1151,47 @@ export class FormSettingType {
 
   @Field({ nullable: true })
   removeBranding?: boolean
+
+  // Response layout: conversational (one question at a time) or classic
+  @Field(type => String, { nullable: true })
+  responseLayout?: FormResponseLayoutEnum
+
+  // Quiz & gamification
+  @Field({ nullable: true })
+  showResultsOnCompletion?: boolean
+
+  @Field({ nullable: true })
+  quizPassingScore?: number
+
+  @Field({ nullable: true })
+  showLeaderboard?: boolean
+
+  @Field({ nullable: true })
+  leaderboardSize?: number
+
+  @Field({ nullable: true })
+  anonymousLeaderboard?: boolean
+
+  // GDPR response consent (separate from legal-terms questions)
+  @Field({ nullable: true })
+  enableResponseConsent?: boolean
+
+  @Field({ nullable: true })
+  consentText?: string
+
+  @Field({ nullable: true })
+  consentVersion?: string
+
+  // Data retention, days; unset means workspace default
+  @Field({ nullable: true })
+  retentionDays?: number
+
+  // Save & resume
+  @Field({ nullable: true })
+  enableResume?: boolean
+
+  @Field(type => Int, { nullable: true })
+  resumeExpirationDays?: number
 }
 
 @ObjectType()

@@ -8,8 +8,8 @@ import { Model } from 'mongoose'
 import { RedisService } from './redis.service'
 import { TeamService } from './team.service'
 import { GOOGLE_RECAPTCHA_KEY } from '@environments'
-import { helper, pickObject, timestamp } from '@myform/utils'
 import { FormModel } from '@model'
+import { helper, pickObject, timestamp } from '@myform/utils'
 import { literalSearchRegex, mapToObject, normalizeTranslationLanguages } from '@utils'
 import { getUpdateQuery } from '@utils'
 
@@ -393,7 +393,23 @@ export class FormService {
       'languages',
       'enableClosedMessage',
       'closedFormTitle',
-      'closedFormDescription'
+      'closedFormDescription',
+      // Response layout drives which renderer view (conversational/classic)
+      // the respondent gets
+      'responseLayout',
+      // Save & resume
+      'enableResume',
+      'resumeExpirationDays',
+      // Quiz results and leaderboard the respondent sees after submitting
+      'showResultsOnCompletion',
+      'quizPassingScore',
+      'showLeaderboard',
+      'leaderboardSize',
+      'anonymousLeaderboard',
+      // GDPR consent shown before submitting
+      'enableResponseConsent',
+      'consentText',
+      'consentVersion'
     ])
 
     masked.fields = form.fields.map(field => {
