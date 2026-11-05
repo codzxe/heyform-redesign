@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import computed from 'zustand-computed'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 

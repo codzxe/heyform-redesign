@@ -31,7 +31,7 @@ export default function FormShare() {
 
   function handleShareEmail() {
     const url = getDecoratedURL('mailto:', {
-      subject: 'Cold you take a moment to fill in this heyform?',
+      subject: 'Cold you take a moment to fill in this myform?',
       body: `We would really appreciate it if you filled in this form: ${shareLink}. Thank you.`
     })
     window.open(url)

@@ -1,12 +1,12 @@
 version: '3.9'
 
 networks:
-  heyform-mongo:
-  heyform-keydb:
+  myform-mongo:
+  myform-keydb:
 
 services:
-  heyform:
-    image: heyform-local:test
+  myform:
+    image: myform-local:test
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,7 +28,7 @@ services:
       APP_HOMEPAGE_URL: ${APP_HOMEPAGE_URL:-http://localhost:9157}
       SESSION_KEY: ${SESSION_KEY:?SESSION_KEY is required}
       FORM_ENCRYPTION_KEY: ${FORM_ENCRYPTION_KEY:?FORM_ENCRYPTION_KEY is required}
-      MONGO_URI: mongodb://mongo:27017/heyform
+      MONGO_URI: mongodb://mongo:27017/myform
       REDIS_HOST: keydb
       REDIS_PORT: 6379
       SMTP_FROM: ${SMTP_FROM}
@@ -44,8 +44,8 @@ services:
       - ./assets:/app/packages/server/static/upload
       - ./assets:/app/packages/server/uploads
     networks:
-      - heyform-mongo
-      - heyform-keydb
+      - myform-mongo
+      - myform-keydb
 
   mongo:
     image: percona/percona-server-mongodb:latest
@@ -55,7 +55,7 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - heyform-mongo
+      - myform-mongo
 
   keydb:
     image: eqalpha/keydb:latest
@@ -66,7 +66,7 @@ services:
     volumes:
       - keydb_data:/data
     networks:
-      - heyform-keydb
+      - myform-keydb
 
 volumes:
   mongodb_data:

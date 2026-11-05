@@ -1,6 +1,6 @@
 import { Auth, User } from '@decorator'
 import { UserDetailType } from '@graphql'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { UserModel } from '@model'
 import { Query, Resolver } from '@nestjs/graphql'
 import { SocialLoginService } from '@service'

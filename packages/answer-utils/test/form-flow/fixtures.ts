@@ -9,7 +9,7 @@ import {
   type FormField,
   type Logic,
   type Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
 import { calculateAction } from '../../src/calculate-action'
 import { getChoiceBranchingErrors } from '../../src/choice-branching'

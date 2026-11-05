@@ -708,6 +708,6 @@ test('translates the Google Sheets settings', async () => {
   expect(getIntegrationSetting(i18n.t, sheetsApp, sheet)).toMatchObject({
     label: '工作表',
     placeholder: '第一个工作表',
-    description: '第 1 行为列标题；每出现一个新问题，HeyForm 会添加一个标题。'
+    description: '第 1 行为列标题；每出现一个新问题，MyForm 会添加一个标题。'
   })
 })

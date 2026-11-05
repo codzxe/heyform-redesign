@@ -4,7 +4,7 @@ import {
   FormField,
   QUESTION_FIELD_KINDS,
   SubmissionCategoryEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import {
   IconAdjustmentsHorizontal,
   IconCheck,
@@ -19,8 +19,8 @@ import { useTranslation } from 'react-i18next'
 
 import { SubmissionService } from '@/services'
 import { cn, useParam } from '@/utils'
-import { flattenFields } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { flattenFields } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import IconMove from '@/assets/move.svg?react'
 import {

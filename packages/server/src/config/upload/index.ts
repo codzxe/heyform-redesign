@@ -13,7 +13,7 @@ import {
   UPLOAD_DIR,
   UPLOAD_FILE_TYPES
 } from '@environments'
-import { helper, nanoid } from '@heyform-inc/utils'
+import { helper, nanoid } from '@myform/utils'
 
 export * from './image'
 

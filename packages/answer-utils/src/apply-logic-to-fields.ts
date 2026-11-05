@@ -9,9 +9,9 @@ import {
   QUESTION_FIELD_KINDS,
   StringCalculateAction,
   Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { calculateAction } from './calculate-action'
 import { createFieldNavigation } from './navigation'

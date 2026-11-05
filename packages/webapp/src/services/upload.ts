@@ -1,4 +1,4 @@
-import { FileUploadValue } from '@heyform-inc/shared-types-enums'
+import { FileUploadValue } from '@myform/shared-types-enums'
 import axios from 'axios'
 
 export interface UploadContext {
@@ -17,9 +17,9 @@ export class UploadService {
         'Content-Type': 'multipart/form-data',
         ...(context
           ? {
-              'x-heyform-field-id': context.fieldId,
-              'x-heyform-form-id': context.formId,
-              'x-heyform-open-token': context.openToken
+              'x-myform-field-id': context.fieldId,
+              'x-myform-form-id': context.formId,
+              'x-myform-open-token': context.openToken
             }
           : {})
       }

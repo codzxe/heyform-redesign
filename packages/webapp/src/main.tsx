@@ -1,4 +1,4 @@
-import Router, { Route } from '@heyooo-inc/react-router'
+import Router, { Route } from '@/lib/router'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { ReactNode } from 'react'
 import { Root, createRoot } from 'react-dom/client'
@@ -70,8 +70,8 @@ async function loadRuntimeConfig() {
     if (response.ok) {
       const config = await response.json()
 
-      window.heyform = {
-        ...(window.heyform || {}),
+      window.myform = {
+        ...(window.myform || {}),
         ...config
       }
     }

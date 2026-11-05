@@ -3,7 +3,7 @@ import assert from 'assert'
 import { normalizeAIFields } from '../src/utils/ai-fields'
 import { normalizeAIRichText } from '../src/utils/ai-rich-text'
 import { sanitizeFormDrafts } from '../src/utils/form-schema'
-import { htmlUtils } from '@heyform-inc/answer-utils'
+import { htmlUtils } from '@myform/answer-utils'
 
 const validCases: Array<[string, unknown, unknown[]]> = [
   ['missing', undefined, []],

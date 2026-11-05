@@ -31,8 +31,8 @@ export const TemporaryError: FC<TemporaryErrorProps> = ({
   }, [])
 
   return (
-    <div className="heyform-validation-wrapper" {...restProps}>
-      <div className="heyform-validation-error">{t(error.message)}</div>
+    <div className="myform-validation-wrapper" {...restProps}>
+      <div className="myform-validation-error">{t(error.message)}</div>
     </div>
   )
 }

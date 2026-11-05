@@ -509,19 +509,19 @@
   "oauth": {
     "title": "Authorize",
     "headline": "Connect with {{name}}",
-    "subHeadline": "Use {{name}} to integrate HeyForm with your favorite apps, like Chat, Email, or SMS.",
+    "subHeadline": "Use {{name}} to integrate MyForm with your favorite apps, like Chat, Email, or SMS.",
     "would": "{{name}} would like to:",
     "scopes": [
       "Workspace Read",
-      "Retrieve data about all the workspaces in your HeyForm account",
+      "Retrieve data about all the workspaces in your MyForm account",
       "Project Read",
-      "Retrieve data about all the project in your HeyForm workspace",
+      "Retrieve data about all the project in your MyForm workspace",
       "Form Read",
-      "Retrieve data about all the forms in your HeyForm project",
+      "Retrieve data about all the forms in your MyForm project",
       "Submission Read",
       "Retrieve form submissions you collected",
       "Accounts Read",
-      "Retrieve your HeyForm account information"
+      "Retrieve your MyForm account information"
     ]
   },
   "workspace": {
@@ -627,7 +627,7 @@
       "required": "The email address is not allow to be empty",
       "sentSuccess_one": "{{count}} invite sent",
       "sentSuccess_other": "{{count}} invites sent",
-      "sentSuccessMessage": "Invited members have been notified with email to sign up for HeyForm"
+      "sentSuccessMessage": "Invited members have been notified with email to sign up for MyForm"
     }
   },
   "settings": {
@@ -640,8 +640,8 @@
     },
     "branding": {
       "title": "Branding",
-      "removeBrandingHeadline": "Remove HeyForm branding",
-      "removeBrandingSubHeadline": "To make HeyForm feel like it's completely owned by your brand, remove the HeyForm Logo in the form footer.",
+      "removeBrandingHeadline": "Remove MyForm branding",
+      "removeBrandingSubHeadline": "To make MyForm feel like it's completely owned by your brand, remove the MyForm Logo in the form footer.",
       "viewBrandKit": "View",
       "logo": {
         "title": "Logo",
@@ -672,7 +672,7 @@
       "unused": "Not used by any form",
       "disconnect": "Disconnect",
       "disconnectHeadline": "Disconnect {{account}}?",
-      "disconnectDescription": "HeyForm will stop using this account and ask {{provider}} to revoke its access. Integrations using it will pause, and their submissions will wait until someone picks another account or connects this one again."
+      "disconnectDescription": "MyForm will stop using this account and ask {{provider}} to revoke its access. Integrations using it will pause, and their submissions will wait until someone picks another account or connects this one again."
     },
     "exportData": {
       "title": "Export Data",
@@ -866,8 +866,8 @@
       "submit": "Generate questions"
     },
     "chat": {
-      "title": "HeyForm AI Assistant",
-      "welcome": "Welcome to HeyForm's AI Assistant! This is an innovative feature powered by cutting-edge AI technology, designed to help you create form questions and logics.",
+      "title": "MyForm AI Assistant",
+      "welcome": "Welcome to MyForm's AI Assistant! This is an innovative feature powered by cutting-edge AI technology, designed to help you create form questions and logics.",
       "compose": "Ask me anything...",
       "fieldsUpdated": "Your form's questions have been updated.",
       "logicUpdated": "Your form's logic has been updated.",
@@ -954,9 +954,9 @@
       "fileManagement": "File Management",
       "mapFields": {
         "headline": "Map fields",
-        "subHeadline": "Map HeyForm to {{name}} columns. If you change a column on {{name}}, please update it here too, otherwise the integration won't work as expected.",
+        "subHeadline": "Map MyForm to {{name}} columns. If you change a column on {{name}}, please update it here too, otherwise the integration won't work as expected.",
         "requried": "The map fields is not allowed to be empty",
-        "leftPlaceholder": "Select a HeyForm question",
+        "leftPlaceholder": "Select a MyForm question",
         "rightPlaceholder": "{{name}} column",
         "requireLeft": "The left side of field {{index}} is not allowed to be empty",
         "requireRight": "The right side of field {{index}} is not allowed to be empty",
@@ -964,7 +964,7 @@
       },
       "authorization": {
         "headline": "Authorization",
-        "subHeadline": "First of all, please authorize HeyForm to access your data.",
+        "subHeadline": "First of all, please authorize MyForm to access your data.",
         "loginWith": "Login with {{name}}"
       },
       "webhook": {
@@ -974,7 +974,7 @@
       "telegram": {
         "label": "Chat ID",
         "required": "The Chat ID is not allow to be empty",
-        "footer": "Add <a>@HeyForm_bot</a> to your Telegram group, and type <code>/start@HeyForm_bot</code> in the group. You will then receive a message with a Chat ID."
+        "footer": "Add <a>@MyForm_bot</a> to your Telegram group, and type <code>/start@MyForm_bot</code> in the group. You will then receive a message with a Chat ID."
       },
       "legacyslack": {
         "label": "Webhook URL",
@@ -1015,7 +1015,7 @@
         },
         "folder": {
           "headline": "Select a folder",
-          "footer": "You can select a folder to place the files uploaded from your HeyForm."
+          "footer": "You can select a folder to place the files uploaded from your MyForm."
         }
       },
       "googlesheets": {
@@ -1128,7 +1128,7 @@
       "auth": {
         "apiKey": "API key",
         "apiKeySaved": "A key is saved ({{hint}}). Leave this blank to keep it.",
-        "connectDescription": "Connect your {{name}} account so HeyForm can send submissions to it.",
+        "connectDescription": "Connect your {{name}} account so MyForm can send submissions to it.",
         "connectAccount": "Connect {{name}} account",
         "reconnect": "Reconnect",
         "reconnectAccount": "Reconnect {{name}} account",
@@ -1177,7 +1177,7 @@
             },
             "sheet": {
               "label": "Tab",
-              "description": "Row 1 holds the column headers; HeyForm adds one for each new question.",
+              "description": "Row 1 holds the column headers; MyForm adds one for each new question.",
               "placeholder": "First tab"
             }
           }
@@ -1200,7 +1200,7 @@
         },
         "email": {
           "title": "Share via email",
-          "subject": "Cold you take a moment to fill in this heyform?",
+          "subject": "Cold you take a moment to fill in this myform?",
           "body": "We would really appreciate it if you filled in this form: {{url}}. Thank you."
         },
         "useCustomDomain": "Use custom domain"
@@ -1212,7 +1212,7 @@
         "description": "Description",
         "preview": {
           "headline": "Preview",
-          "subHeadline": "HeyForm automatically generates an <a>Open Graph</a> image for you. You can also <button>upload your own image</button>.",
+          "subHeadline": "MyForm automatically generates an <a>Open Graph</a> image for you. You can also <button>upload your own image</button>.",
           "uploadTitle": "Upload your own Open Graph image",
           "uploadDescription": "Recommended size: 1200x630 | JPG, PNG."
         }
@@ -1251,7 +1251,7 @@
         "bottomRight": "Bottom right corner",
         "transparentBackground": "Transparent background",
         "code": {
-          "headline": "Add HeyForm to your website",
+          "headline": "Add MyForm to your website",
           "subHeadline": "Paste the following code snippet in the body section of your website."
         }
       }
@@ -1262,7 +1262,7 @@
         "title": "General",
         "archive": {
           "headline": "Submission archive",
-          "subHeadline": "Turn off the submission archive if you prefer HeyForm not to save your submissions."
+          "subHeadline": "Turn off the submission archive if you prefer MyForm not to save your submissions."
         },
         "redirect": {
           "headline": "Redirect on completion",
@@ -1353,7 +1353,7 @@
         },
         "recipients": {
           "headline": "Additional recipients",
-          "subHeadline": "Also email submissions to these addresses, even if they have no HeyForm account. One address per line, up to {{max}}.",
+          "subHeadline": "Also email submissions to these addresses, even if they have no MyForm account. One address per line, up to {{max}}.",
           "placeholder": "name@example.com",
           "invalid": "{{email}} is not a valid email address",
           "tooMany": "Add at most {{max}} recipients"
@@ -1492,7 +1492,7 @@
         "payment": {
           "title": "Payment",
           "headline": "Connect with stripe",
-          "subHeadline": "<div>Collect and receive payments directly on your bank account provided by Stripe.</div><div>Free HeyForm users collect payments at the the rate of <a>5% HeyForm commission + Stripe transaction fee.</a></div><div>To remove the 5% HeyForm commission on payments, upgrade to <button>HeyForm Premium</button>.</div>",
+          "subHeadline": "<div>Collect and receive payments directly on your bank account provided by Stripe.</div><div>Free MyForm users collect payments at the the rate of <a>5% MyForm commission + Stripe transaction fee.</a></div><div>To remove the 5% MyForm commission on payments, upgrade to <button>MyForm Premium</button>.</div>",
           "stripeAccount": "Stripe account",
           "revoke": "Revoke",
           "price": "Price",
@@ -1658,7 +1658,7 @@
     "subHeadline": "Changes to account settings will apply to all of your workspaces.",
     "avatar": {
       "headline": "Avatar",
-      "subHeadline": "Gravatar is used by default as your HeyForm avatar, you can upload your custom avatar here."
+      "subHeadline": "Gravatar is used by default as your MyForm avatar, you can upload your custom avatar here."
     },
     "name": "Your name",
     "email": {

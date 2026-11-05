@@ -9,7 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@heyform-inc/form-renderer': resolve(__dirname, '../form-renderer/src/index.ts')
+      '@myform/form-renderer': resolve(__dirname, '../form-renderer/src/index.ts')
     }
   },
   test: {

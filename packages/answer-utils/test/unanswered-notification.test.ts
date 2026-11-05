@@ -1,4 +1,4 @@
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import { expect, test } from 'vitest'
 
 import { answersToHtml, fieldValuesToAnswers } from '../src'

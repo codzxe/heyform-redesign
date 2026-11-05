@@ -1,4 +1,4 @@
-import { flattenFieldsWithGroups } from '@heyform-inc/form-renderer'
+import { flattenFieldsWithGroups } from '@myform/form-renderer'
 import {
   ActionEnum,
   ComparisonEnum,
@@ -7,7 +7,7 @@ import {
   LogicPayload,
   NavigateAction,
   UNSELECTABLE_FIELD_KINDS
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import * as dagre from 'dagre'
 import { Edge, Node } from 'react-flow-renderer'
 
@@ -18,8 +18,8 @@ import {
   getChoiceBranchingErrors,
   getPayloadChoiceId,
   isChoiceBranchingField
-} from '@heyform-inc/answer-utils'
-import { nanoid } from '@heyform-inc/utils'
+} from '@myform/answer-utils'
+import { nanoid } from '@myform/utils'
 
 import { FormFieldType } from '@/types'
 

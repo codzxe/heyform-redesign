@@ -1,11 +1,11 @@
-import { CURRENCY_SYMBOLS } from '@heyform-inc/form-renderer'
-import { NumberPrice } from '@heyform-inc/shared-types-enums'
+import { CURRENCY_SYMBOLS } from '@myform/form-renderer'
+import { NumberPrice } from '@myform/shared-types-enums'
 import { IconChevronRight } from '@tabler/icons-react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { FakeSubmit } from '../FakeSubmit'
 import type { BlockProps } from './Block'
@@ -28,37 +28,37 @@ export const Payment: FC<BlockProps> = ({ field, locale, ...restProps }) => {
   }, [field.properties?.currency, field.properties?.price])
 
   return (
-    <Block className="heyform-payment" field={field} locale={locale} {...restProps}>
-      <div className="heyform-payment-header">
+    <Block className="myform-payment" field={field} locale={locale} {...restProps}>
+      <div className="myform-payment-header">
         <p>
           {t('Your credit card will be charged', { lng: locale })}: <strong>{priceString}</strong>
         </p>
       </div>
 
-      <div className="heyform-payment-body">
-        <div className="heyform-payment-item">
-          <div className="heyform-payment-label">{t('Name on card', { lng: locale })}</div>
-          <input type="text" className="heyform-input" placeholder="Han Solo" disabled={true} />
+      <div className="myform-payment-body">
+        <div className="myform-payment-item">
+          <div className="myform-payment-label">{t('Name on card', { lng: locale })}</div>
+          <input type="text" className="myform-input" placeholder="Han Solo" disabled={true} />
         </div>
 
-        <div className="heyform-payment-item">
-          <div className="heyform-payment-label">{t('Card number', { lng: locale })}</div>
+        <div className="myform-payment-item">
+          <div className="myform-payment-label">{t('Card number', { lng: locale })}</div>
           <input
             type="text"
-            className="heyform-input"
+            className="myform-input"
             placeholder="1234 1234 1234 1234"
             disabled={true}
           />
         </div>
 
-        <div className="heyform-payment-wrapper">
-          <div className="heyform-payment-item">
-            <div className="heyform-payment-label">{t('Expiry date', { lng: locale })}</div>
-            <input type="text" className="heyform-input" placeholder="MM/YY" disabled={true} />
+        <div className="myform-payment-wrapper">
+          <div className="myform-payment-item">
+            <div className="myform-payment-label">{t('Expiry date', { lng: locale })}</div>
+            <input type="text" className="myform-input" placeholder="MM/YY" disabled={true} />
           </div>
-          <div className="heyform-payment-item">
-            <div className="heyform-payment-label">{t('CVC', { lng: locale })}</div>
-            <input type="text" className="heyform-input" placeholder="123" disabled={true} />
+          <div className="myform-payment-item">
+            <div className="myform-payment-label">{t('CVC', { lng: locale })}</div>
+            <input type="text" className="myform-input" placeholder="123" disabled={true} />
           </div>
         </div>
       </div>

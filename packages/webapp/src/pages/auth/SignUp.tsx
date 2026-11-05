@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { AuthService } from '@/services'
 import { clearCookie, clearInvitationCookie, getInvitationCookie, useRouter } from '@/utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Form, Input, PasswordStrength } from '@/components'
 import { DISABLE_LOGIN_WITH_PASSWORD, REDIRECT_COOKIE_NAME, VERIFY_USER_EMAIL } from '@/consts'

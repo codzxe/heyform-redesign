@@ -7,7 +7,7 @@ import {
   CalculateEnum,
   ComparisonEnum,
   FieldKindEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { beforeAll, expect, test } from 'vitest'
 
@@ -27,7 +27,7 @@ import SubmissionCell from '../src/pages/form/Submissions/SubmissionCell'
 
 beforeAll(async () => {
   await i18n.changeLanguage('en')
-  ;(window as any).heyform = { uploadOrigins: ['https://example.com'] }
+  ;(window as any).myform = { uploadOrigins: ['https://example.com'] }
 })
 
 const choices = [

@@ -1,11 +1,11 @@
-import { Logic } from '@heyform-inc/shared-types-enums'
+import { Logic } from '@myform/shared-types-enums'
 import { IconArrowUpRight, IconChevronRight, IconDots } from '@tabler/icons-react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
-import { htmlUtils } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { htmlUtils } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { Button, Dropdown } from '@/components'
 import { useAppStore } from '@/store'
@@ -13,6 +13,7 @@ import { FormFieldType } from '@/types'
 
 import { QuestionIcon } from '../../LeftSidebar/QuestionList'
 import { useStoreContext } from '../../store'
+import { HELP_CENTER_URL } from '@consts/env'
 
 interface LogicItemProps {
   fields: FormFieldType[]
@@ -135,7 +136,7 @@ export const Rules: FC = () => {
                 <a
                   key="a"
                   className="hover:text-primary underline underline-offset-4"
-                  href="https://docs.heyform.net/features/conditional-logic"
+                  href=`${HELP_CENTER_URL}/features/conditional-logic`
                   target="_blank"
                   rel="noopener noreferrer"
                 />

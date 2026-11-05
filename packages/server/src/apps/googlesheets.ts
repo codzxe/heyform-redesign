@@ -1,8 +1,8 @@
-import { Answer, FieldKindEnum, STATEMENT_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
+import { Answer, FieldKindEnum, STATEMENT_FIELD_KINDS } from '@myform/shared-types-enums'
 import got from 'got'
 
 import { answerToText } from '../service/export-file.service'
-import { flattenFields, htmlUtils } from '@heyform-inc/answer-utils'
+import { flattenFields, htmlUtils } from '@myform/answer-utils'
 import type { FormModel, SubmissionModel } from '@model'
 
 import { AppError, defineApp } from './types'
@@ -434,7 +434,7 @@ export function createGoogleSheetsApp(apiUrl = GOOGLE_SHEETS_API) {
         type: 'select',
         name: 'sheet',
         label: 'Tab',
-        description: 'Row 1 holds the column headers; HeyForm adds one for each new question.',
+        description: 'Row 1 holds the column headers; MyForm adds one for each new question.',
         placeholder: 'First tab',
         dependsOn: ['spreadsheet'],
         visibleWhen: { createSpreadsheet: false },
@@ -460,7 +460,7 @@ export function createGoogleSheetsApp(apiUrl = GOOGLE_SHEETS_API) {
       const sheets = new SheetsClient(apiUrl, auth.accessToken)
 
       if (config.createSpreadsheet) {
-        const created = await sheets.create(form?.name || 'HeyForm submissions')
+        const created = await sheets.create(form?.name || 'MyForm submissions')
 
         return {
           createSpreadsheet: false,

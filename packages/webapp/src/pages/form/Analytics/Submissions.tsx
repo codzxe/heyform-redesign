@@ -1,11 +1,11 @@
-import { Column, FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { Column, FieldKindEnum } from '@myform/shared-types-enums'
 import { useBoolean, useMemoizedFn } from 'ahooks'
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { SubmissionService } from '@/services'
 import { getFileUploadValue, timeFromNow, useParam } from '@/utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Pagination, useToast } from '@/components'
 
@@ -39,24 +39,24 @@ const InputTableItem: FC<InputTableItemProps> = ({ columns, answers: rawAnswers 
           {columns.map(c => (
             <th
               key={c.id}
-              className="heyform-report-border text-secondary border-b py-2 text-sm/6 font-medium"
+              className="myform-report-border text-secondary border-b py-2 text-sm/6 font-medium"
             >
               {c.label}
             </th>
           ))}
-          <th className="heyform-report-border border-b"></th>
+          <th className="myform-report-border border-b"></th>
         </tr>
       </thead>
 
-      <tbody className="heyform-report-divide divide-y">
+      <tbody className="myform-report-divide divide-y">
         {answers.map((row: any, index: number) => (
           <tr key={index}>
             {columns.map(c => (
-              <td key={c.id} className="heyform-report-input-value">
+              <td key={c.id} className="myform-report-input-value">
                 {row.value[c.id]}
               </td>
             ))}
-            <td className="heyform-report-input-datetime">
+            <td className="myform-report-input-datetime">
               {timeFromNow(row.endAt, i18n.language)}
             </td>
           </tr>
@@ -109,13 +109,13 @@ const SubmissionItem: FC<SubmissionItemProps> = ({ answers = [] }) => {
   const { i18n } = useTranslation()
 
   return (
-    <div className="heyform-report-divide divide-y">
+    <div className="myform-report-divide divide-y">
       {answers.map(row => (
-        <div className="heyform-report-answer" key={row.submissionId}>
-          <div className="heyform-report-value">
+        <div className="myform-report-answer" key={row.submissionId}>
+          <div className="myform-report-value">
             <AnswerValue answer={row} />
           </div>
-          <div className="heyform-report-datetime">{timeFromNow(row.endAt, i18n.language)}</div>
+          <div className="myform-report-datetime">{timeFromNow(row.endAt, i18n.language)}</div>
         </div>
       ))}
     </div>
@@ -165,7 +165,7 @@ export function FormReportOtherAnswers({ fieldId }: { fieldId: string }) {
 
   if (!loading && total < 1) {
     return (
-      <p className="heyform-report-meta py-2">{String(t('form.analytics.report.noOtherText'))}</p>
+      <p className="myform-report-meta py-2">{String(t('form.analytics.report.noOtherText'))}</p>
     )
   }
 
@@ -175,7 +175,7 @@ export function FormReportOtherAnswers({ fieldId }: { fieldId: string }) {
 
       {total > 10 && (
         <Pagination
-          className="heyform-report-pagination"
+          className="myform-report-pagination"
           total={total}
           page={page}
           pageSize={10}
@@ -242,7 +242,7 @@ export default function FormReportSubmissions({ response }: any) {
 
       {total > 10 && (
         <Pagination
-          className="heyform-report-pagination"
+          className="myform-report-pagination"
           total={total}
           page={page}
           pageSize={10}

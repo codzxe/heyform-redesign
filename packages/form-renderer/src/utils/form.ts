@@ -4,15 +4,15 @@ import {
   FieldKindEnum,
   FormField,
   QUESTION_FIELD_KINDS
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
-import { htmlUtils, parsePlainAnswer, validateRequiredField } from '@heyform-inc/answer-utils'
-import { helper, type } from '@heyform-inc/utils'
+import { htmlUtils, parsePlainAnswer, validateRequiredField } from '@myform/answer-utils'
+import { helper, type } from '@myform/utils'
 
 import { CHAR_A_KEY_CODE } from '../consts'
 import type { AnyMap, IFormField, IPartialFormField } from '../typings'
 
-export { getNavigateFieldId, sliceFieldsByLogics } from '@heyform-inc/answer-utils'
+export { getNavigateFieldId, sliceFieldsByLogics } from '@myform/answer-utils'
 
 const MENTION_REGEX = /<span[^>]+data-mention="([^"]+)"([^>]+)?>[^<]+<\/span>/gi
 const HIDDEN_FIELD_REGEX = /<span[^>]+data-hiddenfield="([^"]+)"([^>]+)?>[^<]+<\/span>/gi

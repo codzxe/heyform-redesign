@@ -20,7 +20,7 @@ async function run() {
     id: 1,
     tag_name: 'v3.0.5',
     body: '## What changed',
-    html_url: 'https://github.com/heyform/heyform/releases/tag/v3.0.5',
+    html_url: 'https://github.com/codzxe/myform/releases/tag/v3.0.5',
     published_at: '2026-10-29T00:00:00Z'
   }
   got.get = (() => ({

@@ -70,7 +70,7 @@ export const Textarea: FC<TextareaProps> = ({ value: rawValue, onChange, ...rest
     if (e.key === 'Enter') {
       preventDefault(event)
 
-      if (e.shiftKey || window.heyform.device.mobile) {
+      if (e.shiftKey || window.myform.device.mobile) {
         stopPropagation(event)
         document.execCommand('insertText', false, '\n')
       }
@@ -89,7 +89,7 @@ export const Textarea: FC<TextareaProps> = ({ value: rawValue, onChange, ...rest
   }, [value])
 
   useEffect(() => {
-    if (window.heyform.device.mobile) {
+    if (window.myform.device.mobile) {
       setTipShow(false)
     }
   }, [])
@@ -100,7 +100,7 @@ export const Textarea: FC<TextareaProps> = ({ value: rawValue, onChange, ...rest
         ref={ref}
         contentEditable={true}
         suppressContentEditableWarning={true}
-        className="heyform-textarea"
+        className="myform-textarea"
         data-placeholder={t('Your answer goes here')}
         onCompositionStart={handleCompositionCallback}
         onCompositionEnd={handleCompositionCallback}
@@ -110,7 +110,7 @@ export const Textarea: FC<TextareaProps> = ({ value: rawValue, onChange, ...rest
         {...restProps}
       />
       {isTipShow && (
-        <div className="heyform-textarea-tip">{t('Hit Shift ⇧ + Enter ↵ for new line')}</div>
+        <div className="myform-textarea-tip">{t('Hit Shift ⇧ + Enter ↵ for new line')}</div>
       )}
     </>
   )
@@ -186,8 +186,8 @@ export const AutoResizeTextarea: FC<AutoResizeTextareaProps> = ({
   return (
     <textarea
       ref={inputRef}
-      className={clsx('heyform-autoresize-textarea', {
-        'heyform-autoresize-invalid': !window.CSS.supports('field-sizing', 'content')
+      className={clsx('myform-autoresize-textarea', {
+        'myform-autoresize-invalid': !window.CSS.supports('field-sizing', 'content')
       })}
       value={value as string}
       disabled={disabled}

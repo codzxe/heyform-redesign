@@ -15,11 +15,11 @@ export const FormField: FC<FormFieldProps> = ({ className, children, ...restProp
         const childNode = cloneElement(children as ReactElement, props)
 
         return (
-          <div className={clsx('heyform-form-field', className)}>
+          <div className={clsx('myform-form-field', className)}>
             {childNode}
             {meta.errors.length > 0 && (
-              <div className="heyform-validation-wrapper">
-                <div className="heyform-validation-error">{meta.errors[0]}</div>
+              <div className="myform-validation-wrapper">
+                <div className="myform-validation-error">{meta.errors[0]}</div>
               </div>
             )}
           </div>

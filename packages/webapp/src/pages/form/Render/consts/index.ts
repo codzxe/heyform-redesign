@@ -3,6 +3,6 @@ export enum AnalyticIntegrationEnums {
   FACEBOOK_PIXEL = 'facebookpixel'
 }
 
-export const HEYFORM_DATA_KEY = 'HEYFORM_DATA'
-export const HEYFORM_ID_KEY = 'HEYFORM_ID'
+export const MYFORM_DATA_KEY = 'MYFORM_DATA'
+export const MYFORM_ID_KEY = 'MYFORM_ID'
 export const RECAPTCHA_KEY = '6Ld3xcAZAAAAAJ2RhHjjsRIzEgQvYFfbUPHPzyU3'

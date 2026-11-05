@@ -7,7 +7,7 @@ import {
   CaptchaKindEnum,
   ComparisonEnum,
   FieldKindEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import * as assert from 'assert'
 
 import { CompleteSubmissionResolver } from '../src/resolver/endpoint/complete-submission.resolver'
@@ -17,8 +17,8 @@ import {
   fieldValuesToAnswers,
   flattenFields,
   isSubmissionDiscarded
-} from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+} from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 const TIME_LIMIT = 60
 

@@ -20,6 +20,7 @@ import IconMoveTo from '@/assets/move-to.svg?react'
 import { Badge, Button, Dropdown, Tooltip, useAlert, usePrompt } from '@/components'
 import { useWorkspaceStore } from '@/store'
 import { FormType } from '@/types'
+import { FEEDBACK_FORM_URL, HELP_CENTER_URL } from '@consts/env'
 
 interface FormItemLinkProps extends ComponentProps {
   to: string
@@ -61,7 +62,7 @@ const FormItemLink: FC<FormItemLinkProps> = ({
         label: t('form.suspend.contactUs')
       },
       onConfirm() {
-        window.location.href = 'https://heyform.net/f/E4MKK2hx'
+        window.location.href = FEEDBACK_FORM_URL || HELP_CENTER_URL
       }
     })
   }

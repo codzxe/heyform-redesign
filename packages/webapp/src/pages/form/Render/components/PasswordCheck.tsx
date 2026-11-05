@@ -1,5 +1,5 @@
-import { useTranslation } from '@heyform-inc/form-renderer/src'
-import { FormModel } from '@heyform-inc/shared-types-enums'
+import { useTranslation } from '@myform/form-renderer/src'
+import { FormModel } from '@myform/shared-types-enums'
 import clsx from 'clsx'
 import Form, { Field } from 'rc-field-form'
 import { useState } from 'react'
@@ -39,16 +39,16 @@ export const PasswordCheck = ({ form, onFinish }: PasswordCheckProps) => {
   }
 
   return (
-    <div className="heyform-root">
-      <div className="heyform-block-container heyform-short-text">
-        <div className="heyform-theme-background"></div>
-        <div className="heyform-block heyform-block-next heyform-block-entered">
+    <div className="myform-root">
+      <div className="myform-block-container myform-short-text">
+        <div className="myform-theme-background"></div>
+        <div className="myform-block myform-block-next myform-block-entered">
           <div className="scrollbar h-full w-full overflow-x-hidden px-6 md:px-20">
-            <div className="heyform-scroll-container">
-              <div className="heyform-block-main">
+            <div className="myform-scroll-container">
+              <div className="myform-block-main">
                 <div className="mb-20 mt-12 md:mb-36 md:mt-20">
                   <div className="mb-10">
-                    <h1 className="heyform-block-title">Password required</h1>
+                    <h1 className="myform-block-title">Password required</h1>
                   </div>
                   <Form onFinish={handleFinish}>
                     <Field
@@ -58,14 +58,14 @@ export const PasswordCheck = ({ form, onFinish }: PasswordCheckProps) => {
                       <Input />
                     </Field>
                     {error && (
-                      <div className="heyform-validation-wrapper">
-                        <div className="heyform-validation-error">{error}</div>
+                      <div className="myform-validation-wrapper">
+                        <div className="myform-validation-error">{error}</div>
                       </div>
                     )}
                     <Field>
-                      <div className="heyform-submit-container">
+                      <div className="myform-submit-container">
                         <button
-                          className="heyform-submit-button relative"
+                          className="myform-submit-button relative"
                           type="submit"
                           disabled={loading}
                         >

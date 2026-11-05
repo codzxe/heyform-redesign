@@ -1,11 +1,11 @@
-import { NumberPrice } from '@heyform-inc/shared-types-enums'
+import { NumberPrice } from '@myform/shared-types-enums'
 import clsx from 'clsx'
 import { RuleObject, StoreValue } from 'rc-field-form/es/interface'
 import type { FC } from 'react'
 import { useEffect, useMemo, useState } from 'react'
 
 import { useTranslation } from '../utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { FormField, Input } from '../components'
 import { CURRENCY_SYMBOLS } from '../consts'
@@ -54,12 +54,12 @@ const CardItem: FC<CardItemProps> = ({ type, label, onChange }) => {
   }, [ref, state.stripe])
 
   return (
-    <div className={clsx('heyform-payment-item', { 'heyform-payment-item-error': !!error })}>
-      <label className="heyform-payment-label">{label}</label>
-      <div ref={setRef} className="heyform-payment-element"></div>
+    <div className={clsx('myform-payment-item', { 'myform-payment-item-error': !!error })}>
+      <label className="myform-payment-label">{label}</label>
+      <div ref={setRef} className="myform-payment-element"></div>
       {error && (
-        <div className="heyform-validation-wrapper">
-          <div className="heyform-validation-error">{error}</div>
+        <div className="myform-validation-wrapper">
+          <div className="myform-validation-error">{error}</div>
         </div>
       )}
     </div>
@@ -116,9 +116,9 @@ export const Payment: FC<BlockProps> = ({ field, ...restProps }) => {
   }
 
   return (
-    <Block className="heyform-payment" field={field} {...restProps}>
+    <Block className="myform-payment" field={field} {...restProps}>
       <div>
-        <div className="heyform-payment-header">
+        <div className="myform-payment-header">
           {t('Your credit card will be charged')}: <strong>{priceString}</strong>
         </div>
 
@@ -129,7 +129,7 @@ export const Payment: FC<BlockProps> = ({ field, ...restProps }) => {
           validateTrigger="onChange"
           onValuesChange={handleValuesChange}
         >
-          <div className="heyform-payment-body">
+          <div className="myform-payment-body">
             <FormField
               name="name"
               rules={[
@@ -139,8 +139,8 @@ export const Payment: FC<BlockProps> = ({ field, ...restProps }) => {
                 }
               ]}
             >
-              <div className="heyform-payment-item">
-                <label className="heyform-payment-label">{t('Name on card')}</label>
+              <div className="myform-payment-item">
+                <label className="myform-payment-label">{t('Name on card')}</label>
                 <Input placeholder={t('Han Solo')} />
               </div>
             </FormField>
@@ -158,7 +158,7 @@ export const Payment: FC<BlockProps> = ({ field, ...restProps }) => {
               <CardItem type="cardNumber" label={t('Card number')} />
             </FormField>
 
-            <div className="heyform-payment-wrapper">
+            <div className="myform-payment-wrapper">
               <FormField
                 name="cardExpiry"
                 rules={[

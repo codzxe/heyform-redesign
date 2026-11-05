@@ -19,7 +19,7 @@ declare global {
     privatus: any
     DEVICE_INFO: any
     TrackdeskObject: any
-    heyform: {
+    myform: {
       form: any
       query: any
       locale: any
@@ -31,6 +31,8 @@ declare global {
         screenHeight: number
       }
       homepageURL?: string
+      helpCenterURL?: string
+      feedbackFormUrl?: string
       websiteURL?: string
       cookieDomain?: string
       stripePublishableKey?: string

@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { FieldKindEnum, type FormField } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, type FormField } from '@myform/shared-types-enums'
 import { act, useReducer } from 'react'
 import { type Root, createRoot } from 'react-dom/client'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
@@ -77,11 +77,11 @@ function values() {
 }
 
 function error() {
-  return container.querySelector('.heyform-validation-error')?.textContent
+  return container.querySelector('.myform-validation-error')?.textContent
 }
 
 async function choose(label: string) {
-  const option = Array.from(container.querySelectorAll<HTMLElement>('.heyform-radio')).find(radio =>
+  const option = Array.from(container.querySelectorAll<HTMLElement>('.myform-radio')).find(radio =>
     radio.textContent?.includes(label)
   )!
 

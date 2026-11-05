@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from 'react'
 
 import { initialValue, useTranslation } from '../utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { CountrySelect, FormField, Input } from '../components'
 import { useStore } from '../store'
@@ -44,7 +44,7 @@ export const Address: FC<BlockProps> = ({ field, ...restProps }) => {
   }
 
   return (
-    <Block className="heyform-address" field={field} isScrollable={!isDropdownShown} {...restProps}>
+    <Block className="myform-address" field={field} isScrollable={!isDropdownShown} {...restProps}>
       <Form
         initialValues={initialValue(state.values[field.id])}
         field={field}

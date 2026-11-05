@@ -9,7 +9,7 @@ import {
   LogicPayload,
   UNSELECTABLE_FIELD_KINDS,
   Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { IconPlus, IconTrash } from '@tabler/icons-react'
 import { useWatch } from 'rc-field-form'
 import { type FC, type ReactNode, useEffect, useMemo, useState } from 'react'
@@ -21,8 +21,8 @@ import {
   getChoiceDestinations,
   getPayloadFormValues
 } from '../utils'
-import { OTHER_CHOICE_ID, htmlUtils, validatePayload } from '@heyform-inc/answer-utils'
-import { nanoid } from '@heyform-inc/utils'
+import { OTHER_CHOICE_ID, htmlUtils, validatePayload } from '@myform/answer-utils'
+import { nanoid } from '@myform/utils'
 
 import { Button, Form, Switch, Tooltip } from '@/components'
 import { FormFieldType } from '@/types'

@@ -5,14 +5,14 @@ import {
   SubmissionCategoryEnum,
   SubmissionStatusEnum,
   Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { BadRequestException, Headers, UseGuards } from '@nestjs/common'
 
 import { DISABLE_SUBMISSION_IP } from '@environments'
 import { CompleteSubmissionInput, CompleteSubmissionType } from '@graphql'
 import { EndpointAnonymousIdGuard } from '@guard'
-import { applyLogicToFields, fieldValuesToAnswers, flattenFields } from '@heyform-inc/answer-utils'
-import { helper, timestamp } from '@heyform-inc/utils'
+import { applyLogicToFields, fieldValuesToAnswers, flattenFields } from '@myform/answer-utils'
+import { helper, timestamp } from '@myform/utils'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import {
   EndpointService,

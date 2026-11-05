@@ -4,7 +4,7 @@ import {
   FieldKindEnum,
   FormField,
   Logic
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import assert from 'assert'
 
 import {
@@ -14,7 +14,7 @@ import {
   isSafeCustomCSS,
   sanitizeFormDrafts
 } from '../src/utils/form-schema'
-import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID } from '@myform/answer-utils'
 
 function testDefaultNavigationValidation() {
   const fields: FormField[] = [

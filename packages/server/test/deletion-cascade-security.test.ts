@@ -1,4 +1,4 @@
-import { FormStatusEnum } from '@heyform-inc/shared-types-enums'
+import { FormStatusEnum } from '@myform/shared-types-enums'
 import assert from 'assert'
 
 import { DeleteProjectCodeResolver } from '../src/resolver/project/delete-project-code.resolver'

@@ -1,10 +1,10 @@
-import { FieldLayoutAlignEnum } from '@heyform-inc/shared-types-enums'
+import { FieldLayoutAlignEnum } from '@myform/shared-types-enums'
 import clsx from 'clsx'
 import { FC, WheelEvent, useEffect, useMemo, useRef, useState } from 'react'
 
 import { removeHeading, replaceHTML } from '../utils'
-import { htmlUtils } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { htmlUtils } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { Layout } from '../components'
 import { useStore } from '../store'
@@ -290,7 +290,7 @@ export const Block: FC<BlockProps> = ({
 
         const interactiveElement = container.querySelector<HTMLElement>(
           [
-            '[data-heyform-focus-target]:not([disabled])',
+            '[data-myform-focus-target]:not([disabled])',
             'input:not([type="hidden"]):not([disabled])',
             'textarea:not([disabled])',
             'select:not([disabled])',
@@ -326,28 +326,28 @@ export const Block: FC<BlockProps> = ({
   return (
     <div
       ref={bodyRef}
-      id={`heyform-${state.instanceId}-${field.id}`}
-      className={clsx('heyform-body', {
-        'heyform-body-split-layout': isSplitLayout,
-        'heyform-body-active': isActiveBlock,
-        'heyform-body-leaving': isLeaving
+      id={`myform-${state.instanceId}-${field.id}`}
+      className={clsx('myform-body', {
+        'myform-body-split-layout': isSplitLayout,
+        'myform-body-active': isActiveBlock,
+        'myform-body-leaving': isLeaving
       })}
       tabIndex={isActiveBlock ? -1 : undefined}
       aria-hidden={!isActiveBlock}
     >
       {/* Theme background */}
-      <div className="heyform-theme-background" />
+      <div className="myform-theme-background" />
 
       {/* Block container */}
       <div
-        className={clsx('heyform-block-container', className)}
+        className={clsx('myform-block-container', className)}
         onWheel={handleWheelScroll}
         {...restProps}
       >
         {field.parent && (
-          <div className="heyform-block-group">
-            <div className="heyform-block-group-container">
-              <h2 className="heyform-block-title">
+          <div className="myform-block-group">
+            <div className="myform-block-group-container">
+              <h2 className="myform-block-title">
                 {htmlUtils.plain(field.parent.title as string)}
               </h2>
             </div>
@@ -355,38 +355,38 @@ export const Block: FC<BlockProps> = ({
         )}
 
         <div
-          className={clsx('heyform-block', {
-            [`heyform-block-direction-${transitionDirection}`]: transitionDirection,
-            'heyform-block-entered': isTransitionReady && !isLeaving,
-            'heyform-block-entering': !isTransitionReady && !isLeaving,
-            'heyform-block-leaving': isLeaving,
-            'heyform-block-leaving-active': isTransitionReady && isLeaving,
-            'heyform-block-inactive':
+          className={clsx('myform-block', {
+            [`myform-block-direction-${transitionDirection}`]: transitionDirection,
+            'myform-block-entered': isTransitionReady && !isLeaving,
+            'myform-block-entering': !isTransitionReady && !isLeaving,
+            'myform-block-leaving': isLeaving,
+            'myform-block-leaving-active': isTransitionReady && isLeaving,
+            'myform-block-inactive':
               !isLeaving &&
               !isActiveBlock &&
               !isStandaloneActive &&
               !(helper.isValid(paymentBlockIndex) && paymentBlockIndex === state.scrollIndex),
-            [`heyform-block-${field.layout?.align}`]: field.layout?.align
+            [`myform-block-${field.layout?.align}`]: field.layout?.align
           })}
         >
-          <div className="heyform-block-scroll">
+          <div className="myform-block-scroll">
             {/* Field layout */}
             {!isInlineLayout && <Layout {...field.layout} />}
 
-            <div className="heyform-scroll-wrapper" onScroll={handleScroll}>
-              <div className="heyform-scroll-container">
-                <div className="heyform-block-main">
-                  <div className="heyform-block-wrapper">
-                    <div className="heyform-block-header">
+            <div className="myform-scroll-wrapper" onScroll={handleScroll}>
+              <div className="myform-scroll-container">
+                <div className="myform-block-main">
+                  <div className="myform-block-wrapper">
+                    <div className="myform-block-header">
                       {field.title && (
                         <h1
-                          className="heyform-block-title"
+                          className="myform-block-title"
                           dangerouslySetInnerHTML={{ __html: removeHeading(field.title as string) }}
                         />
                       )}
                       {field.description && (
                         <div
-                          className="heyform-block-description"
+                          className="myform-block-description"
                           dangerouslySetInnerHTML={{ __html: field.description as string }}
                         />
                       )}

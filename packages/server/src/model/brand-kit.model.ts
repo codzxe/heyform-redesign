@@ -1,8 +1,8 @@
-import { FormTheme } from '@heyform-inc/shared-types-enums'
+import { FormTheme } from '@myform/shared-types-enums'
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document } from 'mongoose'
 
-import { nanoid } from '@heyform-inc/utils'
+import { nanoid } from '@myform/utils'
 
 @Schema()
 export class BrandKitModel extends Document {

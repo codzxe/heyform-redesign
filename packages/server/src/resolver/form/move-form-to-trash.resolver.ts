@@ -1,8 +1,8 @@
-import { FormStatusEnum } from '@heyform-inc/shared-types-enums'
+import { FormStatusEnum } from '@myform/shared-types-enums'
 
 import { Auth, Form, FormGuard } from '@decorator'
 import { FormDetailInput } from '@graphql'
-import { date } from '@heyform-inc/utils'
+import { date } from '@myform/utils'
 import { FormModel } from '@model'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import { FormService } from '@service'

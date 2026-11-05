@@ -1,7 +1,7 @@
-import { Answer, FullNameValue, ServerSidePaymentValue } from '@heyform-inc/shared-types-enums'
+import { Answer, FullNameValue, ServerSidePaymentValue } from '@myform/shared-types-enums'
 import Big from 'big.js'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { CURRENCY_SYMBOLS } from './consts'
 import { otherChoiceText } from './helper'

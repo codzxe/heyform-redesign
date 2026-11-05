@@ -1,4 +1,4 @@
-import { FieldKindEnum, FormModel } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, FormModel } from '@myform/shared-types-enums'
 import axios from 'axios'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -34,10 +34,10 @@ describe('respondent multipart uploads', () => {
         }).text()
       )
       const file = data.get('file') as File
-      const fieldId = config!.headers!['x-heyform-field-id']
+      const fieldId = config!.headers!['x-myform-field-id']
       expect(config!.headers).toMatchObject({
-        'x-heyform-form-id': 'form_1',
-        'x-heyform-open-token': 'open_token'
+        'x-myform-form-id': 'form_1',
+        'x-myform-open-token': 'open_token'
       })
       expect(file.type).toBe('image/png')
       expect(Array.from(new Uint8Array(await file.arrayBuffer())).slice(0, 8)).toEqual([
@@ -51,7 +51,7 @@ describe('respondent multipart uploads', () => {
     const result = await new Uploader(form, { photo: original, signature }, 'open_token').start()
 
     expect(post).toHaveBeenCalledTimes(2)
-    expect(post.mock.calls.map(call => call[2]!.headers!['x-heyform-field-id']).sort()).toEqual([
+    expect(post.mock.calls.map(call => call[2]!.headers!['x-myform-field-id']).sort()).toEqual([
       'photo',
       'signature'
     ])

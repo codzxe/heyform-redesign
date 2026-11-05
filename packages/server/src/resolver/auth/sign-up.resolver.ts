@@ -10,7 +10,7 @@ import {
 } from '@environments'
 import { SignUpInput } from '@graphql'
 import { DeviceIdGuard } from '@guard'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { TeamModel, TeamRoleEnum, UserActivityKindEnum } from '@model'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import { AuthService, MailService, TeamService, UserService } from '@service'

@@ -6,7 +6,7 @@ import {
   InternalServerErrorException
 } from '@nestjs/common'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { GqlContextType } from '@nestjs/graphql'
 import { Logger } from '@utils'
 

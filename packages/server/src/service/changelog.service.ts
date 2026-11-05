@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import got from 'got'
 
 import { RedisService } from './redis.service'
-import { toJSON } from '@heyform-inc/utils'
+import { toJSON } from '@myform/utils'
 
 interface GitHubRelease {
   id: number
@@ -20,7 +20,7 @@ interface LatestRelease {
   publishedAt: string
 }
 
-const GITHUB_API_URL = 'https://api.github.com/repos/heyform/heyform/releases'
+const GITHUB_API_URL = 'https://api.github.com/repos/myform/myform/releases'
 const LATEST_CACHE_KEY = 'changelog:latest'
 const CACHE_TTL = '1d'
 const FAILURE_CACHE_TTL = '5m'
@@ -47,7 +47,7 @@ export class ChangelogService {
         .get(`${GITHUB_API_URL}/latest`, {
           headers: {
             Accept: 'application/vnd.github.v3+json',
-            'User-Agent': 'Heyform-Changelog'
+            'User-Agent': 'MyForm-Changelog'
           },
           timeout: { request: 5000 },
           retry: { limit: 0 }

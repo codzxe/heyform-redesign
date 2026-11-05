@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    heyform: {
+    myform: {
       device: {
         ios: boolean
         android: boolean

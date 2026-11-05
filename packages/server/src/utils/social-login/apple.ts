@@ -3,7 +3,7 @@ import { createPublicKey } from 'crypto'
 import jwt from 'jsonwebtoken'
 
 import { formatLocale, generateUrl, request } from './utils'
-import { qs, timestamp } from '@heyform-inc/utils'
+import { qs, timestamp } from '@myform/utils'
 
 import { gravatar } from '../gravatar'
 

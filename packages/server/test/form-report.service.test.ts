@@ -1,9 +1,9 @@
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import assert from 'assert'
 
 import { FormReportResolver } from '../src/resolver/form/form-report.resolver'
 import { FormReportService } from '../src/service/form-report.service'
-import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID } from '@myform/answer-utils'
 
 const choices = [
   { id: 'motion', label: 'Motion' },

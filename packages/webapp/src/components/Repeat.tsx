@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 type RepeatChildren = (index: number) => ReactNode
 

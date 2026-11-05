@@ -1,4 +1,4 @@
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 
 // Choice questions whose report rows carry an "Other" count.
 export const OTHER_REPORT_FIELD_KINDS = [

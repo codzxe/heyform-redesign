@@ -5,7 +5,7 @@ process.env.DISABLE_SUBMISSION_IP = 'true'
 process.env.FORM_ENCRYPTION_KEY ||= 'test-form-encryption-key'
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { CaptchaKindEnum, FieldKindEnum } = require('@heyform-inc/shared-types-enums')
+const { CaptchaKindEnum, FieldKindEnum } = require('@myform/shared-types-enums')
 const {
   CompleteSubmissionResolver
 } = require('../src/resolver/endpoint/complete-submission.resolver')

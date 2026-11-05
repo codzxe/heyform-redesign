@@ -2,10 +2,10 @@ import {
   FORM_FIELD_KINDS,
   FieldKindEnum,
   FieldLayoutAlignEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { z } from 'zod/v4'
 
-import { nanoid } from '@heyform-inc/utils'
+import { nanoid } from '@myform/utils'
 
 import { normalizeAIRichText } from './ai-rich-text'
 

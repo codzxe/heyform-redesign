@@ -42,7 +42,7 @@ const openidClient = {
   ) => {
     discoveryCalls += 1
     assert.strictEqual(configuredIssuer.href, `${issuer}/`)
-    assert.strictEqual(clientId, 'heyform')
+    assert.strictEqual(clientId, 'myform')
     assert.deepStrictEqual(clientMetadata, {
       client_secret: 'client_secret',
       token_endpoint_auth_method: clientAuthentication
@@ -85,7 +85,7 @@ const { OidcSocialLogin, oidcIdentityKey } = require('../src/utils/social-login/
 
 function createClient(clientAuthMethod?: 'client_secret_basic' | 'client_secret_post') {
   return new OidcSocialLogin({
-    clientId: 'heyform',
+    clientId: 'myform',
     clientSecret: 'client_secret',
     clientAuthMethod,
     issuer,

@@ -1,8 +1,8 @@
-import { FieldKindEnum, FileUploadValue, FormModel } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, FileUploadValue, FormModel } from '@myform/shared-types-enums'
 
 import { UploadService } from '@/services'
-import { flattenFields } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { flattenFields } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 interface UploaderField {
   id: string

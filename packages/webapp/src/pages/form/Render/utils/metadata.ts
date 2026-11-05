@@ -1,6 +1,6 @@
 export function setFormMetadata(name?: string, favicon?: string | null) {
   const originalTitle = document.title
-  document.title = name || 'HeyForm'
+  document.title = name || 'MyForm'
 
   const previousIcons: Array<{ element: HTMLLinkElement; rel: string }> = []
   let icon: HTMLLinkElement | undefined

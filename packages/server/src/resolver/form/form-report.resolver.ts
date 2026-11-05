@@ -1,8 +1,8 @@
-import { FieldKindEnum, STATEMENT_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, STATEMENT_FIELD_KINDS } from '@myform/shared-types-enums'
 
 import { Auth, Form, FormGuard } from '@decorator'
 import { FormDetailInput, FormReportType } from '@graphql'
-import { OTHER_CHOICE_ID, flattenFields } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID, flattenFields } from '@myform/answer-utils'
 import { FormModel } from '@model'
 import { Args, Query, Resolver } from '@nestjs/graphql'
 import { FormReportService, SubmissionService } from '@service'

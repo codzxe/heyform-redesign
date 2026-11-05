@@ -10,8 +10,8 @@ import i18n from '../src/i18n'
 import TemplatesModel from '../src/layouts/Workspace/TemplatesModel'
 import type { TemplateType } from '../src/types'
 
-vi.mock('@heyform-inc/form-renderer', async importOriginal => ({
-  ...(await importOriginal<typeof import('@heyform-inc/form-renderer')>()),
+vi.mock('@myform/form-renderer', async importOriginal => ({
+  ...(await importOriginal<typeof import('@myform/form-renderer')>()),
   FormRenderer: ({ form }: { form: { fields: { title: string }[] } }) => (
     <div data-testid="template-preview">{form.fields.map(field => field.title).join(', ')}</div>
   )

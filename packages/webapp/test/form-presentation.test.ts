@@ -46,7 +46,7 @@ const links = [defaultIcon, maskIcon]
 Object.defineProperty(globalThis, 'document', {
   configurable: true,
   value: {
-    title: 'HeyForm',
+    title: 'MyForm',
     createElement: () => new Link(),
     head: {
       querySelectorAll: () => links.filter(link => link.rel.includes('icon')),
@@ -59,7 +59,7 @@ assert.strictEqual(document.title, 'Customer survey')
 assert.strictEqual(links.find(link => link.rel === 'icon')?.href, 'https://example.com/icon.png')
 assert.strictEqual(defaultIcon.rel, '')
 cleanup()
-assert.strictEqual(document.title, 'HeyForm')
+assert.strictEqual(document.title, 'MyForm')
 assert.deepStrictEqual(links, [defaultIcon, maskIcon])
 assert.strictEqual(defaultIcon.rel, 'shortcut icon')
 assert.strictEqual(maskIcon.rel, 'mask-icon')

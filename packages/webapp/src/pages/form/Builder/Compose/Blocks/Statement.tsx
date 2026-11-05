@@ -10,7 +10,7 @@ export const Statement: FC<BlockProps> = ({ field, locale, ...restProps }) => {
   const { t } = useTranslation()
 
   return (
-    <Block className="heyform-statement" field={field} locale={locale} {...restProps}>
+    <Block className="myform-statement" field={field} locale={locale} {...restProps}>
       <FakeSubmit
         text={field.properties?.buttonText || t('Next', { lng: locale })}
         icon={<IconChevronRight />}

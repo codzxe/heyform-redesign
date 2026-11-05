@@ -8,9 +8,9 @@ import {
   NavigateAction,
   OTHER_FIELD_KINDS,
   Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
-import { clone, helper } from '@heyform-inc/utils'
+import { clone, helper } from '@myform/utils'
 
 import { applyLogicToFields } from './apply-logic-to-fields'
 import { validateCondition } from './validate-condition'

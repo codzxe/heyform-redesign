@@ -6,9 +6,9 @@ import {
   Logic,
   LogicPayload,
   NavigateAction
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { OTHER_CHOICE_ID } from './consts'
 import { createFieldNavigation } from './navigation'

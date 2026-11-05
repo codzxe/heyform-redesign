@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next'
 
 import { FormService } from '@/services'
 import { useParam } from '@/utils'
-import { helper, toDuration, toFixed } from '@heyform-inc/utils'
+import { helper, toDuration, toFixed } from '@myform/utils'
 
 import { Select, Skeleton } from '@/components'
 

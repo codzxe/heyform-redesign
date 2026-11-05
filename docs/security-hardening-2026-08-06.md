@@ -1,7 +1,7 @@
 # Security hardening (2026-08-06)
 
 This document records the controls added after reviewing the repository security advisories with
-`gh api /repos/heyform/heyform/security-advisories`. It is intended as a deployment and regression
+`gh api /repos/myform/myform/security-advisories`. It is intended as a deployment and regression
 checklist; it does not replace the individual GitHub advisory descriptions.
 
 ## Advisories addressed by this hardening pass

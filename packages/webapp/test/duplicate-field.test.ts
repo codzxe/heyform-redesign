@@ -1,7 +1,7 @@
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import { describe, expect, it, vi } from 'vitest'
 
-import { flattenFields, getNextFieldId } from '@heyform-inc/answer-utils'
+import { flattenFields, getNextFieldId } from '@myform/answer-utils'
 
 import { duplicateField, setFields } from '../src/pages/form/Builder/store/actions'
 import { storeReducer } from '../src/pages/form/Builder/store/context'

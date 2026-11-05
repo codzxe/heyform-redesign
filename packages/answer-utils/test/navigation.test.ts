@@ -4,7 +4,7 @@ import {
   FieldKindEnum,
   FormField,
   Logic
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { expect, test } from 'vitest'
 
 import {

@@ -27,7 +27,7 @@ import {
   parseNumber,
   random,
   timestamp
-} from '@heyform-inc/utils'
+} from '@myform/utils'
 import { UserActivityKindEnum, UserActivityModel } from '@model'
 import { aesDecryptObject, aesEncryptObject } from '@utils'
 import { UserAgent } from '@utils'
@@ -56,7 +56,7 @@ const DEFAULT_ATTEMPTS_OPTIONS = {
   expire: '15m'
 }
 const NUMERIC_ALPHABET = '0123456789'
-const OAUTH_STATE_COOKIE_NAME = 'HEYFORM_OAUTH_STATE'
+const OAUTH_STATE_COOKIE_NAME = 'MYFORM_OAUTH_STATE'
 const OAUTH_STATE_MAX_AGE = ms('10m')
 const OAUTH_TRANSACTION_TTL = '10m'
 

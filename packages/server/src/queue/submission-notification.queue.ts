@@ -2,7 +2,7 @@ import { Process, Processor } from '@nestjs/bull'
 import { Job } from 'bull'
 
 import { APP_HOMEPAGE_URL } from '@environments'
-import { answersToHtml } from '@heyform-inc/answer-utils'
+import { answersToHtml } from '@myform/answer-utils'
 import { FormService, MailService, SubmissionService, UserService } from '@service'
 import { readNotificationRecipients, readRespondentEmail, readRespondentName } from '@utils'
 

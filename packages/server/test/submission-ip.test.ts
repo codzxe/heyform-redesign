@@ -1,4 +1,4 @@
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import assert from 'assert'
 
 import { SubmissionsResolver } from '../src/resolver/submission/submissions.resolver'

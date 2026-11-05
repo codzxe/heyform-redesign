@@ -1,12 +1,12 @@
-import { ActionEnum, FieldKindEnum, FormField } from '@heyform-inc/shared-types-enums'
+import { ActionEnum, FieldKindEnum, FormField } from '@myform/shared-types-enums'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { useEffect, useMemo, useReducer, useState } from 'react'
 
 import { calculateProgress, getRespondentFields } from './utils'
-import { applyLogicToFields } from '@heyform-inc/answer-utils'
-import { helper, nanoid } from '@heyform-inc/utils'
+import { applyLogicToFields } from '@myform/answer-utils'
+import { helper, nanoid } from '@myform/utils'
 
 import { ClosedMessage } from './blocks/ClosedMessage'
 import { SuspendedMessage } from './blocks/SuspendedMessage'
@@ -109,7 +109,7 @@ export const FormRenderer: FC<FormRendererProps> = ({
   const [isAndroid, setAndroid] = useState(false)
 
   useEffect(() => {
-    setAndroid(window.heyform.device.android)
+    setAndroid(window.myform.device.android)
   }, [])
 
   const allowPayment = useMemo(
@@ -199,17 +199,17 @@ export const FormRenderer: FC<FormRendererProps> = ({
       <Tooltip.Provider delayDuration={100}>
         <div
           className={clsx(
-            'heyform-root',
+            'myform-root',
             {
-              'heyform-root-open': state.isSidebarOpen,
-              'heyform-root-android': isAndroid
+              'myform-root-open': state.isSidebarOpen,
+              'myform-root-android': isAndroid
             },
             className
           )}
         >
           <div
-            className={clsx('heyform-wrapper', {
-              'heyform-is-welcome': !state.isStarted && state.welcomeField
+            className={clsx('myform-wrapper', {
+              'myform-is-welcome': !state.isStarted && state.welcomeField
             })}
           >
             <Blocks />

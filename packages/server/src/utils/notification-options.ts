@@ -1,6 +1,6 @@
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 export const MAX_RESPONDENT_NAME_LENGTH = 60
 

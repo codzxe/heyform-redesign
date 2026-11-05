@@ -2,8 +2,8 @@ import type { FC } from 'react'
 import { useState } from 'react'
 
 import { useTranslation } from '../utils'
-import { isDate } from '@heyform-inc/answer-utils'
-import { date, helper } from '@heyform-inc/utils'
+import { isDate } from '@myform/answer-utils'
+import { date, helper } from '@myform/utils'
 
 import { DateRangeInput, FormField, TemporaryError } from '../components'
 import { TIME_FORMAT } from '../consts'
@@ -30,7 +30,7 @@ export const DateRange: FC<BlockProps> = ({ field, ...restProps }) => {
   }
 
   return (
-    <Block className="heyform-date" field={field} {...restProps}>
+    <Block className="myform-date" field={field} {...restProps}>
       <Form
         initialValues={{
           input: state.values[field.id]

@@ -8,7 +8,7 @@
 // It runs a short pass by default. For a longer one:
 //   FUZZ_SEED=7 FUZZ_ITER=5000 pnpm --filter ./packages/webapp exec vitest run \
 //     --config vitest.config.mts test/submission-cell-fuzz.test.tsx
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { beforeAll, expect, test } from 'vitest'
 
@@ -18,7 +18,7 @@ import {
   answersToJson,
   answersToPlain,
   fieldValuesToAnswers
-} from '@heyform-inc/answer-utils'
+} from '@myform/answer-utils'
 
 import i18n from '../src/i18n'
 import SubmissionCell from '../src/pages/form/Submissions/SubmissionCell'
@@ -224,7 +224,7 @@ function serverGate(kind: string, v: any): boolean {
 
 beforeAll(async () => {
   await i18n.changeLanguage('en')
-  ;(window as any).heyform = { uploadOrigins: ['http://example.com', 'https://example.com'] }
+  ;(window as any).myform = { uploadOrigins: ['http://example.com', 'https://example.com'] }
 })
 
 type Crash = { kind: string; where: string; value: any; err: string }

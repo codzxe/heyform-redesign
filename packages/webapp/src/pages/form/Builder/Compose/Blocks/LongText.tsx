@@ -10,13 +10,13 @@ export const LongText: FC<BlockProps> = ({ field, locale, ...restProps }) => {
   const { t } = useTranslation()
 
   return (
-    <Block className="heyform-long-text" field={field} locale={locale} {...restProps}>
+    <Block className="myform-long-text" field={field} locale={locale} {...restProps}>
       <textarea
-        className="heyform-textarea"
+        className="myform-textarea"
         placeholder={t('Your answer goes here', { lng: locale })}
         disabled={true}
       />
-      <p className="heyform-textarea-hit">
+      <p className="myform-textarea-hit">
         {t('Hit Shift ⇧ + Enter ↵ for new line', { lng: locale })}
       </p>
       <FakeSubmit text={t('Next', { lng: locale })} icon={<IconChevronRight />} />

@@ -2,8 +2,8 @@ import type { FC } from 'react'
 import { startTransition, useState } from 'react'
 
 import { useTranslation } from '../utils'
-import { getDateFormat } from '@heyform-inc/answer-utils'
-import { helper, date as vdate } from '@heyform-inc/utils'
+import { getDateFormat } from '@myform/answer-utils'
+import { helper, date as vdate } from '@myform/utils'
 
 import { Input } from '../components'
 import { DATE_FORMATS, DATE_MAPS, FILTER_NUMBER_REGEX, NUMERIC_REGEX, TIME_FORMAT } from '../consts'
@@ -58,11 +58,11 @@ const DateItem: FC<DateItemProps> = ({ format, value: rawValue = '', onChange, o
   }
 
   return (
-    <div className={`heyform-date-input heyform-date-item-${id}`}>
-      <label htmlFor={`heyform-date-${id}`} className="heyform-date-label">
+    <div className={`myform-date-input myform-date-item-${id}`}>
+      <label htmlFor={`myform-date-${id}`} className="myform-date-label">
         {t(label)}
       </label>
-      <Input id={`heyform-date-${id}`} value={value} placeholder={format} onChange={handleChange} />
+      <Input id={`myform-date-${id}`} value={value} placeholder={format} onChange={handleChange} />
     </div>
   )
 }
@@ -125,17 +125,17 @@ export const DateInput: FC<DateInputProps> = ({
   }
 
   return (
-    <div className="heyform-date-root">
+    <div className="myform-date-root">
       <DateItem format={year} value={value[year]} onChange={handleChange} onError={onError} />
-      <div className="heyform-date-divider">{divider}</div>
+      <div className="myform-date-divider">{divider}</div>
       <DateItem format={month} value={value[month]} onChange={handleChange} onError={onError} />
-      <div className="heyform-date-divider">{divider}</div>
+      <div className="myform-date-divider">{divider}</div>
       <DateItem format={day} value={value[day]} onChange={handleChange} onError={onError} />
 
       {allowTime && (
         <>
           <DateItem format={hour} value={value[hour]} onChange={handleChange} onError={onError} />
-          <div className="heyform-date-divider">{timeDivider}</div>
+          <div className="myform-date-divider">{timeDivider}</div>
           <DateItem
             format={minute}
             value={value[minute]}

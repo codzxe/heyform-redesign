@@ -18,7 +18,7 @@ import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import weekday from 'dayjs/plugin/weekday'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { DATE_FORMATS } from '@/consts'
 

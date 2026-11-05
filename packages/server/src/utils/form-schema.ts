@@ -1,4 +1,4 @@
-import { FieldKindEnum, FormField, Logic } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, FormField, Logic } from '@myform/shared-types-enums'
 import { BadRequestException, HttpStatus } from '@nestjs/common'
 
 import {
@@ -6,7 +6,7 @@ import {
   flattenFields,
   getChoiceBranchingErrors,
   htmlUtils
-} from '@heyform-inc/answer-utils'
+} from '@myform/answer-utils'
 
 const ALLOWED_BLOCK_TAGS = ['div', 'h1', 'h2', 'h3', 'p', 'br']
 const ALLOWED_TAGS = [

@@ -7,7 +7,7 @@ import {
   BULL_JOB_TIMEOUT,
   REDIS_DB
 } from '@environments'
-import { ms } from '@heyform-inc/utils'
+import { ms } from '@myform/utils'
 
 import { createRedisOptions } from '../redis'
 

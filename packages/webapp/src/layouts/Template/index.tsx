@@ -1,4 +1,4 @@
-import { LayoutProps } from '@heyooo-inc/react-router'
+import { LayoutProps } from '@/lib/router'
 import { useAsyncEffect } from 'ahooks'
 import { FC, useState } from 'react'
 

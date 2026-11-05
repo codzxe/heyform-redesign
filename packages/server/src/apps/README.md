@@ -56,7 +56,7 @@ export default defineApp({
 | `name`        | Display name.                                                                                        |
 | `description` | One sentence shown in the integrations list and settings modal.                                      |
 | `icon`        | Path of the logo served by the server, e.g. `/static/webhook.png`.                                   |
-| `auth`        | How HeyForm authenticates with the app's service: `none` (default), `apiKey` or `oauth2`. See below. |
+| `auth`        | How MyForm authenticates with the app's service: `none` (default), `apiKey` or `oauth2`. See below. |
 | `settings`    | Fields the form owner fills in. See below.                                                           |
 | `queue`       | Optional retry and timeout options for the app's delivery jobs. See below.                           |
 | `validate`    | Optional. Receives the config after the generic checks. See [Validating](#validating).               |
@@ -108,7 +108,7 @@ The webapp calls `loadOptions` through the `integrationSettingOptions` query whe
 open, and again when the account or a setting named in `dependsOn` changes (not while one of them
 is blank). It receives the values in the form as `config`, not yet validated, and `auth` for the
 key or account being picked, with a fresh access token as in `run`. An `AppError` it throws shows
-under the select. HeyForm keeps the first 500 options, drops those without a value (or one over
+under the select. MyForm keeps the first 500 options, drops those without a value (or one over
 500 characters) and shortens labels to 200 characters.
 
 The server can't check a saved value against options it loads, only that it's text, so check it
@@ -133,7 +133,7 @@ its message shows in the settings form. If the account needs reconnecting, savin
 
 ## Auth
 
-HeyForm stores the credentials, encrypted with `INTEGRATION_ENCRYPTION_KEY` (see
+MyForm stores the credentials, encrypted with `INTEGRATION_ENCRYPTION_KEY` (see
 [Encryption key](#encryption-key)), and passes `run` a ready-to-use `auth` value. Credentials are
 never sent to the browser, and app code never stores, decrypts or refreshes them.
 
@@ -227,7 +227,7 @@ reconnection until someone picks another account. Some providers (Google, for on
 whole grant, i.e. every token this server holds for that account, so the grant isn't revoked while
 another workspace on the server still has the same account connected. Deleting an integration doesn't touch the connection.
 
-When a job runs, HeyForm refreshes the connection's access token if it has expired (there's no
+When a job runs, MyForm refreshes the connection's access token if it has expired (there's no
 scheduled refresh), and so does loading options or saving settings with the account. One refresh runs at a time per connection (a Redis lock), and the others use
 its token, so integrations sharing a connection don't race. If the provider rejects the refresh
 token (`invalid_grant`, e.g. access was revoked), the connection and every active integration using
@@ -321,7 +321,7 @@ throw AppError.fromStatus(response.statusCode, `Example rejected the request`)
 | Option         | Default | Effect                                                                                                                                                                                                                                                               |
 | -------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `retryable`    | `true`  | `false` fails the delivery without further attempts, e.g. for a deleted resource.                                                                                                                                                                                    |
-| `unauthorized` | `false` | The service rejected the access token before it expired, e.g. access was revoked. HeyForm refreshes the token and calls the app once more. If the provider refuses the refresh, the connection needs reconnecting and the submission waits, as for an expired token. |
+| `unauthorized` | `false` | The service rejected the access token before it expired, e.g. access was revoked. MyForm refreshes the token and calls the app once more. If the provider refuses the refresh, the connection needs reconnecting and the submission waits, as for an expired token. |
 
 Any other error fails the attempt, and Bull retries it.
 

@@ -9,7 +9,7 @@ function testPreservesSystemFontsWithoutLoadingGoogleFonts() {
 
   assert.strictEqual(theme.fontFamily, SYSTEM_FONTS)
   assert.strictEqual(getWebFontURL(theme.fontFamily), '')
-  assert.ok(getThemeStyle(theme).includes(`--heyform-font-family: ${SYSTEM_FONTS};`))
+  assert.ok(getThemeStyle(theme).includes(`--myform-font-family: ${SYSTEM_FONTS};`))
 }
 
 function testRemovesExistingWebFontWhenUsingSystemFonts() {

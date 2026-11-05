@@ -1,8 +1,8 @@
-import { LayoutProps } from '@heyooo-inc/react-router'
+import { LayoutProps } from '@/lib/router'
 import { FC, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import Logo from '@/assets/logo.svg?react'
 
@@ -13,7 +13,7 @@ export const AuthLayout: FC<LayoutProps> = ({ options, children }) => {
 
   useEffect(() => {
     if (helper.isValid(options?.title)) {
-      document.title = `${t(options!.title)} - HeyForm`
+      document.title = `${t(options!.title)} - MyForm`
     }
   }, [options, t])
 
@@ -27,9 +27,9 @@ export const AuthLayout: FC<LayoutProps> = ({ options, children }) => {
       </div>
 
       <header className="relative z-10 flex items-center justify-between p-4 lg:p-6">
-        <a href="/" className="flex items-center gap-2.5" title="HeyForm">
+        <a href="/" className="flex items-center gap-2.5" title="MyForm">
           <Logo className="h-8 w-auto" />
-          <span className="text-xl font-semibold tracking-tight">HeyForm</span>
+          <span className="text-xl font-semibold tracking-tight">MyForm</span>
         </a>
 
         <LanguageSwitcher />
@@ -43,7 +43,7 @@ export const AuthLayout: FC<LayoutProps> = ({ options, children }) => {
 
       <footer className="text-secondary relative z-10 flex items-center justify-center gap-2 pb-6 text-xs lg:pb-8">
         <Logo className="h-4 w-auto opacity-60" />
-        <span>HeyForm · Beautiful forms, warm hearts</span>
+        <span>MyForm · Beautiful forms, warm hearts</span>
       </footer>
     </div>
   )

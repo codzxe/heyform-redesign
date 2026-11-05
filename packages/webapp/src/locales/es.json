@@ -509,19 +509,19 @@
   "oauth": {
     "title": "Autorizar",
     "headline": "Conectar con {{name}}",
-    "subHeadline": "Usa {{name}} para integrar HeyForm con tus aplicaciones favoritas, como Chat, correo electrónico o SMS.",
+    "subHeadline": "Usa {{name}} para integrar MyForm con tus aplicaciones favoritas, como Chat, correo electrónico o SMS.",
     "would": "{{name}} desea:",
     "scopes": [
       "Lectura de espacios de trabajo",
-      "Obtener datos de todos los espacios de trabajo de tu cuenta de HeyForm",
+      "Obtener datos de todos los espacios de trabajo de tu cuenta de MyForm",
       "Lectura de proyectos",
-      "Obtener datos de todos los proyectos de tu espacio de trabajo de HeyForm",
+      "Obtener datos de todos los proyectos de tu espacio de trabajo de MyForm",
       "Lectura de formularios",
-      "Obtener datos de todos los formularios de tu proyecto de HeyForm",
+      "Obtener datos de todos los formularios de tu proyecto de MyForm",
       "Lectura de respuestas",
       "Obtener las respuestas de formularios que has recopilado",
       "Lectura de cuentas",
-      "Obtener la información de tu cuenta de HeyForm"
+      "Obtener la información de tu cuenta de MyForm"
     ]
   },
   "workspace": {
@@ -627,7 +627,7 @@
       "required": "El correo electrónico no puede estar vacío",
       "sentSuccess_one": "{{count}} invitación enviada",
       "sentSuccess_other": "{{count}} invitaciones enviadas",
-      "sentSuccessMessage": "Se ha notificado por correo electrónico a los miembros invitados para que se registren en HeyForm"
+      "sentSuccessMessage": "Se ha notificado por correo electrónico a los miembros invitados para que se registren en MyForm"
     }
   },
   "settings": {
@@ -640,8 +640,8 @@
     },
     "branding": {
       "title": "Marca",
-      "removeBrandingHeadline": "Quitar la marca de HeyForm",
-      "removeBrandingSubHeadline": "Para que HeyForm parezca totalmente propio de tu marca, quita el logo de HeyForm del pie del formulario.",
+      "removeBrandingHeadline": "Quitar la marca de MyForm",
+      "removeBrandingSubHeadline": "Para que MyForm parezca totalmente propio de tu marca, quita el logo de MyForm del pie del formulario.",
       "viewBrandKit": "Ver",
       "logo": {
         "title": "Logo",
@@ -848,8 +848,8 @@
       "submit": "Generar preguntas"
     },
     "chat": {
-      "title": "Asistente de IA de HeyForm",
-      "welcome": "¡Bienvenido al Asistente de IA de HeyForm! Es una función innovadora impulsada por tecnología de IA de vanguardia, diseñada para ayudarte a crear preguntas y lógicas para tus formularios.",
+      "title": "Asistente de IA de MyForm",
+      "welcome": "¡Bienvenido al Asistente de IA de MyForm! Es una función innovadora impulsada por tecnología de IA de vanguardia, diseñada para ayudarte a crear preguntas y lógicas para tus formularios.",
       "compose": "Pregúntame lo que quieras...",
       "fieldsUpdated": "Las preguntas de tu formulario se han actualizado.",
       "logicUpdated": "La lógica de tu formulario se ha actualizado.",
@@ -936,9 +936,9 @@
       "fileManagement": "Gestión de archivos",
       "mapFields": {
         "headline": "Mapear campos",
-        "subHeadline": "Mapea HeyForm con las columnas de {{name}}. Si cambias una columna en {{name}}, actualízala también aquí; de lo contrario, la integración no funcionará como se espera.",
+        "subHeadline": "Mapea MyForm con las columnas de {{name}}. Si cambias una columna en {{name}}, actualízala también aquí; de lo contrario, la integración no funcionará como se espera.",
         "requried": "El mapeo de campos no puede estar vacío",
-        "leftPlaceholder": "Selecciona una pregunta de HeyForm",
+        "leftPlaceholder": "Selecciona una pregunta de MyForm",
         "rightPlaceholder": "Columna de {{name}}",
         "requireLeft": "El lado izquierdo del campo {{index}} no puede estar vacío",
         "requireRight": "El lado derecho del campo {{index}} no puede estar vacío",
@@ -946,7 +946,7 @@
       },
       "authorization": {
         "headline": "Autorización",
-        "subHeadline": "En primer lugar, autoriza a HeyForm a acceder a tus datos.",
+        "subHeadline": "En primer lugar, autoriza a MyForm a acceder a tus datos.",
         "loginWith": "Iniciar sesión con {{name}}"
       },
       "webhook": {
@@ -956,7 +956,7 @@
       "telegram": {
         "label": "ID del chat",
         "required": "El ID del chat no puede estar vacío",
-        "footer": "Añade <a>@HeyForm_bot</a> a tu grupo de Telegram y escribe <code>/start@HeyForm_bot</code> en el grupo. Entonces recibirás un mensaje con un ID de chat."
+        "footer": "Añade <a>@MyForm_bot</a> a tu grupo de Telegram y escribe <code>/start@MyForm_bot</code> en el grupo. Entonces recibirás un mensaje con un ID de chat."
       },
       "legacyslack": {
         "label": "URL del webhook",
@@ -997,7 +997,7 @@
         },
         "folder": {
           "headline": "Selecciona una carpeta",
-          "footer": "Puedes seleccionar una carpeta donde guardar los archivos subidos desde tu HeyForm."
+          "footer": "Puedes seleccionar una carpeta donde guardar los archivos subidos desde tu MyForm."
         }
       },
       "googlesheets": {
@@ -1146,7 +1146,7 @@
         "description": "Descripción",
         "preview": {
           "headline": "Vista previa",
-          "subHeadline": "HeyForm genera automáticamente una imagen de <a>Open Graph</a> para ti. También puedes <button>subir tu propia imagen</button>.",
+          "subHeadline": "MyForm genera automáticamente una imagen de <a>Open Graph</a> para ti. También puedes <button>subir tu propia imagen</button>.",
           "uploadTitle": "Sube tu propia imagen de Open Graph",
           "uploadDescription": "Tamaño recomendado: 1200x630 | JPG, PNG."
         }
@@ -1185,7 +1185,7 @@
         "bottomRight": "Esquina inferior derecha",
         "transparentBackground": "Fondo transparente",
         "code": {
-          "headline": "Añade HeyForm a tu sitio web",
+          "headline": "Añade MyForm a tu sitio web",
           "subHeadline": "Pega el siguiente fragmento de código en la sección body de tu sitio web."
         }
       }
@@ -1196,7 +1196,7 @@
         "title": "General",
         "archive": {
           "headline": "Archivo de respuestas",
-          "subHeadline": "Desactiva el archivo de respuestas si prefieres que HeyForm no guarde tus respuestas."
+          "subHeadline": "Desactiva el archivo de respuestas si prefieres que MyForm no guarde tus respuestas."
         },
         "redirect": {
           "headline": "Redirigir al finalizar",
@@ -1407,7 +1407,7 @@
         "payment": {
           "title": "Pago",
           "headline": "Conectar con Stripe",
-          "subHeadline": "<div>Cobra y recibe pagos directamente en tu cuenta bancaria a través de Stripe.</div><div>Los usuarios gratuitos de HeyForm cobran pagos con una tarifa de <a>5% de comisión de HeyForm + comisión de transacción de Stripe.</a></div><div>Para eliminar la comisión del 5% de HeyForm en los pagos, pásate a <button>HeyForm Premium</button>.</div>",
+          "subHeadline": "<div>Cobra y recibe pagos directamente en tu cuenta bancaria a través de Stripe.</div><div>Los usuarios gratuitos de MyForm cobran pagos con una tarifa de <a>5% de comisión de MyForm + comisión de transacción de Stripe.</a></div><div>Para eliminar la comisión del 5% de MyForm en los pagos, pásate a <button>MyForm Premium</button>.</div>",
           "stripeAccount": "Cuenta de Stripe",
           "revoke": "Revocar",
           "price": "Precio",
@@ -1568,7 +1568,7 @@
     "subHeadline": "Los cambios en la configuración de la cuenta se aplicarán a todos tus espacios de trabajo.",
     "avatar": {
       "headline": "Avatar",
-      "subHeadline": "Gravatar se usa de forma predeterminada como tu avatar de HeyForm; aquí puedes subir un avatar personalizado."
+      "subHeadline": "Gravatar se usa de forma predeterminada como tu avatar de MyForm; aquí puedes subir un avatar personalizado."
     },
     "name": "Tu nombre",
     "email": {

@@ -4,7 +4,7 @@ import { Model } from 'mongoose'
 
 import { RedisService } from './redis.service'
 import { SubmissionService } from './submission.service'
-import { date, helper } from '@heyform-inc/utils'
+import { date, helper } from '@myform/utils'
 import { FormAnalyticModel, clearFormAnalyticCache } from '@model'
 
 interface FormAnalyticOptions {

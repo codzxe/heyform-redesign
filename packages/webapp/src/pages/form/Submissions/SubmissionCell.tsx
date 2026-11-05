@@ -1,4 +1,4 @@
-import { Answer, Choice, Column, FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { Answer, Choice, Column, FieldKindEnum } from '@myform/shared-types-enums'
 import { IconArrowUpRight, IconCheck, IconClock, IconFile } from '@tabler/icons-react'
 import Big from 'big.js'
 import { FC, Fragment } from 'react'
@@ -17,8 +17,8 @@ import {
   OTHER_CHOICE_ID,
   htmlUtils,
   otherChoiceText
-} from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+} from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { Badge, Checkbox, Image } from '@/components'
 import { ALL_FIELD_CONFIGS, CUSTOM_FIELDS_CONFIGS } from '@/consts'
@@ -119,7 +119,7 @@ const DateRangeItem: FC<SubmissionCellProps> = ({ answer, field, isTableCell }) 
 const FileUploadItem: FC<SubmissionCellProps> = ({ answer, field, isTableCell }) => {
   const value = getFileUploadValue(
     answer.value,
-    [...(window.heyform.uploadOrigins || []), window.location.origin],
+    [...(window.myform.uploadOrigins || []), window.location.origin],
     window.location.origin
   )
 

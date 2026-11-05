@@ -5,10 +5,10 @@ import {
   Logic,
   Property,
   QUESTION_FIELD_KINDS
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
-import { createFieldNavigation, flattenFields, htmlUtils } from '@heyform-inc/answer-utils'
-import { clone, helper, nanoid } from '@heyform-inc/utils'
+import { createFieldNavigation, flattenFields, htmlUtils } from '@myform/answer-utils'
+import { clone, helper, nanoid } from '@myform/utils'
 
 import { FormFieldType } from '@/types'
 

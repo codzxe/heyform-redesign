@@ -1,8 +1,8 @@
-import { FieldKindEnum, QUESTION_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, QUESTION_FIELD_KINDS } from '@myform/shared-types-enums'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { isChoiceBranchingField } from '@heyform-inc/answer-utils'
+import { isChoiceBranchingField } from '@myform/answer-utils'
 
 import { Switch, Tooltip } from '@/components'
 import { FormFieldType } from '@/types'

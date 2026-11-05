@@ -1,11 +1,11 @@
-import { FieldLayoutAlignEnum } from '@heyform-inc/shared-types-enums'
+import { FieldLayoutAlignEnum } from '@myform/shared-types-enums'
 import type { FC } from 'react'
 import { RefObject, useCallback, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { cn } from '@/utils'
-import { htmlUtils } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { htmlUtils } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { FormFieldType } from '@/types'
 
@@ -199,16 +199,16 @@ export const Block: FC<BlockProps> = ({
 
   return (
     <>
-      <div className="heyform-theme-background" />
+      <div className="myform-theme-background" />
 
       {field.layout?.align !== FieldLayoutAlignEnum.INLINE && (
-        <Layout className={`heyform-layout-${field.layout?.align}`} layout={field.layout} />
+        <Layout className={`myform-layout-${field.layout?.align}`} layout={field.layout} />
       )}
 
       {parentField && (
-        <div className="heyform-block-group rounded-t-lg">
-          <div className="heyform-block-group-container">
-            <div className="heyform-block-title">
+        <div className="myform-block-group rounded-t-lg">
+          <div className="myform-block-group-container">
+            <div className="myform-block-title">
               {htmlUtils.plain(parentField.title as string)}
             </div>
           </div>
@@ -216,21 +216,21 @@ export const Block: FC<BlockProps> = ({
       )}
 
       <div
-        className={cn('heyform-block-container', {
-          [`heyform-block-${field.layout?.align}`]: field.layout?.align
+        className={cn('myform-block-container', {
+          [`myform-block-${field.layout?.align}`]: field.layout?.align
         })}
       >
         <div className="flex min-h-full flex-col items-center justify-center">
-          <div className={cn('heyform-block', className)} {...restProps}>
+          <div className={cn('myform-block', className)} {...restProps}>
             <div className="mb-10">
               <RichText
-                className="heyform-block-title"
+                className="myform-block-title"
                 innerRef={titleRef as RefObject<HTMLDivElement>}
                 placeholder={t('form.builder.compose.question')}
                 onChange={handleTitleChangeCallback}
               />
               <RichText
-                className="heyform-block-description"
+                className="myform-block-description"
                 innerRef={descriptionRef as RefObject<HTMLDivElement>}
                 placeholder={t('form.builder.compose.description')}
                 onChange={handleDescriptionChangeCallback}
@@ -238,7 +238,7 @@ export const Block: FC<BlockProps> = ({
             </div>
 
             {isCoverShow && field.layout?.align === FieldLayoutAlignEnum.INLINE && (
-              <div className="heyform-block-image">
+              <div className="myform-block-image">
                 {isImageCover ? (
                   <img src={field.layout?.mediaUrl} />
                 ) : (

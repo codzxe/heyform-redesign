@@ -42,7 +42,7 @@ async function testPasswordRegistrationPolicy() {
   )
   const client = { deviceId: 'device-1', lang: 'en' } as any
   const response = { clearCookie: () => undefined }
-  const input = { name: 'New user', email: 'new-user@heyform.net', password: 'StrongPassword1!' }
+  const input = { name: 'New user', email: 'new-user@myform.example.com', password: 'StrongPassword1!' }
   const invitation = { teamId: 'team-1', inviteCode: 'invite-1' }
   try {
     environments.DISABLE_LOGIN_WITH_PASSWORD = true

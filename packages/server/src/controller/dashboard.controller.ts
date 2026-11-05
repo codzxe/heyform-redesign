@@ -5,6 +5,8 @@ import { COOKIE_INVITATION_NAME } from '@config'
 import {
   APP_DISABLE_REGISTRATION,
   APP_HOMEPAGE_URL,
+  FEEDBACK_FORM_URL,
+  HELP_CENTER_URL,
   COOKIE_DOMAIN,
   DISABLE_LOGIN_WITH_APPLE,
   DISABLE_LOGIN_WITH_GOOGLE,
@@ -19,7 +21,7 @@ import {
   VERIFY_EMAIL_RESEND_COOLDOWN,
   VERIFY_USER_EMAIL
 } from '@environments'
-import { hs } from '@heyform-inc/utils'
+import { hs } from '@myform/utils'
 import { TRUSTED_UPLOAD_ORIGINS } from '@utils'
 
 @Controller()
@@ -28,6 +30,8 @@ export class DashboardController {
     return {
       homepageURL: APP_HOMEPAGE_URL,
       websiteURL: APP_HOMEPAGE_URL,
+      helpCenterURL: HELP_CENTER_URL,
+      feedbackFormUrl: FEEDBACK_FORM_URL,
       appDisableRegistration: APP_DISABLE_REGISTRATION,
       cookieDomain: COOKIE_DOMAIN,
       enableGoogleFonts: ENABLE_GOOGLE_FONTS,
@@ -80,10 +84,10 @@ export class DashboardController {
   @Header('X-Frame-Options', 'SAMEORIGIN')
   index(@Res() res: Response) {
     return res.render('index', {
-      title: 'HeyForm Dashboard - Create and Manage Custom Forms Effortlessly',
+      title: 'MyForm Dashboard - Create and Manage Custom Forms Effortlessly',
       description:
-        "Simplify your form creation process with HeyForm's intuitive dashboard. Design, customize, and manage forms all in one place, with no coding required.",
-      heyform: this.runtimeConfig()
+        "Simplify your form creation process with MyForm's intuitive dashboard. Design, customize, and manage forms all in one place, with no coding required.",
+      myform: this.runtimeConfig()
     })
   }
 }

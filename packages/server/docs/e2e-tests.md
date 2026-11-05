@@ -1,6 +1,6 @@
 # Server E2E Tests
 
-End-to-end tests for the HeyForm NestJS server. They drive a running instance
+End-to-end tests for the MyForm NestJS server. They drive a running instance
 over HTTP/GraphQL using the **same surface** the webapp talks to
 (`X-Device-Id` header + cookie session + Apollo-style JSON POSTs to
 `/graphql`).
@@ -60,7 +60,7 @@ stack above), export `E2E_MONGO_URI` and `E2E_REDIS_PORT`, which take priority.
 pnpm --filter ./packages/server run test:e2e:docker
 ```
 
-This calls `docker compose -f docker-compose.test.yml up -d --build heyform`,
+This calls `docker compose -f docker-compose.test.yml up -d --build myform`,
 waits for `/health/ready`, runs the tests, then `docker compose down -v`.
 Pass `E2E_KEEP_UP=1` to keep the stack running afterwards.
 
@@ -86,7 +86,7 @@ APP_HOMEPAGE_URL=http://localhost:9157
 | `E2E_WAIT_MS`      | `60000`                                | Max wait for readiness.                                  |
 | `E2E_ONLY`         | _unset_                                | Comma-separated suite names to run (e.g. `team,matrix`). |
 | `E2E_KEEP_UP`      | _unset_                                | `1` leaves the docker stack running (docker mode only).  |
-| `E2E_MONGO_URI`    | `mongodb://127.0.0.1:27018/heyform`    | Direct-mongo seed for `helpers/seed.ts`.                 |
+| `E2E_MONGO_URI`    | `mongodb://127.0.0.1:27018/myform`    | Direct-mongo seed for `helpers/seed.ts`.                 |
 | `E2E_REDIS_HOST`   | `127.0.0.1`                            | Used by `helpers/verification.ts`.                       |
 | `E2E_REDIS_PORT`   | `9514`                                 | KeyDB port exposed by `docker-compose.test.yml`.         |
 
@@ -176,7 +176,7 @@ These are not test bugs — the suite intentionally documents the live behaviour
 ## How the harness works
 
 - **`E2EClient`** wraps native `fetch`. It maintains a tiny cookie jar
-  (`HEYFORM_SESSION`, `HEYFORM_LOGGED_IN`, `HEYFORM_DEVICE_ID`) and attaches
+  (`MYFORM_SESSION`, `MYFORM_LOGGED_IN`, `MYFORM_DEVICE_ID`) and attaches
   the same `X-Device-Id` + `x-anonymous-id` headers the webapp's Apollo client
   sends — these are what `DeviceIdGuard` and `EndpointAnonymousIdGuard` look
   for.

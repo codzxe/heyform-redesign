@@ -4,12 +4,12 @@ import {
   FormModel,
   InteractiveModeEnum,
   ThemeSettings
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { Injectable, ServiceUnavailableException } from '@nestjs/common'
 import got from 'got'
 
-export const TEMPLATE_DETAIL_BASE_URL = 'https://heyform.github.io/templates/form/'
-export const TEMPLATE_SUMMARY_URL = 'https://heyform.github.io/templates/list_summary.json'
+export const TEMPLATE_DETAIL_BASE_URL = 'https://myform.github.io/templates/form/'
+export const TEMPLATE_SUMMARY_URL = 'https://myform.github.io/templates/list_summary.json'
 type CatalogKind = 'summary'
 const CACHE_TTL = 5 * 60 * 1000
 

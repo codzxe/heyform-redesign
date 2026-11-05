@@ -17,7 +17,7 @@ import {
 } from 'react'
 
 import { cn } from '@/utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Select } from './Select'
 

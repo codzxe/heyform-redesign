@@ -3,7 +3,7 @@ import {
   FormKindEnum,
   FormStatusEnum,
   InteractiveModeEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { BadRequestException, InternalServerErrorException, UseGuards } from '@nestjs/common'
 import { Throttle } from '@nestjs/throttler'
 
@@ -21,7 +21,7 @@ import {
   CreateFormWithAIInput
 } from '@graphql'
 import { GqlThrottlerGuard } from '@guard'
-import { helper, ms, parseJson } from '@heyform-inc/utils'
+import { helper, ms, parseJson } from '@myform/utils'
 import { FormModel, TeamModel, UserModel } from '@model'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import { FormService, OpenAIService, RedisService } from '@service'

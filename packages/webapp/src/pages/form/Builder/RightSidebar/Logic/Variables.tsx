@@ -1,9 +1,9 @@
-import { FieldKindEnum, Variable } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, Variable } from '@myform/shared-types-enums'
 import { IconArrowUpRight, IconDots, IconPlus } from '@tabler/icons-react'
 import { FC, startTransition } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Button, Dropdown, Tooltip } from '@/components'
 import { VARIABLE_KIND_CONFIGS } from '@/consts'
@@ -11,6 +11,7 @@ import { QuestionIcon } from '@/pages/form/Builder/LeftSidebar/QuestionList'
 import { useAppStore } from '@/store'
 
 import { useStoreContext } from '../../store'
+import { HELP_CENTER_URL } from '@consts/env'
 
 const ACTIONS = [
   {
@@ -140,7 +141,7 @@ export const Variables: FC = () => {
                 <a
                   key="a"
                   className="hover:text-primary underline underline-offset-4"
-                  href="https://docs.heyform.net/features/variable"
+                  href=`${HELP_CENTER_URL}/features/variable`
                   target="_blank"
                   rel="noopener noreferrer"
                 />

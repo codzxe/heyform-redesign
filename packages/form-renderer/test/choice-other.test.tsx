@@ -53,7 +53,7 @@ async function mount(props: { allowMultiple?: boolean; allowBlankOther?: boolean
 }
 
 function other() {
-  return container.querySelector<HTMLElement>('.heyform-radio-other')!
+  return container.querySelector<HTMLElement>('.myform-radio-other')!
 }
 
 async function click(element: HTMLElement) {
@@ -75,7 +75,7 @@ async function type(text: string) {
 }
 
 function isOtherChecked() {
-  return other().classList.contains('heyform-radio-selected')
+  return other().classList.contains('myform-radio-selected')
 }
 
 test('clicking "Other" answers it blank when text is optional', async () => {
@@ -95,7 +95,7 @@ test('clicking "Other" answers it blank when text is optional', async () => {
   expect(isOtherChecked()).toBe(true)
 
   // Choosing an option replaces "Other" on a single-select question.
-  await click(container.querySelector<HTMLElement>('.heyform-radio')!)
+  await click(container.querySelector<HTMLElement>('.myform-radio')!)
   expect(onChange).toHaveBeenLastCalledWith({ value: ['motion'] })
   expect(isOtherChecked()).toBe(false)
 })
@@ -103,7 +103,7 @@ test('clicking "Other" answers it blank when text is optional', async () => {
 test('a checked, empty "Other" toggles off on a multi-select question, by click or hotkey', async () => {
   const onChange = await mount({ allowBlankOther: true, allowMultiple: true })
 
-  await click(container.querySelector<HTMLElement>('.heyform-radio')!)
+  await click(container.querySelector<HTMLElement>('.myform-radio')!)
   await press('c')
   expect(onChange).toHaveBeenLastCalledWith({ value: ['motion'], other: '' })
   expect(isOtherChecked()).toBe(true)

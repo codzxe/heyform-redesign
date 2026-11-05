@@ -7,6 +7,8 @@ import { LogoIcon } from '../components'
 import { useStore } from '../store'
 
 export const Branding: FC = () => {
+  const websiteURL: string =
+    (typeof window !== 'undefined' && (window as any).myform?.websiteURL) || '#'
   const { state } = useStore()
   const { t } = useTranslation()
 
@@ -15,10 +17,10 @@ export const Branding: FC = () => {
   }
 
   return (
-    <a className="heyform-branding" href="https://heyform.net/?ref=badge" target="_blank">
+    <a className="myform-branding" href={websiteURL} target="_blank" rel="noreferrer">
       <Trans
         t={t}
-        i18nKey="Made with HeyForm"
+        i18nKey="Made with MyForm"
         components={{
           icon: <LogoIcon className="inline h-4 w-4" />,
           span: <span className="font-medium" />
@@ -30,10 +32,10 @@ export const Branding: FC = () => {
 
 export const WelcomeBranding: FC = () => {
   return (
-    <div className="heyform-footer heyform-welcome-footer">
-      <div className="heyform-footer-wrapper">
-        <div className="heyform-footer-left" />
-        <div className="heyform-footer-right">
+    <div className="myform-footer myform-welcome-footer">
+      <div className="myform-footer-wrapper">
+        <div className="myform-footer-left" />
+        <div className="myform-footer-right">
           <Branding />
         </div>
       </div>

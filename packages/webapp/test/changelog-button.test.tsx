@@ -23,7 +23,7 @@ function release(version: string) {
     id: 1,
     version,
     changelog: '## What changed',
-    url: `https://github.com/heyform/heyform/releases/tag/${version}`,
+    url: `https://github.com/codzxe/myform/releases/tag/${version}`,
     publishedAt: '2026-10-24T13:10:51Z'
   }
 }

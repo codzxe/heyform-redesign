@@ -4,7 +4,7 @@ import 'reflect-metadata'
 import { AIResolver } from '../src/resolver/form/ai.resolver'
 import { PublishFormResolver } from '../src/resolver/form/publish-form.resolver'
 import { UpdateFormSchemasResolver } from '../src/resolver/form/update-form-schemas.resolver'
-import { htmlUtils } from '@heyform-inc/answer-utils'
+import { htmlUtils } from '@myform/answer-utils'
 
 type Field = Record<string, any>
 

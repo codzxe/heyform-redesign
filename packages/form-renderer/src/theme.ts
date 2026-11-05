@@ -1,6 +1,6 @@
-import type { FormTheme } from '@heyform-inc/shared-types-enums'
+import type { FormTheme } from '@myform/shared-types-enums'
 
-import { alpha, helper, hexToRgb, isDarkColor } from '@heyform-inc/utils'
+import { alpha, helper, hexToRgb, isDarkColor } from '@myform/utils'
 
 export const SYSTEM_FONTS =
   '-apple-system, BlinkMacSystemFont, Helvetica, Roboto, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei", serif'
@@ -80,7 +80,7 @@ function isGoogleFontsEnabled() {
     return true
   }
 
-  const value = (window as any).heyform?.enableGoogleFonts
+  const value = (window as any).myform?.enableGoogleFonts
 
   return value === undefined ? true : helper.isTrue(value)
 }
@@ -110,7 +110,7 @@ export function getWebFontURL(name?: string | string[]) {
   return `https://fonts.googleapis.com/css2?${families.join('&')}&display=swap`
 }
 
-export function insertWebFont(name?: string | string[], id = 'heyform-webfont') {
+export function insertWebFont(name?: string | string[], id = 'myform-webfont') {
   const href = getWebFontURL(name)
 
   if (typeof document === 'undefined') {
@@ -214,24 +214,24 @@ export function getThemeStyle(theme: FormTheme, query?: Record<string, any>): st
 
   return `
   html {
-    --heyform-font-family: ${theme.fontFamily};
-    --heyform-question-color: ${theme.questionTextColor};
-    --heyform-description-color: ${alpha(theme.questionTextColor!, 0.8)};
-    --heyform-label-color: ${alpha(theme.questionTextColor!, 0.5)};
-    --heyform-answer-color: ${theme.answerTextColor};
-    --heyform-answer-opacity-80-color: ${alpha(theme.answerTextColor!, 0.8)};
-    --heyform-answer-opacity-60-color: ${alpha(theme.answerTextColor!, 0.6)};
-    --heyform-answer-opacity-30-color: ${alpha(theme.answerTextColor!, 0.3)};
-    --heyform-answer-opacity-10-color: ${alpha(theme.answerTextColor!, 0.1)};
-    --heyform-button-color: ${theme.buttonBackground};
-    --heyform-button-opacity-80-color: ${alpha(theme.buttonBackground!, 0.8)};
-    --heyform-button-text-color: ${theme.buttonTextColor};
-    --heyform-button-text-opacity-20-color: ${alpha(theme.buttonTextColor!, 0.2)};
-    --heyform-background-color: ${theme.backgroundColor};
-    --heyform-group-background-color: ${getAdaptedColor(theme.backgroundColor!)};
+    --myform-font-family: ${theme.fontFamily};
+    --myform-question-color: ${theme.questionTextColor};
+    --myform-description-color: ${alpha(theme.questionTextColor!, 0.8)};
+    --myform-label-color: ${alpha(theme.questionTextColor!, 0.5)};
+    --myform-answer-color: ${theme.answerTextColor};
+    --myform-answer-opacity-80-color: ${alpha(theme.answerTextColor!, 0.8)};
+    --myform-answer-opacity-60-color: ${alpha(theme.answerTextColor!, 0.6)};
+    --myform-answer-opacity-30-color: ${alpha(theme.answerTextColor!, 0.3)};
+    --myform-answer-opacity-10-color: ${alpha(theme.answerTextColor!, 0.1)};
+    --myform-button-color: ${theme.buttonBackground};
+    --myform-button-opacity-80-color: ${alpha(theme.buttonBackground!, 0.8)};
+    --myform-button-text-color: ${theme.buttonTextColor};
+    --myform-button-text-opacity-20-color: ${alpha(theme.buttonTextColor!, 0.2)};
+    --myform-background-color: ${theme.backgroundColor};
+    --myform-group-background-color: ${getAdaptedColor(theme.backgroundColor!)};
   }
   
-  .heyform-theme-background {
+  .myform-theme-background {
     position: absolute;
     top: 0;
     right: 0;
@@ -241,11 +241,11 @@ export function getThemeStyle(theme: FormTheme, query?: Record<string, any>): st
     background-size: cover;
     background-position: center;
     pointer-events: none;
-    background-color: var(--heyform-background-color);
+    background-color: var(--myform-background-color);
     ${getBackgroundImageStyle(theme.backgroundImage)}
   }
 
-  .heyform-block-group {
+  .myform-block-group {
     pointer-events: none;
     position: absolute;
     top: 0px;
@@ -253,20 +253,20 @@ export function getThemeStyle(theme: FormTheme, query?: Record<string, any>): st
     width: 100%;
     padding-left: 5rem;
     padding-right: 5rem;
-    background: var(--heyform-group-background-color);
+    background: var(--myform-group-background-color);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     z-index: 12;
   }
   
   @media (max-width: 800px) {
-    .heyform-block-group {
+    .myform-block-group {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   
-    .heyform-theme-background,
-    .heyform-block-group {
+    .myform-theme-background,
+    .myform-block-group {
       position: fixed;
     }
   }
@@ -274,7 +274,7 @@ export function getThemeStyle(theme: FormTheme, query?: Record<string, any>): st
   ${
     helper.isValid(theme.backgroundBrightness)
       ? `
-    .heyform-theme-background:before {
+    .myform-theme-background:before {
       pointer-events: none;
       position: absolute;
       top: 0;

@@ -1,8 +1,8 @@
-import { flattenFieldsWithGroups, questionNumber } from '@heyform-inc/form-renderer'
+import { flattenFieldsWithGroups, questionNumber } from '@myform/form-renderer'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { createFieldNavigation, htmlUtils } from '@heyform-inc/answer-utils'
+import { createFieldNavigation, htmlUtils } from '@myform/answer-utils'
 
 import { Select } from '@/components'
 import { FormFieldType } from '@/types'

@@ -1,9 +1,9 @@
-import { ChoiceBadgeEnum } from '@heyform-inc/shared-types-enums'
+import { ChoiceBadgeEnum } from '@myform/shared-types-enums'
 import clsx from 'clsx'
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { getChoiceKeyName, useTranslation } from '../utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { IComponentProps } from '../typings'
 import type { ChoiceRadioOption } from './ChoiceRadio'
@@ -159,10 +159,10 @@ export const ChoiceRadioGroup: FC<ChoiceRadioGroupProps> = ({
   return (
     <div
       className={clsx(
-        'heyform-radio-group',
+        'myform-radio-group',
         {
-          'heyform-radio-group-disabled': isDisabled,
-          'heyform-radio-group-horizontal': helper.isFalse(verticalAlignment)
+          'myform-radio-group-disabled': isDisabled,
+          'myform-radio-group-horizontal': helper.isFalse(verticalAlignment)
         },
         className
       )}
@@ -181,7 +181,7 @@ export const ChoiceRadioGroup: FC<ChoiceRadioGroupProps> = ({
 
       {allowOther && (
         <ChoiceRadio
-          className="heyform-radio-other"
+          className="myform-radio-other"
           keyName={getChoiceKeyName(badge, options.length)}
           enableImage={enableImage}
           label={t('Other')}

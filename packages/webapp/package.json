@@ -1,5 +1,5 @@
 {
-  "name": "heyform-webapp",
+  "name": "myform-webapp",
   "private": true,
   "version": "3.0.6",
   "scripts": {
@@ -15,11 +15,10 @@
   "dependencies": {
     "@apollo/client": "^3.11.8",
     "@fortaine/fetch-event-source": "^3.0.6",
-    "@heyform-inc/answer-utils": "workspace:*",
-    "@heyform-inc/form-renderer": "workspace:*",
-    "@heyform-inc/shared-types-enums": "workspace:*",
-    "@heyform-inc/utils": "workspace:*",
-    "@heyooo-inc/react-router": "^0.0.5",
+    "@myform/answer-utils": "workspace:*",
+    "@myform/form-renderer": "workspace:*",
+    "@myform/shared-types-enums": "workspace:*",
+    "@myform/utils": "workspace:*",
     "@popperjs/core": "^2.11.8",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
@@ -63,7 +62,7 @@
     "react-markdown": "^10.1.0",
     "react-popper": "^2.3.0",
     "react-resizable-panels": "^2.1.5",
-    "react-router-dom": "^6.27.0",
+    "react-router-dom": "^6.30.0",
     "react-sortablejs": "^6.1.4",
     "react-textarea-autosize": "^8.5.4",
     "react-transition-state": "^2.3.1",

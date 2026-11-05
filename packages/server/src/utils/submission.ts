@@ -8,7 +8,7 @@ import {
   HiddenFieldAnswer,
   Logic,
   Property
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { BadRequestException } from '@nestjs/common'
 
 import {
@@ -169,7 +169,7 @@ export function selectSubmissionFields(
 }
 
 // Lives next to resolveEnding so the renderer's tests can check both sides agree
-export { isSubmissionDiscarded } from '@heyform-inc/answer-utils'
+export { isSubmissionDiscarded } from '@myform/answer-utils'
 
 export interface ChoiceLimit {
   fieldId: string

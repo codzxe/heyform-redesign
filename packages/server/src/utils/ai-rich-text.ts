@@ -1,6 +1,6 @@
 import { z } from 'zod/v4'
 
-import { htmlUtils } from '@heyform-inc/answer-utils'
+import { htmlUtils } from '@myform/answer-utils'
 
 import { sanitizeRichTextSchema } from './form-schema'
 

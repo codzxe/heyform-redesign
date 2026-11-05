@@ -1,4 +1,4 @@
-import { LayoutProps } from '@heyooo-inc/react-router'
+import { LayoutProps } from '@/lib/router'
 import { IconMenu } from '@tabler/icons-react'
 import { useAsyncEffect } from 'ahooks'
 import { FC, useEffect, useState } from 'react'
@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 
 import { UserService, WorkspaceService } from '@/services'
 import { clearCookie, cn, getCookie, useParam, useRouter } from '@/utils'
-import { helper, timestamp } from '@heyform-inc/utils'
+import { helper, timestamp } from '@myform/utils'
 
 import Logo from '@/assets/logo.svg?react'
 import { Button, useAlert } from '@/components'
@@ -81,7 +81,7 @@ export const LoginGuard: FC<LayoutProps> = ({ options, children }) => {
 
   useEffect(() => {
     if (helper.isValid(options?.title)) {
-      document.title = `${t(options!.title)} - HeyForm`
+      document.title = `${t(options!.title)} - MyForm`
     }
   }, [options, t])
 
@@ -173,7 +173,7 @@ export const WorkspaceGuard: FC<LayoutProps> = ({ options, children }) => {
     selectWorkspace(workspaceId)
 
     if (workspaceId) {
-      let title = `${workspace?.name} - HeyForm`
+      let title = `${workspace?.name} - MyForm`
 
       if (helper.isValid(options?.title)) {
         title = `${t(options!.title)} · ` + title
@@ -187,7 +187,7 @@ export const WorkspaceGuard: FC<LayoutProps> = ({ options, children }) => {
     selectProject(projectId)
 
     if (projectId) {
-      let title = `${workspace?.name}/${project?.name} - HeyForm`
+      let title = `${workspace?.name}/${project?.name} - MyForm`
 
       if (helper.isValid(options?.title)) {
         title = `${t(options!.title)} · ` + title
@@ -214,7 +214,7 @@ export const BaseLayout: FC<LayoutProps> = ({ options, children }) => {
 
   useEffect(() => {
     if (helper.isValid(options?.title)) {
-      document.title = `${t(options!.title)} - HeyForm`
+      document.title = `${t(options!.title)} - MyForm`
     }
   }, [options, t])
 
@@ -231,9 +231,9 @@ export const BaseLayout: FC<LayoutProps> = ({ options, children }) => {
         </div>
 
         <div className="bg-foreground/0 sticky top-0 z-10 flex items-center justify-between p-4 lg:p-6">
-          <a href="/" className="flex items-center gap-2.5" title="HeyForm">
+          <a href="/" className="flex items-center gap-2.5" title="MyForm">
             <Logo className="h-8 w-auto" />
-            <span className="text-xl font-semibold tracking-tight">HeyForm</span>
+            <span className="text-xl font-semibold tracking-tight">MyForm</span>
           </a>
 
           <WorkspaceAccount

@@ -1,8 +1,8 @@
 {
-  "name": "@heyform-inc/embed",
+  "name": "@myform/embed",
   "version": "0.0.8",
-  "homepage": "https://heyform.net",
-  "author": "Heyooo, Inc.",
+  "homepage": "https://myform.example.com",
+  "author": "MyForm Contributors",
   "license": "AGPL-3.0",
   "files": [
     "./dist",

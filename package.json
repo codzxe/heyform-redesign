@@ -1,7 +1,7 @@
 {
-  "name": "heyform",
-  "homepage": "https://heyform.net",
-  "author": "EarlyBird, Inc.",
+  "name": "myform",
+  "homepage": "https://myform.example.com",
+  "author": "MyForm Contributors",
   "license": "AGPL-3.0",
   "private": true,
   "engines": {

@@ -1,4 +1,4 @@
-import { flattenFieldsWithGroups } from '@heyform-inc/form-renderer'
+import { flattenFieldsWithGroups } from '@myform/form-renderer'
 import {
   IconBolt,
   IconChevronLeft,
@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom'
 import { getFilteredFields } from './utils'
 import { FormService } from '@/services'
 import { useParam, useRouter } from '@/utils'
-import { getChoiceBranchingErrors, htmlUtils } from '@heyform-inc/answer-utils'
+import { getChoiceBranchingErrors, htmlUtils } from '@myform/answer-utils'
 
 import { Button, Loader, Tooltip, usePrompt, useToast } from '@/components'
 import { useAppStore, useFormStore, useWorkspaceStore } from '@/store'
@@ -129,7 +129,7 @@ export default function BuilderNavBar() {
     >
       <nav aria-label="breadcrumb" className="flex">
         <ol className="text-secondary flex flex-wrap items-center gap-1.5 break-words text-sm">
-          {window.heyform.device.mobile ? (
+          {window.myform.device.mobile ? (
             <li className="text-primary">
               <Link
                 role="link"

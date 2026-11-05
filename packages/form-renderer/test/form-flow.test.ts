@@ -3,7 +3,7 @@
 // Client_MatchesServer / Termination and Discard.tla's NoDataLoss, EndingsAgree,
 // ClientDiscardIsServerDiscard and ShownIsResolved (MCFlow, MCTerm, MCDiscard*): both sides
 // run their real code, the renderer through its store reducer and getRespondentFields().
-import { FieldKindEnum, type FormField } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, type FormField } from '@myform/shared-types-enums'
 import { expect, test } from 'vitest'
 
 import {
@@ -23,8 +23,8 @@ import {
   flattenFields,
   isSubmissionDiscarded,
   resolveEnding
-} from '@heyform-inc/answer-utils'
-import { clone } from '@heyform-inc/utils'
+} from '@myform/answer-utils'
+import { clone } from '@myform/utils'
 
 import { type IState, StoreReducer } from '../src/store'
 

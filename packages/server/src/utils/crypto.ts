@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 const AES_KEY_SIZE = 32
 const BCRYPT_HASH_PATTERN = /^\$2[aby]\$\d{2}\$[./A-Za-z0-9]{53}$/
@@ -108,7 +108,7 @@ export function aesDecryptObject(
 
 const SECRET_VERSION = 'v1'
 const SECRET_TAG_LENGTH = 16
-const SECRET_KEY_INFO = 'heyform:stored-secret'
+const SECRET_KEY_INFO = 'myform:stored-secret'
 
 function storedSecretKey(secret: string): Buffer {
   if (helper.isEmpty(secret)) {

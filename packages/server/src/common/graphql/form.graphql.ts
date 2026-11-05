@@ -21,7 +21,7 @@ import {
   Property,
   Validation,
   Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import {
   ArrayMaxSize,
   ArrayUnique,

@@ -1,6 +1,6 @@
-import { Answer, FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { Answer, FieldKindEnum } from '@myform/shared-types-enums'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import parser from './answer-parser'
 

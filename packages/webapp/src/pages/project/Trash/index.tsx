@@ -1,16 +1,17 @@
-import { FormStatusEnum } from '@heyform-inc/shared-types-enums'
+import { FormStatusEnum } from '@myform/shared-types-enums'
 import { IconArrowUpRight } from '@tabler/icons-react'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
 import { FormService } from '@/services'
 import { useParam } from '@/utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Async, EmptyState, Repeat } from '@/components'
 import { FormType } from '@/types'
 
 import FormItem from '../Forms/FormItem'
+import { HELP_CENTER_URL } from '@consts/env'
 
 export default function ProjectTrash() {
   const { t } = useTranslation()
@@ -39,7 +40,7 @@ export default function ProjectTrash() {
             a: (
               <a
                 className="hover:text-primary underline underline-offset-4"
-                href="https://docs.heyform.net/quickstart/how-to-delete-forms"
+                href=`${HELP_CENTER_URL}/quickstart/how-to-delete-forms`
                 target="_blank"
                 rel="noopener noreferrer"
               />

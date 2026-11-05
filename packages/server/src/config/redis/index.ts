@@ -12,7 +12,7 @@ import {
   REDIS_TLS,
   REDIS_USERNAME
 } from '@environments'
-import { toJSON } from '@heyform-inc/utils'
+import { toJSON } from '@myform/utils'
 
 export function createRedisOptions(db: number = REDIS_DB, tls: string = REDIS_TLS): RedisOptions {
   const tlsOptions = tls ? toJSON<NonNullable<RedisOptions['tls']>>(tls, {}) : undefined

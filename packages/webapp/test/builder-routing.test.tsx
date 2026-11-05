@@ -4,7 +4,7 @@ import {
   ComparisonEnum,
   FieldKindEnum,
   LogicPayload
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { act, useReducer } from 'react'
 import { Root, createRoot } from 'react-dom/client'
 import { MemoryRouter } from 'react-router-dom'
@@ -12,7 +12,7 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 import { initFields } from '../src/pages/form/Builder/utils'
 import { FormService } from '../src/services'
-import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID } from '@myform/answer-utils'
 
 import i18n from '../src/i18n'
 import { Builder as FormBuilder } from '../src/pages/form/Builder'
@@ -236,7 +236,7 @@ test('gives "Other" its own required destination when branching', async () => {
 
 test('keeps autosave active in the production Logic Flow tab and persists its connection', async () => {
   Object.assign(window, {
-    heyform: { device: { mobile: false }, enableGoogleFonts: false },
+    myform: { device: { mobile: false }, enableGoogleFonts: false },
     matchMedia: () => ({ matches: false, addEventListener() {}, removeEventListener() {} })
   })
   vi.stubGlobal(

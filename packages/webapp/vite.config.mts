@@ -24,15 +24,15 @@ export default ({ mode }: ConfigEnv) => {
     resolve: {
       alias: [
         {
-          find: /^@heyform-inc\/form-renderer\/style\.css$/,
+          find: /^@myform-inc\/form-renderer\/style\.css$/,
           replacement: resolve(__dirname, '../form-renderer/src/style.scss')
         },
         {
-          find: /^@heyform-inc\/form-renderer\/src$/,
+          find: /^@myform-inc\/form-renderer\/src$/,
           replacement: resolve(__dirname, '../form-renderer/src/index.ts')
         },
         {
-          find: /^@heyform-inc\/form-renderer$/,
+          find: /^@myform-inc\/form-renderer$/,
           replacement: resolve(__dirname, '../form-renderer/src/index.ts')
         },
         {
@@ -70,11 +70,11 @@ export default ({ mode }: ConfigEnv) => {
               'react-sortablejs',
               'qrcode.react'
             ],
-            heyform: [
-              '@heyooo-inc/react-router',
-              '@heyform-inc/answer-utils',
-              '@heyform-inc/shared-types-enums',
-              '@heyform-inc/utils'
+            myform: [
+              '@myform-inc/react-router',
+              '@myform/answer-utils',
+              '@myform/shared-types-enums',
+              '@myform/utils'
             ]
           }
         }

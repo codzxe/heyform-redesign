@@ -1,8 +1,8 @@
-import { FORM_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
+import { FORM_FIELD_KINDS } from '@myform/shared-types-enums'
 import assert from 'assert'
 
 import { normalizeAIFields } from '../src/utils/ai-fields'
-import { htmlUtils } from '@heyform-inc/answer-utils'
+import { htmlUtils } from '@myform/answer-utils'
 
 const [field] = normalizeAIFields([
   {

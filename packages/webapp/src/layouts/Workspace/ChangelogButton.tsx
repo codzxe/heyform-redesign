@@ -33,7 +33,7 @@ export default function ChangelogButton() {
 
   return (
     <a
-      href="https://github.com/heyform/heyform/releases"
+      href="https://github.com/codzxe/myform/releases"
       target="_blank"
       rel="noreferrer"
       className="hf-sidebar-link"

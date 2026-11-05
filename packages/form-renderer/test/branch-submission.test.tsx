@@ -6,13 +6,13 @@ import {
   FieldKindEnum,
   type FormField,
   type Logic
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { Field } from 'rc-field-form'
 import { act, useReducer } from 'react'
 import { type Root, createRoot } from 'react-dom/client'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
-import { OTHER_CHOICE_ID, applyLogicToFields } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID, applyLogicToFields } from '@myform/answer-utils'
 
 import { Form } from '../src/blocks/Form'
 import { initI18n } from '../src/i18n'

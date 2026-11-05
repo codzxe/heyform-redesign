@@ -1,4 +1,4 @@
-import { preventDefault } from '@heyform-inc/form-renderer'
+import { preventDefault } from '@myform/form-renderer'
 import { IconChevronLeft, IconCopy, IconDots, IconTag, IconTrash } from '@tabler/icons-react'
 import { useRequest } from 'ahooks'
 import { FC, useEffect, useMemo } from 'react'
@@ -12,6 +12,7 @@ import IconLink from '@/assets/link.svg?react'
 import IconMoveTo from '@/assets/move-to.svg?react'
 import { Button, Dropdown, Skeleton, Tooltip, useAlert, usePrompt } from '@/components'
 import { useFormStore, useWorkspaceStore } from '@/store'
+import { FEEDBACK_FORM_URL, HELP_CENTER_URL } from '@consts/env'
 
 const DROPDOWN_OPTIONS = [
   {
@@ -219,7 +220,7 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
           label: t('form.suspend.contactUs')
         },
         onConfirm() {
-          window.location.href = 'https://heyform.net/f/E4MKK2hx'
+          window.location.href = FEEDBACK_FORM_URL || HELP_CENTER_URL
         }
       })
     }

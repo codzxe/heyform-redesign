@@ -36,7 +36,7 @@ COPY packages/shared-types-enums/package.json $APP_PATH/packages/shared-types-en
 COPY packages/answer-utils/package.json $APP_PATH/packages/answer-utils/package.json
 COPY scripts/build-shared.js $APP_PATH/scripts/build-shared.js
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    HEYFORM_SKIP_SHARED_BUILD=1 pnpm install --offline --frozen-lockfile --store-dir=/pnpm/store
+    MYFORM_SKIP_SHARED_BUILD=1 pnpm install --offline --frozen-lockfile --store-dir=/pnpm/store
 
 COPY packages/server $APP_PATH/packages/server
 COPY packages/webapp $APP_PATH/packages/webapp

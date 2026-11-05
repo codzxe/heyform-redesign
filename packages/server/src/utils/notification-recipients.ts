@@ -1,6 +1,6 @@
 import { BadRequestException } from '@nestjs/common'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 export const MAX_NOTIFICATION_RECIPIENTS = 10
 

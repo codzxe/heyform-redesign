@@ -1,4 +1,4 @@
-import { COUNTRIES, FlagIcon } from '@heyform-inc/form-renderer'
+import { COUNTRIES, FlagIcon } from '@myform/form-renderer'
 import { IconChevronDown, IconChevronRight } from '@tabler/icons-react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
@@ -16,13 +16,13 @@ export const PhoneNumber: FC<BlockProps> = ({ field, locale, ...restProps }) => 
   )
 
   return (
-    <Block className="heyform-phone-number" field={field} locale={locale} {...restProps}>
+    <Block className="myform-phone-number" field={field} locale={locale} {...restProps}>
       <div className="flex items-center">
-        <div className="heyform-calling-code">
+        <div className="myform-calling-code">
           <FlagIcon countryCode={field.properties?.defaultCountryCode} />
-          <IconChevronDown className="heyform-phone-arrow-icon" />
+          <IconChevronDown className="myform-phone-arrow-icon" />
         </div>
-        <input type="text" className="heyform-input" placeholder={placeholder} disabled={true} />
+        <input type="text" className="myform-input" placeholder={placeholder} disabled={true} />
       </div>
       <FakeSubmit text={t('Next', { lng: locale })} icon={<IconChevronRight />} />
     </Block>

@@ -7,7 +7,7 @@ import type { AppDefinition } from '../src/apps/types'
 
 // Set before the server modules read them
 process.env.INTEGRATION_ENCRYPTION_KEY = 'integration-auth-test-key'
-process.env.APP_HOMEPAGE_URL = 'https://heyform.example.com'
+process.env.APP_HOMEPAGE_URL = 'https://myform.example.com'
 process.env.FAKE_INTEGRATION_CLIENT_ID = 'fake-client-id'
 process.env.FAKE_INTEGRATION_CLIENT_SECRET = 'fake-client-secret'
 
@@ -705,7 +705,7 @@ async function testAuthorizeUrlAndState() {
   assert.strictEqual(parsed.searchParams.get('client_id'), 'fake-client-id')
   assert.strictEqual(
     parsed.searchParams.get('redirect_uri'),
-    'https://heyform.example.com/api/integrations/oauth/callback'
+    'https://myform.example.com/api/integrations/oauth/callback'
   )
   assert.strictEqual(parsed.searchParams.get('response_type'), 'code')
   // The identity scopes come first, so the account can be identified
@@ -808,7 +808,7 @@ async function testConnectingCreatesATeamConnection() {
   assert.deepStrictEqual(provider.tokenRequests[0].params, {
     grant_type: 'authorization_code',
     code: 'code-1',
-    redirect_uri: 'https://heyform.example.com/api/integrations/oauth/callback',
+    redirect_uri: 'https://myform.example.com/api/integrations/oauth/callback',
     code_verifier: 'verifier-1',
     client_id: 'fake-client-id',
     client_secret: 'fake-client-secret'
@@ -2308,7 +2308,7 @@ function createCallbackController(
 // the SameSite=None session and the Lax state cookie, but not the webapp's
 // SameSite=Strict device-id cookie
 function callbackRequest(state: string, session: any = SESSION) {
-  return { cookies: { HEYFORM_INTEGRATION_OAUTH_STATE: state }, session }
+  return { cookies: { MYFORM_INTEGRATION_OAUTH_STATE: state }, session }
 }
 
 function createResponse() {
@@ -2336,7 +2336,7 @@ async function startAuthorization(ctx: ReturnType<typeof createAuth>) {
     session: SESSION
   })
 
-  const cookie = res.cookies.HEYFORM_INTEGRATION_OAUTH_STATE
+  const cookie = res.cookies.MYFORM_INTEGRATION_OAUTH_STATE
   assert.strictEqual(cookie.options.httpOnly, true)
   assert.strictEqual(cookie.options.path, '/api/integrations/oauth')
 
@@ -2362,7 +2362,7 @@ async function testCallbackConnectsAndRedirectsBack() {
     res.redirectedTo,
     '/workspace/team_1/project/project_1/form/form_1/integrations?appId=fakeapp&integrationConnected=1'
   )
-  assert.deepStrictEqual(res.cleared, ['HEYFORM_INTEGRATION_OAUTH_STATE'])
+  assert.deepStrictEqual(res.cleared, ['MYFORM_INTEGRATION_OAUTH_STATE'])
 
   // A connection of the form's team, by this user, picked for the form
   const [connection] = ctx.connections.values()

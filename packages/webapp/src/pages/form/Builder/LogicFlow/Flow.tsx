@@ -1,5 +1,5 @@
-import { flattenFieldsWithGroups } from '@heyform-inc/form-renderer'
-import { FieldKindEnum, UNSELECTABLE_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
+import { flattenFieldsWithGroups } from '@myform/form-renderer'
+import { FieldKindEnum, UNSELECTABLE_FIELD_KINDS } from '@myform/shared-types-enums'
 import { useCallback, useEffect, useMemo } from 'react'
 import ReactFlow, {
   Connection,
@@ -12,7 +12,7 @@ import ReactFlow, {
 } from 'react-flow-renderer'
 
 import { fieldLogicToNodesEdges } from '../utils'
-import { createFieldNavigation, isChoiceBranchingField } from '@heyform-inc/answer-utils'
+import { createFieldNavigation, isChoiceBranchingField } from '@myform/answer-utils'
 
 import { useAppStore } from '@/store'
 

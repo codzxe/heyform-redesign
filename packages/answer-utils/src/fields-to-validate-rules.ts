@@ -4,10 +4,10 @@ import {
   Property,
   QUESTION_FIELD_KINDS,
   Validation
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
 import { htmlUtils } from './html-utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { getDateFormat } from './helper'
 

@@ -1,4 +1,4 @@
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 // Keep in sync with MAX_NOTIFICATION_RECIPIENTS in packages/server/src/utils/notification-recipients.ts
 export const MAX_NOTIFICATION_RECIPIENTS = 10

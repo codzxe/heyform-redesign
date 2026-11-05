@@ -32,13 +32,13 @@ export const Rating: FC<BlockProps> = ({ field, ...restProps }) => {
     return (
       <>
         {RATING_SHAPE_ICONS[shape]}
-        <span className="heyform-rate-index">{index}</span>
+        <span className="myform-rate-index">{index}</span>
       </>
     )
   }
 
   return (
-    <Block className="heyform-rating" field={field} {...restProps}>
+    <Block className="myform-rating" field={field} {...restProps}>
       <Form
         initialValues={{
           input: state.values[field.id]

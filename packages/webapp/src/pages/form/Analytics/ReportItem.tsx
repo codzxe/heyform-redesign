@@ -1,9 +1,9 @@
-import { CHOICE_FIELD_KINDS, RATING_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
+import { CHOICE_FIELD_KINDS, RATING_FIELD_KINDS } from '@myform/shared-types-enums'
 import { IconChevronDown, IconChevronRight } from '@tabler/icons-react'
 import { FC, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { helper, toFixed } from '@heyform-inc/utils'
+import { helper, toFixed } from '@myform/utils'
 
 import { useFormStore } from '@/store'
 
@@ -34,7 +34,7 @@ const Choices: FC<ChoicesProps> = ({ fieldId, chooses }) => {
   const [isOtherOpen, setIsOtherOpen] = useState(false)
 
   return (
-    <div className="heyform-report-chart">
+    <div className="myform-report-chart">
       {chooses.map((row, index) => {
         const percent = `${toFixed(((row.count || 0) * 100) / total)}%`
         const canExpand = row.isOther && row.count > 0 && fieldId
@@ -43,17 +43,17 @@ const Choices: FC<ChoicesProps> = ({ fieldId, chooses }) => {
         const bar = (
           <>
             <div
-              className="heyform-report-chart-background"
+              className="myform-report-chart-background"
               style={{
                 width: percent
               }}
             />
-            <div className="heyform-report-chart-content">
-              <span className="heyform-report-chart-percent flex items-center gap-1">
+            <div className="myform-report-chart-content">
+              <span className="myform-report-chart-percent flex items-center gap-1">
                 {canExpand && <ChevronIcon className="h-4 w-4" />}
                 {row.label} · {percent}
               </span>
-              <span className="heyform-report-chart-count">
+              <span className="myform-report-chart-count">
                 {t('form.analytics.report.submission', { count: row.count || 0 })}
               </span>
             </div>
@@ -62,7 +62,7 @@ const Choices: FC<ChoicesProps> = ({ fieldId, chooses }) => {
 
         if (!canExpand) {
           return (
-            <div key={index} className="heyform-report-chart-item">
+            <div key={index} className="myform-report-chart-item">
               {bar}
             </div>
           )
@@ -72,7 +72,7 @@ const Choices: FC<ChoicesProps> = ({ fieldId, chooses }) => {
           <div key={index}>
             <button
               type="button"
-              className="heyform-report-chart-item block w-full text-left"
+              className="myform-report-chart-item block w-full text-left"
               aria-expanded={isOtherOpen}
               onClick={() => setIsOtherOpen(open => !open)}
             >
@@ -92,24 +92,24 @@ const Ratings: FC<RatingsProps> = ({ length, chooses }) => {
   const total = chooses.filter(c => helper.isNumeric(c)).reduce((prev, next) => prev + next, 0)
 
   return (
-    <div className="heyform-report-chart">
+    <div className="myform-report-chart">
       {arrays.map((row, index) => {
         const count = chooses[row] || 0
         const percent = `${toFixed((count * 100) / total)}%`
 
         return (
-          <div key={index} className="heyform-report-chart-item">
+          <div key={index} className="myform-report-chart-item">
             <div
-              className="heyform-report-chart-background"
+              className="myform-report-chart-background"
               style={{
                 width: percent
               }}
             />
-            <div className="heyform-report-chart-content">
-              <span className="heyform-report-chart-percent">
+            <div className="myform-report-chart-content">
+              <span className="myform-report-chart-percent">
                 {row} · {total > 0 ? Math.round((count * 100) / total) : 0}%
               </span>
-              <span className="heyform-report-chart-count">
+              <span className="myform-report-chart-count">
                 {t('form.analytics.report.submission', { count })}
               </span>
             </div>
@@ -144,13 +144,13 @@ const FormReportItem: FC<FormReportItemProps> = ({ index, response, isHideFieldE
   }, [isChoices, isRating, response])
 
   return (
-    <li className="heyform-report-item">
+    <li className="myform-report-item">
       <div className="flex gap-4">
-        <div className="heyform-report-question flex-1">
+        <div className="myform-report-question flex-1">
           {index}. {response.title}
         </div>
       </div>
-      <div className="heyform-report-meta">
+      <div className="myform-report-meta">
         {isRating
           ? t('form.analytics.report.submission2', {
               count: response.count,
@@ -159,7 +159,7 @@ const FormReportItem: FC<FormReportItemProps> = ({ index, response, isHideFieldE
           : t('form.analytics.report.submission', { count: response.count })}
       </div>
 
-      {!isHided && <div className="heyform-report-content">{children}</div>}
+      {!isHided && <div className="myform-report-content">{children}</div>}
     </li>
   )
 }

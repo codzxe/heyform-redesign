@@ -5,8 +5,8 @@ import { Dirent, readFileSync, readdirSync } from 'fs'
 import { basename, extname, join } from 'path'
 
 import { EMAIL_TEMPLATES_DIR, SMTP_FROM, SMTP_HOST, SMTP_PORT } from '@environments'
-import { htmlUtils } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { htmlUtils } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 interface JoinWorkspaceAlertOptions {
   teamName: string

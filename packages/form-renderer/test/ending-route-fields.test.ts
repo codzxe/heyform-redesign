@@ -3,11 +3,11 @@ import {
   ComparisonEnum,
   FieldKindEnum,
   type FormField
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { expect, test } from 'vitest'
 
 import { flattenFieldsWithGroups, getEndingRouteFields } from '../src/utils'
-import { resolveEnding } from '@heyform-inc/answer-utils'
+import { resolveEnding } from '@myform/answer-utils'
 
 const question = (id: string): FormField => ({ id, kind: FieldKindEnum.SHORT_TEXT, title: id })
 const ending = (id: string, discardSubmission = false): FormField => ({

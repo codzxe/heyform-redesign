@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 import { useTranslation } from '../utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { FormField, TableInput } from '../components'
 import { useStore } from '../store'
@@ -18,7 +18,7 @@ export const InputTable: FC<BlockProps> = ({ field, ...restProps }) => {
   }
 
   return (
-    <Block className="heyform-date" field={field} {...restProps}>
+    <Block className="myform-date" field={field} {...restProps}>
       <Form
         initialValues={{
           input: state.values[field.id]

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useTransition } from 'react-transition-state'
 
 import { sliceFieldsByLogics, treeFields, useTranslation } from '../utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Button, CollapseIcon, XIcon } from '../components'
 import { TRANSITION_UNMOUNTED_STATES } from '../consts'
@@ -34,14 +34,14 @@ const Question: FC<QuestionProps> = ({ field, selectedId, onClick }) => {
 
   return (
     <div
-      className={clsx('heyform-sidebar-question', {
-        'heyform-sidebar-question-group': isGroup,
-        'heyform-sidebar-question-selected': isSelected,
-        'heyform-sidebar-question-collapsed': isCollapsed
+      className={clsx('myform-sidebar-question', {
+        'myform-sidebar-question-group': isGroup,
+        'myform-sidebar-question-selected': isSelected,
+        'myform-sidebar-question-collapsed': isCollapsed
       })}
     >
-      <div className="heyform-sidebar-question-root">
-        <div className="heyform-sidebar-question-toggle-collapse" onClick={handleToggleCollapse}>
+      <div className="myform-sidebar-question-root">
+        <div className="myform-sidebar-question-toggle-collapse" onClick={handleToggleCollapse}>
           {isGroup && (
             <CollapseIcon
               className={clsx({
@@ -51,8 +51,8 @@ const Question: FC<QuestionProps> = ({ field, selectedId, onClick }) => {
           )}
         </div>
         <div
-          id={`heyform-sidebar-${field.id}`}
-          className="heyform-sidebar-question-title"
+          id={`myform-sidebar-${field.id}`}
+          className="myform-sidebar-question-title"
           onClick={handleClick}
         >
           {field.title}
@@ -60,7 +60,7 @@ const Question: FC<QuestionProps> = ({ field, selectedId, onClick }) => {
       </div>
 
       {isGroup && (
-        <div className="heyform-sidebar-question-children">
+        <div className="myform-sidebar-question-children">
           {field.children!.map(c => (
             <Question key={c.id} field={c} selectedId={selectedId} onClick={onClick} />
           ))}
@@ -99,8 +99,8 @@ export const Sidebar: FC = () => {
   useEffect(() => {
     if (!helper.isNil(state.scrollIndex)) {
       const field = state.fields[state.scrollIndex!]
-      const container = document.querySelector('.heyform-sidebar-content')
-      const element = container?.querySelector(`#heyform-sidebar-${field.id}`)
+      const container = document.querySelector('.myform-sidebar-content')
+      const element = container?.querySelector(`#myform-sidebar-${field.id}`)
 
       if (container && element) {
         const containerRect = container.getBoundingClientRect()
@@ -127,14 +127,14 @@ export const Sidebar: FC = () => {
   }
 
   return (
-    <div className={clsx('heyform-sidebar', `heyform-sidebar-${transitionState.status}`)}>
-      <div className="heyform-sidebar-container">
-        <div className="heyform-sidebar-heading">
-          <h2 className="heyform-sidebar-title">{t('Questions')}</h2>
+    <div className={clsx('myform-sidebar', `myform-sidebar-${transitionState.status}`)}>
+      <div className="myform-sidebar-container">
+        <div className="myform-sidebar-heading">
+          <h2 className="myform-sidebar-title">{t('Questions')}</h2>
           <Button.Link leading={<XIcon />} onClick={handleCloseSidebar} />
         </div>
-        <div className="heyform-sidebar-content heyform-scrollbar">
-          <div className="heyform-sidebar-question-list">
+        <div className="myform-sidebar-content myform-scrollbar">
+          <div className="myform-sidebar-question-list">
             {fields.map(field => (
               <Question
                 key={field.id}

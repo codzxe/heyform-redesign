@@ -1,7 +1,7 @@
 import { BadRequestException, Controller, Headers, Post, Req } from '@nestjs/common'
 
 import { STRIPE_WEBHOOK_SECRET_KEY } from '@environments'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { PaymentService, SubmissionService } from '@service'
 
 @Controller()

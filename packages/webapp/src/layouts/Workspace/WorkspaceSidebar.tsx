@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 
 import { cn, useParam } from '@/utils'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { Button, Tooltip } from '@/components'
 import { useAppStore, useModal, useWorkspaceStore } from '@/store'
@@ -22,6 +22,7 @@ import ChangelogButton from './ChangelogButton'
 import ProjectItem from './ProjectItem'
 import WorkspaceAccount from './WorkspaceAccount'
 import WorkspaceSwitcher from './WorkspaceSwitcher'
+import { HELP_CENTER_URL } from '@consts/env'
 
 interface LinkProps {
   to: string
@@ -33,7 +34,7 @@ const RESOURCE_LINKS = [
   {
     icon: IconLocation,
     title: 'workspace.sidebar.gettingStarted',
-    href: 'https://docs.heyform.net/quickstart/create-a-form'
+    href: `${HELP_CENTER_URL}/quickstart/create-a-form`
   }
 ]
 

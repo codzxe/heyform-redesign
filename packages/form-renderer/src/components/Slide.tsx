@@ -89,7 +89,7 @@ export const Slide: FC<SlideProps> = ({
   }, [])
 
   return (
-    <div className={clsx('heyform-slide', className)} onWheel={handleWheelScroll} {...restProps}>
+    <div className={clsx('myform-slide', className)} onWheel={handleWheelScroll} {...restProps}>
       {children}
     </div>
   )

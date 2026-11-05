@@ -2,7 +2,7 @@ import {
   CaptchaKindEnum,
   FieldKindEnum,
   SubmissionCategoryEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import * as assert from 'assert'
 
 import { CompleteSubmissionResolver } from '../src/resolver/endpoint/complete-submission.resolver'

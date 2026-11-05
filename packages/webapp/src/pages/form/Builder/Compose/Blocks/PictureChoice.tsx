@@ -1,5 +1,5 @@
-import { Button, Input, getChoiceKeyName } from '@heyform-inc/form-renderer'
-import { Choice, ChoiceBadgeEnum } from '@heyform-inc/shared-types-enums'
+import { Button, Input, getChoiceKeyName } from '@myform/form-renderer'
+import { Choice, ChoiceBadgeEnum } from '@myform/shared-types-enums'
 import {
   IconPencil,
   IconPhoto,
@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next'
 import { ReactSortable } from 'react-sortablejs'
 
 import { cn } from '@/utils'
-import { clone, excludeObject, helper, nanoid } from '@heyform-inc/utils'
+import { clone, excludeObject, helper, nanoid } from '@myform/utils'
 
 import { ImagePicker, ImagePickerRef } from '@/components'
 
@@ -72,40 +72,40 @@ const PictureChoiceItem: FC<PictureChoiceItemProps> = ({
   }
 
   return (
-    <div className="heyform-radio">
-      <div className="heyform-radio-container">
+    <div className="myform-radio">
+      <div className="myform-radio-container">
         {isOther ? (
-          <div className="heyform-radio-trigger">
+          <div className="myform-radio-trigger">
             <IconPencil />
           </div>
         ) : helper.isURL(choice.image) ? (
           <>
-            <div className="heyform-radio-image">
+            <div className="myform-radio-image">
               <img src={choice.image!} alt={choice.label} />
             </div>
-            <div className="heyform-radio-actions">
+            <div className="myform-radio-actions">
               <Button.Link leading={<IconPhoto />} onClick={handleSelectImage} />
               <Button.Link leading={<IconTrash />} onClick={handleRemoveImage} />
             </div>
           </>
         ) : (
-          <div className="heyform-radio-trigger" onClick={handleSelectImage}>
+          <div className="myform-radio-trigger" onClick={handleSelectImage}>
             <IconPhotoPlus />
           </div>
         )}
 
-        <div className="heyform-radio-content">
+        <div className="myform-radio-content">
           <div
             className={cn(
-              'heyform-radio-hotkey',
-              isOther ? null : 'heyform-multiple-choice-handle cursor-move'
+              'myform-radio-hotkey',
+              isOther ? null : 'myform-multiple-choice-handle cursor-move'
             )}
           >
             {getChoiceKeyName(badge, index)}
           </div>
-          <div className="heyform-radio-label">
+          <div className="myform-radio-label">
             {isOther ? (
-              <div className="heyform-radio-label-other">{choice.label}</div>
+              <div className="myform-radio-label-other">{choice.label}</div>
             ) : (
               <Input
                 value={choice.label}
@@ -117,7 +117,7 @@ const PictureChoiceItem: FC<PictureChoiceItemProps> = ({
             )}
           </div>
           {enableRemove && (
-            <div className="heyform-radio-remove" onClick={handleRemove}>
+            <div className="myform-radio-remove" onClick={handleRemove}>
               <IconX />
             </div>
           )}
@@ -129,9 +129,9 @@ const PictureChoiceItem: FC<PictureChoiceItemProps> = ({
 
 const AddPictureChoice: FC<ComponentProps> = props => {
   return (
-    <div className="heyform-radio" {...props}>
-      <div className="heyform-radio-container">
-        <div className="heyform-radio-image flex-1">
+    <div className="myform-radio" {...props}>
+      <div className="myform-radio-container">
+        <div className="myform-radio-image flex-1">
           <IconPlus />
         </div>
       </div>
@@ -299,14 +299,14 @@ export const PictureChoice: FC<BlockProps> = ({ field, locale, ...restProps }) =
   )
 
   return (
-    <Block className="heyform-picture-choice" field={field} locale={locale} {...restProps}>
+    <Block className="myform-picture-choice" field={field} locale={locale} {...restProps}>
       <ReactSortable
-        className="heyform-picture-choice-list"
-        ghostClass="heyform-multiple-choice-ghost"
-        chosenClass="heyform-multiple-choice-chosen"
-        dragClass="heyform-multiple-choice-dragging"
-        fallbackClass="heyform-multiple-choice-cloned"
-        handle=".heyform-multiple-choice-handle"
+        className="myform-picture-choice-list"
+        ghostClass="myform-multiple-choice-ghost"
+        chosenClass="myform-multiple-choice-chosen"
+        dragClass="myform-multiple-choice-dragging"
+        fallbackClass="myform-multiple-choice-cloned"
+        handle=".myform-multiple-choice-handle"
         list={choices}
         setList={handleSetList}
         delay={10}

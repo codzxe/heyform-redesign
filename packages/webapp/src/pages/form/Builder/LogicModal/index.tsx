@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { toChoiceBranchPayloads } from '../utils'
-import { htmlUtils } from '@heyform-inc/answer-utils'
+import { htmlUtils } from '@myform/answer-utils'
 
 import { Button, Form, Modal } from '@/components'
 import { useAppStore, useModal } from '@/store'

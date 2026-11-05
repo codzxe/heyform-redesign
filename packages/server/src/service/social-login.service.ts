@@ -1,4 +1,4 @@
-import { SocialLoginTypeEnum } from '@heyform-inc/shared-types-enums'
+import { SocialLoginTypeEnum } from '@myform/shared-types-enums'
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
@@ -20,7 +20,7 @@ import {
   OIDC_CLIENT_SECRET,
   OIDC_ISSUER
 } from '@environments'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { UserSocialAccountModel } from '@model'
 import {
   OIDC_LOGIN_KIND,

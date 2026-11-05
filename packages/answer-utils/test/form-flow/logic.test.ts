@@ -1,7 +1,7 @@
 // Properties of a form's logic, checked against the real navigation and condition code.
 // Replaces FormFlow.tla's Config_* invariants (MCFlow, MCBroken, MCBrokenRule); the same
 // checks after a builder type switch live in packages/webapp/test/form-flow-drift.test.ts.
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import { expect, test } from 'vitest'
 
 import { BrokenForm, FlowForm, FlowValues, type TestForm, logicProblems } from './fixtures'

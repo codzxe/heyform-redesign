@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Based on the [local development guide](https://docs.heyform.net/open-source/local-development).
+Based on the [local development guide](https://github.com/codzxe/myform#readme/open-source/local-development).
 
 ## Requirements
 
@@ -17,7 +17,7 @@ cp packages/server/.env.example packages/server/.env.local
 cp packages/webapp/.env.example packages/webapp/.env.local
 ```
 
-- Server: see the [configuration docs](https://docs.heyform.net/configuration) for values. The example's `MONGO_URI` and `REDIS_*` defaults match the development Docker services.
+- Server: see the [configuration docs](https://github.com/codzxe/myform#readme/configuration) for values. The example's `MONGO_URI` and `REDIS_*` defaults match the development Docker services.
 - Webapp: the example already sets the values needed locally:
   - `VITE_HOMEPAGE_URL=http://127.0.0.1:3000`
   - `VITE_COOKIE_DOMAIN=127.0.0.1`
@@ -65,7 +65,7 @@ Release from an up-to-date `next`. Replace `3.0.6` with the new version.
    git tag v3.0.6
    ```
 
-3. Push the commit and the tag. The tag triggers `publish-docker-image.yml`, which publishes `heyform/community-edition:v3.0.6` and `latest` to Docker Hub.
+3. Push the commit and the tag. The tag triggers `publish-docker-image.yml`, which publishes `myform/community-edition:v3.0.6` and `latest` to Docker Hub.
 
    ```bash
    git push origin next v3.0.6

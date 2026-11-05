@@ -5,12 +5,12 @@ import {
   FieldKindEnum,
   type FormField,
   type Logic
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { act, useReducer } from 'react'
 import { type Root, createRoot } from 'react-dom/client'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
-import { applyLogicToFields } from '@heyform-inc/answer-utils'
+import { applyLogicToFields } from '@myform/answer-utils'
 
 import { initI18n } from '../src/i18n'
 import { type IState, StoreContext, StoreReducer } from '../src/store'

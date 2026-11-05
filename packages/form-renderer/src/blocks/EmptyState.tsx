@@ -1,4 +1,4 @@
-import type { FormField } from '@heyform-inc/shared-types-enums'
+import type { FormField } from '@myform/shared-types-enums'
 import clsx from 'clsx'
 import type { FC } from 'react'
 
@@ -19,7 +19,7 @@ export const EmptyState: FC<EmptyStateProps> = ({ className, field, onClick, ...
 
   return (
     <Block
-      className={clsx('heyform-empty-state', className)}
+      className={clsx('myform-empty-state', className)}
       field={field as FormField}
       isScrollable={false}
       {...restProps}

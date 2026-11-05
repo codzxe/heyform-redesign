@@ -1,16 +1,16 @@
-import { flattenFieldsWithGroups } from '@heyform-inc/form-renderer'
+import { flattenFieldsWithGroups } from '@myform/form-renderer'
 import {
   FieldKindEnum,
   HiddenField,
   type Logic,
   QUESTION_FIELD_KINDS,
   type Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
 import { getValidLogics, removeInvalidNextFieldIds, serializeFields } from '../utils'
 import { FormService } from '@/services'
-import { htmlUtils, isValidNextFieldId } from '@heyform-inc/answer-utils'
-import { clone, helper, nanoid } from '@heyform-inc/utils'
+import { htmlUtils, isValidNextFieldId } from '@myform/answer-utils'
+import { clone, helper, nanoid } from '@myform/utils'
 
 import { FormFieldType } from '@/types'
 

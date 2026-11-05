@@ -1,12 +1,12 @@
-import { Property } from '@heyform-inc/shared-types-enums'
+import { Property } from '@myform/shared-types-enums'
 import dayjs from 'dayjs'
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { OTHER_CHOICE_LABEL } from './consts'
 
-export { htmlToText } from '@heyform-inc/utils'
+export { htmlToText } from '@myform/utils'
 
 export function isNumber(arg: any): boolean {
   return Number.isFinite(arg)

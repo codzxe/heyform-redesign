@@ -60,7 +60,7 @@ export type AppSetting<A extends AppAuth = AppAuth> =
   | SelectAppSetting<A>
   | SwitchAppSetting
 
-// How HeyForm authenticates with the app's service. HeyForm stores the
+// How MyForm authenticates with the app's service. MyForm stores the
 // credentials and hands run() a ready-to-use value, so app code never handles
 // storage, encryption or token expiry.
 export interface NoneAppAuth {
@@ -136,7 +136,7 @@ export class AppError extends Error {
   // A delivery that fails with a non-retryable error isn't tried again.
   readonly retryable: boolean
   // The service rejected the access token, e.g. because access was revoked
-  // before the token expired. HeyForm refreshes the token and calls the app
+  // before the token expired. MyForm refreshes the token and calls the app
   // once more; if the provider refuses to refresh it, the account needs
   // reconnecting and the submission waits.
   readonly unauthorized: boolean

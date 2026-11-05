@@ -1,5 +1,5 @@
-import { insertWebFont } from '@heyform-inc/form-renderer'
-import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
+import { insertWebFont } from '@myform/form-renderer'
+import { FieldKindEnum } from '@myform/shared-types-enums'
 import { FC, useEffect } from 'react'
 
 import { insertThemeStyle } from '../utils'
@@ -184,19 +184,19 @@ export default function BuilderCompose() {
   return (
     <div
       className={cn('compose', {
-        'compose-mobile': window.heyform.device.mobile
+        'compose-mobile': window.myform.device.mobile
       })}
     >
-      <div className="heyform-root">
-        <div className="heyform-wrapper">
-          <div className="heyform-header">
-            <div className="heyform-header-wrapper">
-              <div className="heyform-header-left"></div>
-              <div className="heyform-header-right"></div>
+      <div className="myform-root">
+        <div className="myform-wrapper">
+          <div className="myform-header">
+            <div className="myform-header-wrapper">
+              <div className="myform-header-left"></div>
+              <div className="myform-header-right"></div>
             </div>
           </div>
 
-          <div className="compose-container heyform-body">
+          <div className="compose-container myform-body">
             <Fields />
           </div>
         </div>

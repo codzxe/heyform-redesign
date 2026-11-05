@@ -1,8 +1,8 @@
-import { getTheme, getThemeStyle } from '@heyform-inc/form-renderer'
-import { FormTheme } from '@heyform-inc/shared-types-enums'
+import { getTheme, getThemeStyle } from '@myform/form-renderer'
+import { FormTheme } from '@myform/shared-types-enums'
 
-import { isMobilePhone } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { isMobilePhone } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { STRIPE_PUBLISHABLE_KEY } from '@/consts'
 
@@ -128,11 +128,11 @@ export function insertThemeStyle(customTheme?: FormTheme) {
   const theme = getTheme(customTheme)
   let content = getThemeStyle(theme)
 
-  let style = document.getElementById('heyform-theme')
+  let style = document.getElementById('myform-theme')
 
   if (!style) {
     style = document.createElement('style')
-    style.id = 'heyform-theme'
+    style.id = 'myform-theme'
 
     document.head.appendChild(style)
   }

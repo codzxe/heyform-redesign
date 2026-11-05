@@ -1,6 +1,6 @@
 import assert from 'assert'
 
-import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID } from '@myform/answer-utils'
 
 import { E2EClient } from './helpers/client'
 import { signUpUser } from './helpers/fixtures'

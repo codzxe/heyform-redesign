@@ -1,9 +1,9 @@
-import { numberToChar, questionNumber } from '@heyform-inc/form-renderer'
+import { numberToChar, questionNumber } from '@myform/form-renderer'
 import {
   FieldKindEnum,
   OTHER_FIELD_KINDS,
   QUESTION_FIELD_KINDS
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import {
   IconCaretDownFilled,
   IconDatabaseOff,
@@ -17,8 +17,8 @@ import { ReactSortable } from 'react-sortablejs'
 
 import { getFieldFromKind } from '../utils'
 import { cn, nextTick } from '@/utils'
-import { htmlUtils } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { htmlUtils } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { Button, Dropdown, Tooltip } from '@/components'
 import { ALL_FIELD_CONFIGS } from '@/consts'

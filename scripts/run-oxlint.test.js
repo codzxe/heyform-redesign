@@ -6,7 +6,7 @@ const { join } = require('node:path')
 const test = require('node:test')
 
 function runLauncher(t, cli, args = []) {
-  const root = mkdtempSync(join(tmpdir(), 'heyform oxlint '))
+  const root = mkdtempSync(join(tmpdir(), 'myform oxlint '))
   t.after(() => rmSync(root, { recursive: true, force: true }))
   mkdirSync(join(root, 'scripts'))
   mkdirSync(join(root, 'node_modules', 'oxlint', 'bin'), { recursive: true })

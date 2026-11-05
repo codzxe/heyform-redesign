@@ -1,4 +1,4 @@
-import { FieldKindEnum, FormField } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, FormField } from '@myform/shared-types-enums'
 import type { FC } from 'react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
@@ -250,7 +250,7 @@ export const Blocks = () => {
   const { t } = useTranslation()
 
   function handleResize() {
-    if (window.heyform.device.android) {
+    if (window.myform.device.android) {
       document.activeElement?.scrollIntoView()
     }
   }
@@ -274,7 +274,7 @@ export const Blocks = () => {
       title: t('Thank you!'),
       description: t('Thanks for completing this form. Now create your own form.'),
       properties: {
-        buttonText: t('Create a heyform')
+        buttonText: t('Create a myform')
       }
     }
 

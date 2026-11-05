@@ -4,7 +4,7 @@ import {
   FieldKindEnum,
   Logic,
   LogicPayload
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { describe, expect, it } from 'vitest'
 
 import {
@@ -14,7 +14,7 @@ import {
   getPayloadFormValues,
   toChoiceBranchPayloads
 } from '../src/pages/form/Builder/utils/logic'
-import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
+import { OTHER_CHOICE_ID } from '@myform/answer-utils'
 
 import type { FormFieldType } from '../src/types/form'
 

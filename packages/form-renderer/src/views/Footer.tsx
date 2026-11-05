@@ -29,16 +29,16 @@ export const Footer: FC = () => {
   }
 
   return (
-    <div className="heyform-footer">
-      <div className="heyform-footer-wrapper">
-        <div className="heyform-footer-left"></div>
+    <div className="myform-footer">
+      <div className="myform-footer-wrapper">
+        <div className="myform-footer-left"></div>
 
-        <div className="heyform-footer-right">
-          <div className="heyform-pagination">
+        <div className="myform-footer-right">
+          <div className="myform-pagination">
             {state.enableQuestionList && (
               <Tooltip ariaLabel={t('Questions')}>
                 <Button.Link
-                  className="heyform-sidebar-toggle"
+                  className="myform-sidebar-toggle"
                   leading={<IconLayoutGrid />}
                   onClick={handleToggleSidebar}
                 />
@@ -49,7 +49,7 @@ export const Footer: FC = () => {
               <>
                 <Tooltip ariaLabel={t('Previous question')}>
                   <Button.Link
-                    className="heyform-pagination-previous"
+                    className="myform-pagination-previous"
                     leading={<IconChevronUp />}
                     disabled={state.scrollIndex! < 1}
                     onClick={handlePrevious}
@@ -58,7 +58,7 @@ export const Footer: FC = () => {
 
                 <Tooltip ariaLabel={t('Next question')}>
                   <Button.Link
-                    className="heyform-pagination-next"
+                    className="myform-pagination-next"
                     leading={<IconChevronDown />}
                     disabled={
                       state.isScrollNextDisabled || state.scrollIndex! >= state.fields.length - 1

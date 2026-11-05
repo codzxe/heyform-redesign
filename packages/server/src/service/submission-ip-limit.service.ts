@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 import { DISABLE_SUBMISSION_IP, FORM_ENCRYPTION_KEY } from '@environments'
-import { helper, timestamp } from '@heyform-inc/utils'
+import { helper, timestamp } from '@myform/utils'
 import { FormModel, SubmissionIpLimitModel } from '@model'
 import { hmac } from '@utils'
 

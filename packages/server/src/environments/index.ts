@@ -1,8 +1,8 @@
-import { loadEnv } from '@heyooo-inc/env'
+import { loadEnv } from '@myform/utils'
 import fs from 'fs'
 import { resolve } from 'path'
 
-import { bytes, commonFileMimeTypes, helper, mime, toBool } from '@heyform-inc/utils'
+import { bytes, commonFileMimeTypes, helper, mime, toBool } from '@myform/utils'
 
 // environment
 export const NODE_ENV: string = process.env.NODE_ENV || 'development'
@@ -27,6 +27,11 @@ export const CORS_ALLOWED_ORIGINS: string[] = (process.env.CORS_ALLOWED_ORIGINS 
   .split(',')
   .map(origin => origin.trim())
   .filter(Boolean)
+// Optional public links. Both fall back to the application's own URL so no
+// deployment-specific domain is ever hardcoded in source.
+export const HELP_CENTER_URL: string = process.env.HELP_CENTER_URL || APP_HOMEPAGE_URL
+export const FEEDBACK_FORM_URL: string = process.env.FEEDBACK_FORM_URL || ''
+
 export const APP_DISABLE_REGISTRATION: boolean = helper.isTrue(process.env.APP_DISABLE_REGISTRATION)
 export const ENABLE_GOOGLE_FONTS: boolean =
   process.env.ENABLE_GOOGLE_FONTS === undefined

@@ -1,9 +1,9 @@
-import { FieldKindEnum, LogicCondition } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, LogicCondition } from '@myform/shared-types-enums'
 import { type FC, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
-import { helper } from '@heyform-inc/utils'
+import { OTHER_CHOICE_ID } from '@myform/answer-utils'
+import { helper } from '@myform/utils'
 
 import { Input, Select } from '@/components'
 import {

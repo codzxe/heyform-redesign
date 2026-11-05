@@ -1,9 +1,9 @@
 {
-  "name": "@heyform-inc/utils",
-  "description": "HeyForm utils",
+  "name": "@myform/utils",
+  "description": "MyForm utils",
   "version": "1.3.1",
-  "homepage": "https://heyform.net",
-  "author": "Heyooo, Inc.",
+  "homepage": "https://myform.example.com",
+  "author": "MyForm Contributors",
   "license": "AGPL-3.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -64,7 +64,9 @@
     "slugify": "^1.4.5",
     "tailwind-merge": "^3.4.0",
     "uuid": "^13.0.0",
-    "validator": "^13.1.1"
+    "validator": "^13.1.1",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.7"
   },
   "devDependencies": {
     "@types/html-to-text": "^9.0.4",

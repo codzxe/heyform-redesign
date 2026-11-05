@@ -17,7 +17,7 @@ export const Website: FC<BlockProps> = ({ field, ...restProps }) => {
   }
 
   return (
-    <Block className="heyform-website" field={field} {...restProps}>
+    <Block className="myform-website" field={field} {...restProps}>
       <Form
         initialValues={{
           input: state.values[field.id]

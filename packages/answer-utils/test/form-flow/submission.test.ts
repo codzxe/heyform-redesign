@@ -6,10 +6,10 @@ import {
   CHOICES_FIELD_KINDS,
   FieldKindEnum,
   QUESTION_FIELD_KINDS
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { expect, test } from 'vitest'
 
-import { clone, helper } from '@heyform-inc/utils'
+import { clone, helper } from '@myform/utils'
 
 import {
   ValidateError,

@@ -8,7 +8,7 @@ import {
   InteractiveModeEnum,
   Logic,
   Variable
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 
 import { apollo } from '@/utils'
 

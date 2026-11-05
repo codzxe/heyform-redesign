@@ -21,7 +21,7 @@ async function main() {
   const skipWait = process.env.E2E_SKIP_WAIT === '1'
   const onlyFilter = process.env.E2E_ONLY // e.g. "auth,health"
 
-  console.log(`HeyForm server e2e — target: ${baseUrl}`)
+  console.log(`MyForm server e2e — target: ${baseUrl}`)
 
   if (!skipWait) {
     const waitMs = Number(process.env.E2E_WAIT_MS || 60_000)
@@ -34,7 +34,7 @@ async function main() {
       console.error(err instanceof Error ? err.message : err)
       console.error(
         '\nHint: start the test stack with' +
-          '\n  docker compose -f docker-compose.test.yml up -d --build heyform' +
+          '\n  docker compose -f docker-compose.test.yml up -d --build myform' +
           '\nor point E2E_BASE_URL at an already-running server.'
       )
       process.exit(2)

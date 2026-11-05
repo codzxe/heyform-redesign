@@ -22,7 +22,7 @@ import {
 } from '@service'
 import { Logger } from '@utils'
 
-const STATE_COOKIE_NAME = 'HEYFORM_INTEGRATION_OAUTH_STATE'
+const STATE_COOKIE_NAME = 'MYFORM_INTEGRATION_OAUTH_STATE'
 const STATE_COOKIE_PATH = '/api/integrations/oauth'
 const STATE_COOKIE_MAX_AGE = 10 * 60 * 1000
 
@@ -88,7 +88,7 @@ export class IntegrationOAuthController {
 }
 
 /**
- * The provider's redirect back to HeyForm. It can't use `@Auth()`: the browser
+ * The provider's redirect back to MyForm. It can't use `@Auth()`: the browser
  * arrives from the provider's site, so it withholds the webapp's SameSite=Strict
  * device-id cookie, which AuthGuard compares with the session. Instead the
  * session (SameSite=None) must still be live and belong to the same user and

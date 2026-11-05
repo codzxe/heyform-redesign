@@ -1,4 +1,4 @@
-@import '@heyform-inc/form-renderer/style.css';
+@import '@myform/form-renderer/style.css';
 
 
 
@@ -59,16 +59,16 @@
   h1,
   h2,
   h3 {
-    font-family: var(--heyform-font-family);
+    font-family: var(--myform-font-family);
   }
 }
 
-.heyform-rating-shape {
-  .heyform-icon {
+.myform-rating-shape {
+  .myform-icon {
     @apply h-5 w-5;
   }
 
-  .heyform-icon-stroke {
+  .myform-icon-stroke {
     @apply stroke-primary stroke-[1.5];
   }
 }
@@ -80,7 +80,7 @@
 .compose {
   
   
-  .heyform-layout {
+  .myform-layout {
     @apply pointer-events-none absolute rounded-lg;
     z-index: 2;
 
@@ -89,24 +89,24 @@
     }
   }
 
-  .heyform-theme-background {
+  .myform-theme-background {
     &,
     &:before {
       @apply rounded-lg;
     }
   }
 
-  .heyform-block-group-container {
+  .myform-block-group-container {
     @apply mx-auto flex w-full items-center;
     max-width: 45rem;
     min-height: 3.75rem;
 
-    .heyform-block-title {
+    .myform-block-title {
       @apply mb-0 flex-1 truncate text-xl;
     }
   }
 
-  .heyform-layout {
+  .myform-layout {
     @apply pointer-events-none absolute rounded-lg;
     z-index: 4;
 
@@ -115,12 +115,12 @@
     }
   }
 
-  .heyform-layout-cover {
+  .myform-layout-cover {
     @apply inset-0;
   }
 
-  .heyform-layout-float_left,
-  .heyform-layout-float_right {
+  .myform-layout-float_left,
+  .myform-layout-float_right {
     @apply flex items-center justify-center;
 
     img {
@@ -129,41 +129,41 @@
     }
   }
 
-  .heyform-layout-float_left,
-  .heyform-layout-split_left {
+  .myform-layout-float_left,
+  .myform-layout-split_left {
     @apply left-0 top-0 h-full w-1/2;
   }
 
-  .heyform-layout-float_left {
+  .myform-layout-float_left {
     padding-left: 5rem;
     padding-right: 3.5rem;
   }
 
-  .heyform-layout-split_left {
+  .myform-layout-split_left {
     img {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
   }
 
-  .heyform-layout-float_right,
-  .heyform-layout-split_right {
+  .myform-layout-float_right,
+  .myform-layout-split_right {
     @apply left-auto right-0 h-full w-1/2;
   }
 
-  .heyform-layout-float_right {
+  .myform-layout-float_right {
     padding-left: 3.5rem;
     padding-right: 5rem;
   }
 
-  .heyform-layout-split_right {
+  .myform-layout-split_right {
     img {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
   }
 
-  .heyform-logo {
+  .myform-logo {
     @apply pt-2 pl-2;
 
     img {
@@ -173,37 +173,37 @@
 
   
   
-  .heyform-radio {
+  .myform-radio {
     @apply mb-2 h-10;
   }
 
-  .heyform-radio-container {
+  .myform-radio-container {
     @apply relative flex h-full w-full cursor-pointer rounded p-2 transition;
 
-    background-color: var(--heyform-answer-opacity-10-color);
-    color: var(--heyform-answer-color);
-    box-shadow: var(--heyform-answer-opacity-60-color) 0 0 0 1px inset;
+    background-color: var(--myform-answer-opacity-10-color);
+    color: var(--myform-answer-color);
+    box-shadow: var(--myform-answer-opacity-60-color) 0 0 0 1px inset;
 
     &:hover {
-      background-color: var(--heyform-answer-opacity-30-color);
+      background-color: var(--myform-answer-opacity-30-color);
     }
   }
 
-  .heyform-radio-content {
+  .myform-radio-content {
     @apply flex flex-1 items-center;
   }
 
-  .heyform-radio-hotkey {
+  .myform-radio-hotkey {
     @apply flex h-6 w-6 items-center justify-center rounded-sm bg-foreground text-xs font-bold;
-    background-color: var(--heyform-background-color);
-    box-shadow: var(--heyform-answer-opacity-60-color) 0 0 0 1px inset;
+    background-color: var(--myform-background-color);
+    box-shadow: var(--myform-answer-opacity-60-color) 0 0 0 1px inset;
   }
 
-  .heyform-radio-label {
+  .myform-radio-label {
     @apply ml-2 mr-2 flex-1;
   }
 
-  .heyform-radio-icon {
+  .myform-radio-icon {
     @apply flex items-center justify-center;
 
     svg {
@@ -211,7 +211,7 @@
     }
   }
 
-  .heyform-radio-image {
+  .myform-radio-image {
     @apply flex h-36 w-full items-center justify-center;
 
     img {
@@ -219,49 +219,49 @@
     }
   }
 
-  .heyform-radio-actions {
+  .myform-radio-actions {
     @apply absolute right-3 top-3 hidden space-x-2;
 
     .button {
       @apply p-1;
-      background-color: var(--heyform-answer-opacity-60-color);
+      background-color: var(--myform-answer-opacity-60-color);
 
       &:hover {
-        background-color: var(--heyform-answer-opacity-80-color);
+        background-color: var(--myform-answer-opacity-80-color);
       }
 
       &,
       .button-leading {
-        color: var(--heyform-background-color);
+        color: var(--myform-background-color);
       }
     }
   }
 
-  .heyform-radio-trigger {
-    @extend .heyform-radio-image;
+  .myform-radio-trigger {
+    @extend .myform-radio-image;
     @apply mb-2.5;
-    background-color: var(--heyform-answer-opacity-10-color);
+    background-color: var(--myform-answer-opacity-10-color);
   }
 
   
   
-  .heyform-select {
+  .myform-select {
     @apply w-full;
   }
 
-  .heyform-select-container {
+  .myform-select-container {
     @apply flex cursor-pointer items-center pb-2;
-    color: var(--heyform-answer-color);
-    border-bottom: 1px solid var(--heyform-answer-opacity-80-color);
+    color: var(--myform-answer-color);
+    border-bottom: 1px solid var(--myform-answer-opacity-80-color);
   }
 
-  .heyform-select-value {
+  .myform-select-value {
     @apply flex-1 text-2xl;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
 
     &:before {
       content: attr(placeholder);
-      color: var(--heyform-answer-opacity-30-color);
+      color: var(--myform-answer-opacity-30-color);
       @apply pointer-events-none absolute hidden truncate text-2xl;
     }
 
@@ -275,7 +275,7 @@
     }
   }
 
-  .heyform-select-arrow-icon {
+  .myform-select-arrow-icon {
     svg {
       @apply h-6 w-6;
     }
@@ -283,21 +283,21 @@
 
   
   
-  .heyform-block-container {
+  .myform-block-container {
     @apply scrollbar absolute inset-0 inset-0 z-10 px-20;
 
-    &.heyform-block-float_left,
-    &.heyform-block-split_left {
+    &.myform-block-float_left,
+    &.myform-block-split_left {
       @apply left-1/2 w-1/2;
     }
 
-    &.heyform-block-float_right,
-    &.heyform-block-split_right {
+    &.myform-block-float_right,
+    &.myform-block-split_right {
       @apply w-1/2;
     }
   }
 
-  .heyform-block-image {
+  .myform-block-image {
     @apply mb-8;
 
     img {
@@ -307,7 +307,7 @@
     }
   }
 
-  .heyform-block {
+  .myform-block {
     @apply relative mx-auto w-full;
     max-width: 45rem;
     padding-top: 7.5rem;
@@ -319,36 +319,36 @@
 
     a {
       @apply underline;
-      color: var(--heyform-question-color);
+      color: var(--myform-question-color);
     }
 
     .mention,
     .variable,
     .hiddenfield {
-      color: var(--heyform-label-color);
+      color: var(--myform-label-color);
     }
   }
 
-  .heyform-block-title {
+  .myform-block-title {
     @apply mb-1 text-2xl;
     min-height: 2rem;
-    color: var(--heyform-question-color);
+    color: var(--myform-question-color);
   }
 
-  .heyform-statement {
-    .heyform-block-title {
+  .myform-statement {
+    .myform-block-title {
       @apply mb-4;
     }
   }
 
-  .heyform-block-description {
+  .myform-block-description {
     @apply text-lg;
     min-height: 1.75rem;
-    color: var(--heyform-description-color);
+    color: var(--myform-description-color);
   }
 
-  .heyform-block-title,
-  .heyform-block-description {
+  .myform-block-title,
+  .myform-block-description {
     @apply relative justify-start outline-none;
 
     &:empty:before {
@@ -357,19 +357,19 @@
     }
 
     a {
-      color: var(--heyform-answer-color);
+      color: var(--myform-answer-color);
     }
   }
 
-  .heyform-submit-container {
+  .myform-submit-container {
     @apply mt-8 flex items-center justify-start transition-opacity duration-500;
   }
 
-  .heyform-submit-button {
+  .myform-submit-button {
     @apply inline-flex cursor-pointer items-center justify-between rounded-md px-5 py-1.5 text-lg font-medium shadow-none outline-none;
     min-width: 7.5rem;
-    background-color: var(--heyform-button-color);
-    color: var(--heyform-button-text-color);
+    background-color: var(--myform-button-color);
+    color: var(--myform-button-text-color);
 
     svg {
       @apply -mr-1 ml-2 h-5 w-5;
@@ -378,29 +378,29 @@
 
   
   
-  .heyform-empty-state {
-    .heyform-block-title {
+  .myform-empty-state {
+    .myform-block-title {
       @apply mb-4 text-3xl;
       min-height: 2.25rem;
     }
 
-    .heyform-layout-inline img {
+    .myform-layout-inline img {
       @apply rounded-none;
     }
   }
 
-  .heyform-statement {
-    .heyform-block-title,
-    .heyform-block-description,
-    .heyform-layout-inline {
+  .myform-statement {
+    .myform-block-title,
+    .myform-block-description,
+    .myform-layout-inline {
       @apply text-left;
     }
   }
 
-  .heyform-welcome,
-  .heyform-thank-you {
-    .heyform-block-title,
-    .heyform-block-description {
+  .myform-welcome,
+  .myform-thank-you {
+    .myform-block-title,
+    .myform-block-description {
       @apply text-left;
 
       &:empty {
@@ -412,114 +412,114 @@
       }
     }
 
-    .heyform-submit-button {
+    .myform-submit-button {
       @apply justify-center;
     }
 
-    .heyform-submit-container {
+    .myform-submit-container {
       @apply mt-0;
     }
   }
 
   
   
-  .heyform-input,
-  .heyform-textarea {
+  .myform-input,
+  .myform-textarea {
     @apply w-full border-none bg-transparent p-0 pb-2 text-2xl shadow-none outline-none transition;
-    color: var(--heyform-answer-color);
-    border-bottom: 1px solid var(--heyform-answer-opacity-80-color);
+    color: var(--myform-answer-color);
+    border-bottom: 1px solid var(--myform-answer-opacity-80-color);
 
     &:focus {
-      border-color: var(--heyform-answer-opacity-80-color);
-      box-shadow: 0 1px 0 0 var(--heyform-answer-opacity-80-color);
+      border-color: var(--myform-answer-opacity-80-color);
+      box-shadow: 0 1px 0 0 var(--myform-answer-opacity-80-color);
     }
 
     &::placeholder {
-      color: var(--heyform-answer-opacity-30-color);
+      color: var(--myform-answer-opacity-30-color);
     }
   }
 
   
   
-  .heyform-textarea {
+  .myform-textarea {
     @apply h-10 resize-none overflow-hidden;
   }
 
-  .heyform-textarea-hit {
+  .myform-textarea-hit {
     @apply mt-1.5 text-xs;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
   
   
-  .heyform-opinion-scale {
-    .heyform-radio {
+  .myform-opinion-scale {
+    .myform-radio {
       @apply h-14 flex-1;
     }
 
-    .heyform-radio-container {
+    .myform-radio-container {
       @apply h-full;
     }
 
-    .heyform-radio-label {
+    .myform-radio-label {
       text-align: center;
     }
   }
 
-  .heyform-opinion-scale-labels {
+  .myform-opinion-scale-labels {
     @apply mt-1 flex items-center;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
   
   
-  .heyform-multiple-choice-list {
+  .myform-multiple-choice-list {
     @apply inline-flex flex-col max-w-full;
     min-width: 10rem;
 
-    .heyform-radio {
+    .myform-radio {
       @apply h-auto;
     }
 
-    .heyform-autoresize-textarea {
+    .myform-autoresize-textarea {
       @apply p-0 border-none text-lg resize-none;
     }
 
-    .heyform-radio-content,
-    .heyform-radio-label {
+    .myform-radio-content,
+    .myform-radio-label {
       @apply min-w-0;
     }
 
-    .heyform-radio-label {
+    .myform-radio-label {
       @apply sm:leading-[1];
     }
 
-    .heyform-radio-container:hover {
-      background-color: var(--heyform-answer-opacity-10-color);
+    .myform-radio-container:hover {
+      background-color: var(--myform-answer-opacity-10-color);
 
-      .heyform-radio-remove {
+      .myform-radio-remove {
         @apply visible opacity-100;
       }
     }
 
-    &.heyform-multiple-choice-horizontal {
+    &.myform-multiple-choice-horizontal {
       @apply sm:w-full sm:flex-row sm:flex-wrap sm:gap-2;
 
-      .heyform-radio {
+      .myform-radio {
         @apply w-full sm:flex-1 builder-md:max-w-[calc(50%-0.5rem)] builder-lg:max-w-[calc(33.33%-0.5rem)] sm:mb-0 sm:self-stretch;
       }
 
-      .heyform-radio-container {
+      .myform-radio-container {
         @apply sm:h-full;
       }
 
-      .heyform-radio-hotkey {
+      .myform-radio-hotkey {
         @apply sm:self-start;
       }
     }
   }
 
-  .heyform-radio-label {
+  .myform-radio-label {
     .input {
       @apply p-0;
     }
@@ -530,25 +530,25 @@
       box-shadow: none;
     }
 
-    .heyform-radio-label-other,
+    .myform-radio-label-other,
     input {
       @apply w-full text-lg;
-      color: var(--heyform-answer-color);
+      color: var(--myform-answer-color);
 
       &::placeholder {
-        color: var(--heyform-answer-opacity-60-color);
+        color: var(--myform-answer-opacity-60-color);
       }
     }
   }
 
-  .heyform-radio-remove {
+  .myform-radio-remove {
     @apply invisible absolute -right-3 h-6 w-6 rounded-full border p-0.5 opacity-0 transition;
-    background-color: var(--heyform-answer-opacity-60-color);
-    border-color: var(--heyform-answer-color);
-    color: var(--heyform-background-color);
+    background-color: var(--myform-answer-opacity-60-color);
+    border-color: var(--myform-answer-color);
+    color: var(--myform-background-color);
 
     &:hover {
-      background-color: var(--heyform-answer-opacity-80-color);
+      background-color: var(--myform-answer-opacity-80-color);
     }
 
     svg {
@@ -558,51 +558,51 @@
 
   
   
-  .heyform-picture-choice-list {
+  .myform-picture-choice-list {
     @apply -mx-1 -mb-2 flex flex-wrap items-stretch;
 
-    .heyform-radio-container:hover {
-      background-color: var(--heyform-answer-opacity-10-color);
+    .myform-radio-container:hover {
+      background-color: var(--myform-answer-opacity-10-color);
 
-      .heyform-radio-remove {
+      .myform-radio-remove {
         @apply visible opacity-100;
       }
     }
 
-    .heyform-radio {
+    .myform-radio {
       @apply mb-2 w-1/2 lg:w-1/2 xl:w-1/3 2xl:w-1/4 px-1;
       height: 12rem;
 
       &:hover {
-        .heyform-radio-actions {
+        .myform-radio-actions {
           @apply block;
         }
       }
     }
 
-    .heyform-radio-container {
+    .myform-radio-container {
       @apply relative w-full flex-col p-2.5;
     }
 
-    .heyform-radio-content {
+    .myform-radio-content {
       @apply w-full flex-none;
     }
 
-    .heyform-radio-image {
+    .myform-radio-image {
       @apply py-2.5;
 
       svg {
         @apply h-8 w-8;
-        color: var(--heyform-answer-opacity-60-color);
+        color: var(--myform-answer-opacity-60-color);
       }
     }
 
-    .heyform-radio-icon {
+    .myform-radio-icon {
       @apply absolute right-0 top-0;
 
       svg {
         @apply absolute left-1/2 top-1/2 -ml-7 mt-0.5;
-        color: var(--heyform-background-color);
+        color: var(--myform-background-color);
       }
 
       &:before {
@@ -611,54 +611,54 @@
         border-width: 1.5rem;
         border-style: solid;
         border-image: initial;
-        border-color: var(--heyform-answer-color) var(--heyform-answer-color) transparent transparent;
+        border-color: var(--myform-answer-color) var(--myform-answer-color) transparent transparent;
         border-radius: 0.25rem;
       }
     }
 
-    .heyform-radio-remove {
+    .myform-radio-remove {
       @apply -top-3;
     }
   }
 
   
   
-  .heyform-file-uploader {
+  .myform-file-uploader {
     @apply flex h-72 cursor-pointer items-center justify-center rounded transition;
-    color: var(--heyform-answer-color);
-    border: 1px dashed var(--heyform-answer-color);
-    background-color: var(--heyform-answer-opacity-10-color);
+    color: var(--myform-answer-color);
+    border: 1px dashed var(--myform-answer-color);
+    background-color: var(--myform-answer-opacity-10-color);
 
     &:hover {
-      background-color: var(--heyform-answer-opacity-30-color);
+      background-color: var(--myform-answer-opacity-30-color);
     }
   }
 
-  .heyform-upload-wrapper {
+  .myform-upload-wrapper {
     @apply flex flex-col items-center;
   }
 
-  .heyform-upload-icon {
+  .myform-upload-icon {
     @apply h-20 w-20;
-    color: var(--heyform-answer-opacity-60-color);
+    color: var(--myform-answer-opacity-60-color);
   }
 
-  .heyform-upload-size-limit {
+  .myform-upload-size-limit {
     @apply mt-4;
-    color: var(--heyform-label-color);
+    color: var(--myform-label-color);
   }
 
   
   
-  .heyform-signature-wrapper {
+  .myform-signature-wrapper {
     @apply h-40 rounded;
-    border: 1px dashed var(--heyform-answer-color);
-    background-color: var(--heyform-answer-opacity-10-color);
+    border: 1px dashed var(--myform-answer-color);
+    background-color: var(--myform-answer-opacity-10-color);
   }
 
-  .heyform-signature-bottom {
+  .myform-signature-bottom {
     @apply mt-4 flex items-center justify-between;
-    color: var(--heyform-label-color);
+    color: var(--myform-label-color);
   }
 
   
@@ -667,7 +667,7 @@
     @apply flex items-center;
   }
 
-  .heyform-rating {
+  .myform-rating {
     .rate {
       @apply space-x-2;
     }
@@ -676,111 +676,111 @@
       @apply flex w-16 cursor-pointer flex-col;
     }
 
-    .heyform-icon {
+    .myform-icon {
       @apply mb-2 h-16 w-16;
     }
 
-    .heyform-icon-stroke {
-      stroke: var(--heyform-answer-color);
+    .myform-icon-stroke {
+      stroke: var(--myform-answer-color);
     }
 
     .rate-item-hover {
-      .heyform-icon-fill {
-        fill: var(--heyform-answer-opacity-10-color);
+      .myform-icon-fill {
+        fill: var(--myform-answer-opacity-10-color);
       }
     }
 
     .rate-item-active {
-      .heyform-icon-fill {
-        fill: var(--heyform-answer-color);
+      .myform-icon-fill {
+        fill: var(--myform-answer-color);
       }
     }
 
-    .heyform-rate-index {
+    .myform-rate-index {
       @apply block text-center;
-      color: var(--heyform-answer-color);
+      color: var(--myform-answer-color);
     }
   }
 
   
   
-  .heyform-phone-number {
-    .heyform-input {
+  .myform-phone-number {
+    .myform-input {
       @apply ml-4 w-80;
     }
   }
 
-  .heyform-calling-code {
+  .myform-calling-code {
     @apply flex items-center border-b pb-4 pt-2;
-    border-color: var(--heyform-answer-opacity-60-color);
+    border-color: var(--myform-answer-opacity-60-color);
   }
 
-  .heyform-phone-arrow-icon {
+  .myform-phone-arrow-icon {
     @apply ml-2 h-4 w-4;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
   
   
-  .heyform-date-root {
+  .myform-date-root {
     @apply flex items-end;
   }
 
-  .heyform-date-item {
+  .myform-date-item {
     @apply flex flex-col;
   }
 
-  .heyform-date-label {
+  .myform-date-label {
     @apply mb-2 text-sm;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
-  .heyform-date-item-month,
-  .heyform-date-item-day,
-  .heyform-date-item-hour,
-  .heyform-date-item-minute {
+  .myform-date-item-month,
+  .myform-date-item-day,
+  .myform-date-item-hour,
+  .myform-date-item-minute {
     @apply w-12;
   }
 
-  .heyform-date-item-year {
+  .myform-date-item-year {
     @apply w-16;
   }
 
-  .heyform-date-item-hour {
+  .myform-date-item-hour {
     @apply ml-8;
   }
 
-  .heyform-date-divider {
+  .myform-date-divider {
     @apply mb-2 ml-5 mr-4 text-2xl;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
-  .heyform-date-range-divider {
+  .myform-date-range-divider {
     @apply mx-12 mb-2 mt-7 text-2xl;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
-  .heyform-date-range-with-time {
+  .myform-date-range-with-time {
     @apply flex-col items-start;
 
-    .heyform-date-range-divider {
+    .myform-date-range-divider {
       @apply mx-0 my-8;
     }
   }
 
   
   
-  .heyform-table-scrollable {
+  .myform-table-scrollable {
     @apply w-full overflow-x-auto;
   }
 
-  .heyform-input-table {
-    .heyform-table-scrollable {
+  .myform-input-table {
+    .myform-table-scrollable {
       @apply pt-3;
     }
   }
 
-  .heyform-add-column {
+  .myform-add-column {
     @apply p-0 text-lg underline;
     min-height: 1.75rem;
 
@@ -789,19 +789,19 @@
       outline: none !important;
       box-shadow: none !important;
       background-color: transparent !important;
-      color: var(--heyform-answer-color);
+      color: var(--myform-answer-color);
     }
   }
 
-  .heyform-input-table-thead {
+  .myform-input-table-thead {
     @apply relative flex flex-col items-center;
 
-    .heyform-radio-remove {
+    .myform-radio-remove {
       @apply -top-4 right-auto cursor-pointer;
     }
 
     &:hover {
-      .heyform-radio-remove {
+      .myform-radio-remove {
         @apply visible opacity-100;
       }
     }
@@ -810,10 +810,10 @@
       @apply border-0 bg-transparent text-center text-lg;
       min-height: 1.75rem;
       max-width: 9rem;
-      color: var(--heyform-answer-color);
+      color: var(--myform-answer-color);
 
       &::placeholder {
-        color: var(--heyform-answer-opacity-60-color);
+        color: var(--myform-answer-opacity-60-color);
       }
 
       &,
@@ -824,7 +824,7 @@
     }
   }
 
-  .heyform-input-table {
+  .myform-input-table {
     table {
       @apply w-full border-separate;
       border-spacing: 0 0.5rem;
@@ -842,8 +842,8 @@
     tr {
       td {
         @apply mb-1 h-12;
-        background: var(--heyform-answer-opacity-10-color);
-        border-right: 1px solid var(--heyform-answer-opacity-10-color);
+        background: var(--myform-answer-opacity-10-color);
+        border-right: 1px solid var(--myform-answer-opacity-10-color);
 
         &:nth-of-type(1) {
           @apply rounded-l-md;
@@ -859,29 +859,29 @@
 
   
   
-  .heyform-payment-header,
-  .heyform-payment-label {
+  .myform-payment-header,
+  .myform-payment-label {
     @apply text-base;
   }
 
-  .heyform-payment-body {
+  .myform-payment-body {
     @apply mt-8 rounded-xl px-8 pb-0 pt-10;
-    background-color: var(--heyform-answer-opacity-10-color);
+    background-color: var(--myform-answer-opacity-10-color);
   }
 
-  .heyform-payment-item {
+  .myform-payment-item {
     min-height: 7rem;
   }
 
-  .heyform-payment-label {
+  .myform-payment-label {
     @apply pb-1;
-    color: var(--heyform-answer-color);
+    color: var(--myform-answer-color);
   }
 
-  .heyform-payment-wrapper {
+  .myform-payment-wrapper {
     @apply flex w-full items-start justify-items-stretch space-x-4;
 
-    .heyform-payment-item {
+    .myform-payment-item {
       @apply flex-1;
     }
   }
@@ -980,7 +980,7 @@
     }
   }
 
-  .heyform-icon {
+  .myform-icon {
     @apply mr-1.5 h-6 w-6 p-0.5 text-slate-400;
   }
 
@@ -988,7 +988,7 @@
     @apply mr-2;
   }
 
-  .heyform-icon-stroke {
+  .myform-icon-stroke {
     stroke: currentColor;
     stroke-width: 0.125rem;
   }
@@ -1300,16 +1300,16 @@ button.connect-stripe {
     @apply relative h-full w-full;
   }
 
-  .heyform-body {
+  .myform-body {
     @apply lg:rounded-lg;
   }
 
-  .heyform-radio-label {
+  .myform-radio-label {
     @apply break-all;
   }
 }
 
-.heyform-root {
+.myform-root {
   @apply rounded-xl;
 }
 
@@ -1331,33 +1331,33 @@ button.connect-stripe {
     @apply relative h-full w-full overflow-hidden;
   }
 
-  .heyform-root {
+  .myform-root {
     @apply shadow-lg;
   }
 
-  .heyform-layout,
-  .heyform-theme-background {
+  .myform-layout,
+  .myform-theme-background {
     @apply overflow-hidden;
   }
 
-  .heyform-root,
-  .heyform-layout,
-  .heyform-theme-background,
-  .heyform-theme-background:before {
+  .myform-root,
+  .myform-layout,
+  .myform-theme-background,
+  .myform-theme-background:before {
     @apply rounded-xl;
   }
 
-  .heyform-layout-float_left,
-  .heyform-layout-split_left,
-  .heyform-layout-float_right,
-  .heyform-layout-split_right {
+  .myform-layout-float_left,
+  .myform-layout-split_left,
+  .myform-layout-float_right,
+  .myform-layout-split_right {
     @apply rounded-b-none;
   }
 
-  .heyform-block.heyform-block-float_left,
-  .heyform-block.heyform-block-split_left,
-  .heyform-block.heyform-block-float_right,
-  .heyform-block.heyform-block-split_right {
+  .myform-block.myform-block-float_left,
+  .myform-block.myform-block-split_left,
+  .myform-block.myform-block-float_right,
+  .myform-block.myform-block-split_right {
     left: 0 !important;
     right: auto !important;
     margin-left: 0 !important;
@@ -1366,7 +1366,7 @@ button.connect-stripe {
     transform: none !important;
   }
 
-  .heyform-multiple-choice .heyform-radio-group.heyform-radio-group-horizontal {
+  .myform-multiple-choice .myform-radio-group.myform-radio-group-horizontal {
     @apply flex-col;
   }
 }
@@ -1380,7 +1380,7 @@ button.connect-stripe {
       max-height: calc(100vh - 10rem);
     }
 
-    .heyform-root {
+    .myform-root {
       @apply rounded-none shadow-none;
     }
   }
@@ -1391,23 +1391,23 @@ button.connect-stripe {
 .compose-mobile {
   @apply w-screen overflow-x-hidden;
 
-  .heyform-theme-background {
+  .myform-theme-background {
     @apply absolute;
   }
 
-  .heyform-layout {
+  .myform-layout {
     @apply hidden;
   }
 
-  .heyform-block-container {
+  .myform-block-container {
     @apply w-full p-0 #{!important};
 
-    &.heyform-block-split_left {
+    &.myform-block-split_left {
       @apply left-0 #{!important};
     }
   }
 
-  .heyform-block {
+  .myform-block {
     @apply w-[80vw] overflow-x-hidden #{!important};
   }
 }
@@ -1418,122 +1418,122 @@ button.connect-stripe {
 }
 
 
-.heyform-report {
+.myform-report {
   @apply text-sm;
 
-  --heyform-report-heading: rgb(9, 9, 11);
-  --heyform-report-heading-a60: rgba(9, 9, 11, 0.6);
-  --heyform-report-question: rgb(9, 9, 11);
-  --heyform-report-question-a60: rgba(9, 9, 11, 0.6);
-  --heyform-report-question-a05: rgba(9, 9, 11, 0.05);
-  --heyform-report-chart: rgb(18, 107, 243);
-  --heyform-report-chart-a15: rgba(18, 107, 243, 0.15);
-  --heyform-report-chart-a025: rgba(18, 107, 243, 0.025);
-  --heyform-report-button-text: rgb(255, 255, 255);
+  --myform-report-heading: rgb(9, 9, 11);
+  --myform-report-heading-a60: rgba(9, 9, 11, 0.6);
+  --myform-report-question: rgb(9, 9, 11);
+  --myform-report-question-a60: rgba(9, 9, 11, 0.6);
+  --myform-report-question-a05: rgba(9, 9, 11, 0.05);
+  --myform-report-chart: rgb(18, 107, 243);
+  --myform-report-chart-a15: rgba(18, 107, 243, 0.15);
+  --myform-report-chart-a025: rgba(18, 107, 243, 0.025);
+  --myform-report-button-text: rgb(255, 255, 255);
 }
 
 .dark {
-  .heyform-report {
-    --heyform-report-heading: rgb(255, 255, 255);
-    --heyform-report-heading-a60: rgba(255, 255, 255, 0.6);
-    --heyform-report-question: rgb(255, 255, 255);
-    --heyform-report-question-a60: rgba(255, 255, 255, 0.6);
-    --heyform-report-question-a05: rgba(255, 255, 255, 0.05);
-    --heyform-report-chart: rgb(37, 99, 235);
-    --heyform-report-chart-a15: rgba(37, 99, 235, 0.15);
-    --heyform-report-chart-a025: rgba(37, 99, 235, 0.025);
-    --heyform-report-button-text: rgb(9, 9, 11);
+  .myform-report {
+    --myform-report-heading: rgb(255, 255, 255);
+    --myform-report-heading-a60: rgba(255, 255, 255, 0.6);
+    --myform-report-question: rgb(255, 255, 255);
+    --myform-report-question-a60: rgba(255, 255, 255, 0.6);
+    --myform-report-question-a05: rgba(255, 255, 255, 0.05);
+    --myform-report-chart: rgb(37, 99, 235);
+    --myform-report-chart-a15: rgba(37, 99, 235, 0.15);
+    --myform-report-chart-a025: rgba(37, 99, 235, 0.025);
+    --myform-report-button-text: rgb(9, 9, 11);
   }
 }
 
-.heyform-report-heading {
+.myform-report-heading {
   @apply text-3xl font-bold;
-  color: var(--heyform-report-heading);
+  color: var(--myform-report-heading);
 }
 
-.heyform-report-subheading {
+.myform-report-subheading {
   @apply text-sm/6 font-medium pb-4;
-  color: var(--heyform-report-heading-a60);
+  color: var(--myform-report-heading-a60);
 }
 
-.heyform-report-question {
+.myform-report-question {
   @apply text-sm/6 font-medium;
-  color: var(--heyform-report-question);
+  color: var(--myform-report-question);
 }
 
-.heyform-report-meta {
+.myform-report-meta {
   @apply text-xs/6;
-  color: var(--heyform-report-question-a60);
+  color: var(--myform-report-question-a60);
 }
 
-.heyform-report-content {
+.myform-report-content {
   @apply mt-2;
 }
 
-.heyform-report-chart {
+.myform-report-chart {
   @apply space-y-2;
 }
 
-.heyform-report-chart-item {
+.myform-report-chart-item {
   @apply relative rounded-md px-3 py-2 text-sm/6;
-  background: var(--heyform-report-chart-a025);
+  background: var(--myform-report-chart-a025);
 }
 
-.heyform-report-chart-background {
+.myform-report-chart-background {
   @apply pointer-events-none absolute bottom-0 left-0 top-0 rounded-md;
-  background: var(--heyform-report-chart-a15);
+  background: var(--myform-report-chart-a15);
 }
 
-.heyform-report-chart-content {
+.myform-report-chart-content {
   @apply relative flex items-center justify-between;
-  color: var(--heyform-report-question);
+  color: var(--myform-report-question);
 }
 
-.heyform-report-chart-percent {
+.myform-report-chart-percent {
   @apply font-medium;
 }
 
-.heyform-report-chart-count {
+.myform-report-chart-count {
   @apply text-xs/6;
-  color: var(--heyform-report-question-a60)
+  color: var(--myform-report-question-a60)
 }
 
-.heyform-report-border,
-.heyform-report-divide > :not([hidden]) ~ :not([hidden]) {
-  border-color: var(--heyform-report-question-a05);
+.myform-report-border,
+.myform-report-divide > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--myform-report-question-a05);
 }
 
-.heyform-report-answer {
+.myform-report-answer {
   @apply flex items-center justify-between gap-4 py-2 text-sm/6;
 }
 
-.heyform-report-value {
+.myform-report-value {
   @apply min-w-0 flex-1 whitespace-pre-line;
-  color: var(--heyform-report-question);
+  color: var(--myform-report-question);
 }
 
-.heyform-report-datetime {
+.myform-report-datetime {
   @apply text-xs;
-  color: var(--heyform-report-question-a60);
+  color: var(--myform-report-question-a60);
 }
 
 
-.heyform-report-input-value {
+.myform-report-input-value {
   @apply whitespace-nowrap py-2 text-sm/6;
-  color: var(--heyform-report-question);
+  color: var(--myform-report-question);
 }
 
-.heyform-report-input-datetime {
+.myform-report-input-datetime {
   @apply whitespace-nowrap py-2 text-right text-xs/6;
-  color: var(--heyform-report-question-a60);
+  color: var(--myform-report-question-a60);
 }
 
-.heyform-report-pagination {
+.myform-report-pagination {
   @apply mt-2 border-t py-2;
-  border-color: var(--heyform-report-question-a05);
+  border-color: var(--myform-report-question-a05);
 
   [data-slot='info'] {
-    color: var(--heyform-report-question);
+    color: var(--myform-report-question);
   }
 
   button {
@@ -1541,8 +1541,8 @@ button.connect-stripe {
 
     &,
     &:hover {
-      background: var(--heyform-report-question);
-      color: var(--heyform-report-button-text);
+      background: var(--myform-report-question);
+      color: var(--myform-report-button-text);
     }
 
     &:hover {

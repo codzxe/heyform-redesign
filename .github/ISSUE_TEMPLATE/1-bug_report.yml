@@ -53,10 +53,10 @@ body:
   - type: dropdown
     id: install_type
     attributes:
-      label: HeyForm Installation
-      description: Select the type of HeyForm installation.
+      label: MyForm Installation
+      description: Select the type of MyForm installation.
       options:
-        - heyform.net
+        - myform.example.com
         - self hosted
     validations:
       required: true

@@ -1,4 +1,4 @@
-import { RATING_SHAPE_ICONS, Rate } from '@heyform-inc/form-renderer'
+import { RATING_SHAPE_ICONS, Rate } from '@myform/form-renderer'
 import type { FC } from 'react'
 
 import type { BlockProps } from './Block'
@@ -11,13 +11,13 @@ export const Rating: FC<BlockProps> = ({ field, locale, ...restProps }) => {
     return (
       <>
         {Shape}
-        <span className="heyform-rate-index">{index}</span>
+        <span className="myform-rate-index">{index}</span>
       </>
     )
   }
 
   return (
-    <Block className="heyform-rating" field={field} locale={locale} {...restProps}>
+    <Block className="myform-rating" field={field} locale={locale} {...restProps}>
       <Rate count={field.properties?.total || 5} itemRender={characterRender} />
     </Block>
   )

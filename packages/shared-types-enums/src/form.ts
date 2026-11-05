@@ -165,7 +165,7 @@ export interface Property {
   // Score
   score?: number
 
-  // HeyForm Form Builder v2.0
+  // MyForm Form Builder v2.0
   // Embed & Image
   sourceUrl?: string
 
@@ -204,7 +204,7 @@ export interface FormField {
 
   layout?: Layout
 
-  // HeyForm question number
+  // MyForm question number
   number?: number
 
   index?: number

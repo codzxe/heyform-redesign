@@ -2,7 +2,7 @@ import { $ } from './utils'
 
 import { AnyMap, EmbedConfig } from './type'
 
-const ATTR_PREFIX = 'data-heyform-'
+const ATTR_PREFIX = 'data-myform-'
 const HIDDEN_FIELD_PREFIX = `${ATTR_PREFIX}hiddenfield-`
 const ID_ATTR_NAME = `${ATTR_PREFIX}id`
 const TYPE_ATTR_NAME = `${ATTR_PREFIX}type`

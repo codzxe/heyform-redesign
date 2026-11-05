@@ -3,7 +3,7 @@ import { BadRequestException } from '@nestjs/common'
 import { validateAppConfig } from '../../apps/validate-config'
 import { Auth, Form, FormGuard } from '@decorator'
 import { UpdateIntegrationInput } from '@graphql'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import {
   FormModel,
   IntegrationConnectionModel,

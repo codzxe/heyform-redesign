@@ -1,5 +1,5 @@
-import { locales } from '@heyform-inc/form-renderer/src'
-import { FormModel } from '@heyform-inc/shared-types-enums'
+import { locales } from '@myform/form-renderer/src'
+import { FormModel } from '@myform/shared-types-enums'
 import { useEffect, useState } from 'react'
 
 import { getFormLanguage } from './utils/brower-language'
@@ -40,7 +40,7 @@ export default function FormRender() {
   return (
     <Async fetch={fetchData}>
       {form && (
-        <div id="heyform-render-root">
+        <div id="myform-render-root">
           <Renderer form={form} query={query} locale={locale!} />
         </div>
       )}

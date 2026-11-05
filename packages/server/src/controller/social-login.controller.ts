@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Post, Query, Req, Res } from '@nestjs/common'
 
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 import { AuthService, RedisService, SocialLoginKind, SocialLoginService } from '@service'
 import { Logger, OIDC_LOGIN_KIND } from '@utils'
 
@@ -26,7 +26,7 @@ export class SocialLoginController {
    * and front end need to attach the browserId to the authorized url.
    *
    * Example:
-   * http://my.heyformhq.com/connect/google?state=DMbcJqLJ
+   * http://my.myformhq.com/connect/google?state=DMbcJqLJ
    */
   @Get('/connect/:kind')
   async authUrl(

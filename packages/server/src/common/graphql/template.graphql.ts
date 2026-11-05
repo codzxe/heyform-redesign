@@ -3,7 +3,7 @@ import {
   FormKindEnum,
   FormModel,
   InteractiveModeEnum
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { IsOptional, IsString, Max, MaxLength } from 'class-validator'
 
 import { FormFieldType, ThemeSettingsType } from './form.graphql'

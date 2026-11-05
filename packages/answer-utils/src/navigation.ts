@@ -1,4 +1,4 @@
-import { FieldKindEnum, FormField } from '@heyform-inc/shared-types-enums'
+import { FieldKindEnum, FormField } from '@myform/shared-types-enums'
 
 // Reuse this index for all navigation decisions on one flattened field revision.
 export function createFieldNavigation(fields: FormField[]) {

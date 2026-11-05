@@ -17,7 +17,7 @@ let environment = {
 class TestBadRequestException extends Error {}
 
 Module._load = function (request: string, parent: any, isMain: boolean) {
-  if (request === '@heyform-inc/shared-types-enums') {
+  if (request === '@myform/shared-types-enums') {
     return { SocialLoginTypeEnum }
   }
   if (request === '@nestjs/common') {
@@ -29,7 +29,7 @@ Module._load = function (request: string, parent: any, isMain: boolean) {
   if (request === '@nestjs/mongoose') {
     return { InjectModel: () => () => undefined }
   }
-  if (request === '@heyform-inc/utils') {
+  if (request === '@myform/utils') {
     return {
       helper: {
         isEmpty: (value: unknown) =>
@@ -50,7 +50,7 @@ Module._load = function (request: string, parent: any, isMain: boolean) {
       DISABLE_LOGIN_WITH_OIDC: false,
       GOOGLE_LOGIN_CLIENT_ID: '',
       GOOGLE_LOGIN_CLIENT_SECRET: '',
-      OIDC_CLIENT_ID: 'heyform',
+      OIDC_CLIENT_ID: 'myform',
       OIDC_CLIENT_SECRET: 'client_secret',
       OIDC_ISSUER: 'https://identity.example.com',
       ...environment

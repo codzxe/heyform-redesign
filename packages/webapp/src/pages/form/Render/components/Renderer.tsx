@@ -4,13 +4,13 @@ import {
   getThemeStyle,
   getWebFontURL,
   sendMessageToParent
-} from '@heyform-inc/form-renderer/src'
+} from '@myform/form-renderer/src'
 import {
   CaptchaKindEnum,
   FieldKindEnum,
   FormModel,
   HiddenFieldAnswer
-} from '@heyform-inc/shared-types-enums'
+} from '@myform/shared-types-enums'
 import { FC, useEffect, useRef, useState } from 'react'
 
 import { EndpointService } from '../service/endpoint'
@@ -18,7 +18,7 @@ import { recaptchaToken } from '../utils/captcha'
 import { loadPageApps, trackPageApps } from '../utils/page-apps'
 import { isStripeEnabled } from '../utils/payment'
 import { Uploader } from '../utils/uploader'
-import { helper } from '@heyform-inc/utils'
+import { helper } from '@myform/utils'
 
 import { GOOGLE_RECAPTCHA_KEY } from '@/consts/env'
 
@@ -89,7 +89,7 @@ export const Renderer: FC<RendererProps> = ({ form, query, locale, contactId }) 
     }
 
     const key =
-      window.heyform?.googleRecaptchaKey ||
+      window.myform?.googleRecaptchaKey ||
       (form.settings as Any)?.googleRecaptchaKey ||
       GOOGLE_RECAPTCHA_KEY
 
@@ -97,8 +97,8 @@ export const Renderer: FC<RendererProps> = ({ form, query, locale, contactId }) 
       throw new Error('Google reCAPTCHA key is not configured')
     }
 
-    window.heyform = window.heyform || {}
-    window.heyform.googleRecaptchaKey = key
+    window.myform = window.myform || {}
+    window.myform.googleRecaptchaKey = key
 
     await loadExternalScript(
       'google-recaptcha-sdk',

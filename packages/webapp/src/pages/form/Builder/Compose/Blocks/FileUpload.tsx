@@ -10,12 +10,12 @@ export const FileUpload: FC<BlockProps> = ({ field, locale, ...restProps }) => {
   const { t } = useTranslation()
 
   return (
-    <Block className="heyform-file-upload" field={field} locale={locale} {...restProps}>
-      <div className="heyform-file-uploader">
-        <div className="heyform-upload-wrapper">
-          <IconUpload className="heyform-upload-icon non-scaling-stroke" />
+    <Block className="myform-file-upload" field={field} locale={locale} {...restProps}>
+      <div className="myform-file-uploader">
+        <div className="myform-upload-wrapper">
+          <IconUpload className="myform-upload-icon non-scaling-stroke" />
           <div className="mt-8">{t('Upload a file or drag and drop', { lng: locale })}</div>
-          <div className="heyform-upload-size-limit">{t('Size limit', { lng: locale })}: 10MB</div>
+          <div className="myform-upload-size-limit">{t('Size limit', { lng: locale })}: 10MB</div>
         </div>
       </div>
       <FakeSubmit text={t('Next', { lng: locale })} icon={<IconChevronRight />} />
