@@ -7,7 +7,9 @@ import type {
   FieldKindEnum,
   FieldLayoutAlignEnum,
   FormKindEnum,
+  FormResponseLayoutEnum,
   FormStatusEnum,
+  FormThemeAppearanceEnum,
   InteractiveModeEnum
 } from './enums/form'
 
@@ -65,6 +67,29 @@ export interface FormSettings {
   enableClosedMessage?: boolean
   closedFormTitle?: string
   closedFormDescription?: string
+
+  // Response layout: conversational (one question at a time) or classic
+  // (multi-page, grouped questions with page breaks)
+  responseLayout?: FormResponseLayoutEnum
+
+  // Save & resume: lets respondents continue later via a secure link
+  enableResume?: boolean
+  resumeExpirationDays?: number
+
+  // Quiz & gamification
+  showResultsOnCompletion?: boolean
+  showLeaderboard?: boolean
+  leaderboardSize?: number
+  anonymousLeaderboard?: boolean
+  quizPassingScore?: number
+
+  // GDPR response consent (separate from legal-terms questions)
+  enableResponseConsent?: boolean
+  consentText?: string
+  consentVersion?: string
+
+  // Data retention, days; unset means workspace default
+  retentionDays?: number
 }
 
 export interface Choice {
@@ -173,6 +198,10 @@ export interface Property {
   enableShareIcon?: boolean
   enableCompleteTime?: boolean
 
+  // Media recordings
+  maxDurationSeconds?: number
+  transcribe?: boolean
+
   // Thank You
   buttonLinkUrl?: string
   redirectUrl?: string
@@ -234,6 +263,18 @@ export interface FormTheme {
   backgroundImage?: string
   backgroundBrightness?: number
   logo?: string
+
+  // Appearance: light, dark or auto (follows system preference)
+  appearance?: FormThemeAppearanceEnum
+
+  // Corner radius for cards and inputs, px
+  borderRadius?: number
+
+  // Corner radius for buttons, px
+  buttonBorderRadius?: number
+
+  // Vertical spacing between question elements, px
+  questionSpacing?: number
 
   // Custom CSS
   customCSS?: string

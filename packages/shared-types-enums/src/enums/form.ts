@@ -1,3 +1,14 @@
+export enum FormResponseLayoutEnum {
+  CONVERSATIONAL = 'conversational',
+  CLASSIC = 'classic'
+}
+
+export enum FormThemeAppearanceEnum {
+  LIGHT = 'light',
+  DARK = 'dark',
+  AUTO = 'auto'
+}
+
 export enum InteractiveModeEnum {
   GENERAL = 1,
   INTERACTIVE,
@@ -40,6 +51,11 @@ export enum FieldKindEnum {
 
   // File
   FILE_UPLOAD = 'file_upload',
+
+  // Media recordings
+  VOICE_RECORDING = 'voice_recording',
+  VIDEO_RECORDING = 'video_recording',
+  SCREEN_RECORDING = 'screen_recording',
 
   // Rating
   OPINION_SCALE = 'opinion_scale',

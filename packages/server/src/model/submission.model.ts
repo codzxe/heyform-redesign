@@ -59,8 +59,22 @@ export class SubmissionModel extends Document {
     default: SubmissionStatusEnum.PUBLIC
   })
   status: SubmissionStatusEnum
+
+  // Quiz scoring, computed server-side from the form's configuration
+  @Prop()
+  score?: number
+
+  @Prop()
+  totalScore?: number
+
+  @Prop()
+  scorePercentage?: number
+
+  @Prop()
+  passed?: boolean
 }
 
 export const SubmissionSchema = SchemaFactory.createForClass(SubmissionModel)
 
 SubmissionSchema.index({ formId: 1, 'answers.id': 1, 'answers.value.value': 1 })
+SubmissionSchema.index({ formId: 1, score: -1, endAt: -1 })

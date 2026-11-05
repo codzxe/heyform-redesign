@@ -21,6 +21,11 @@ export const QUESTION_FIELD_KINDS = [
   // File
   FieldKindEnum.FILE_UPLOAD,
 
+  // Media recordings
+  FieldKindEnum.VOICE_RECORDING,
+  FieldKindEnum.VIDEO_RECORDING,
+  FieldKindEnum.SCREEN_RECORDING,
+
   // Rating
   FieldKindEnum.OPINION_SCALE,
   FieldKindEnum.RATING,
@@ -67,3 +72,13 @@ export const UNSELECTABLE_FIELD_KINDS = [
   FieldKindEnum.GROUP,
   FieldKindEnum.STATEMENT
 ]
+
+export const MEDIA_RECORDING_FIELD_KINDS = [
+  FieldKindEnum.VOICE_RECORDING,
+  FieldKindEnum.VIDEO_RECORDING,
+  FieldKindEnum.SCREEN_RECORDING
+]
+
+export const AUDIO_RECORDING_FIELD_KINDS = [FieldKindEnum.VOICE_RECORDING]
+
+export const TRANSCRIBABLE_FIELD_KINDS = [FieldKindEnum.VOICE_RECORDING]
