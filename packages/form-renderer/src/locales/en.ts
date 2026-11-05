@@ -89,6 +89,39 @@ export default {
   'Card cvc is incomplete': 'Card cvc is incomplete',
   'Invalid payment amount': 'Invalid payment amount',
   'Invalid payment currency': 'Invalid payment currency',
+  'recording.start': 'Start recording',
+  'recording.start.audio': 'Record audio',
+  'recording.start.video': 'Record video',
+  'recording.start.screen': 'Record screen',
+  'recording.stop': 'Stop recording',
+  'recording.recording': 'Recording',
+  'recording.requestingPermission': 'Waiting for permission…',
+  'recording.retry': 'Try again',
+  'recording.recordAgain': 'Record again',
+  'recording.retryUpload': 'Retry upload',
+  'recording.preview': 'Recording preview',
+  'recording.openRecording': 'Open recording',
+  'recording.done': 'Recording uploaded',
+  'recording.denied':
+    'Recording permission was denied. Allow access in your browser settings, then try again.',
+  'recording.notSupported': 'Recording is not supported in this browser.',
+  'recording.screenNotSupported':
+    'Screen recording is not supported in this browser. Try a desktop browser such as Chrome, Edge, or Firefox.',
+  'recording.deviceUnavailable':
+    'No usable recording device is available. Connect a microphone or camera, then try again.',
+  'recording.uploading': 'Uploading… {{percent}}%',
+  'recording.uploadingStatus': 'Uploading your recording',
+  'recording.uploadFailed': 'The upload failed. Check your connection and try again.',
+  'recording.duration': 'Recorded: {{duration}}',
+  'recording.maxDuration': 'Records up to {{duration}}',
+  'recording.permissionPrompt.audio':
+    'Your browser will ask for microphone access before recording starts.',
+  'recording.permissionPrompt.video':
+    'Your browser will ask for camera and microphone access before recording starts.',
+  'recording.permissionPrompt.screen':
+    'Your browser will ask you to choose a screen, window, or tab to share.',
+  'recording.screenAudioNote':
+    'Screen recordings capture shared tab or system audio when available. Your microphone is not recorded.',
   reportMeta_zero: 'No submissions yet',
   reportMeta_one: '{{count}} submission',
   reportMeta_other: '{{count}} submissions',

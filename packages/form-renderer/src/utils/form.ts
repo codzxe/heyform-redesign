@@ -3,6 +3,8 @@ import {
   FORM_FIELD_KINDS,
   FieldKindEnum,
   FormField,
+  FormResponseLayoutEnum,
+  FormSettings,
   QUESTION_FIELD_KINDS
 } from '@myform/shared-types-enums'
 
@@ -299,4 +301,116 @@ export function getChoiceKeyName(badge: ChoiceBadgeEnum, index: number) {
   } else {
     return String.fromCharCode(CHAR_A_KEY_CODE + index)
   }
+}
+
+// ----------------------------------------------------------------------------
+// Classic response layout
+//
+// The classic layout breaks the respondent route into pages: every group
+// presents all of its children on one page, while each ungrouped top-level
+// field becomes a page of its own. The store keeps its flat field list (the
+// conversational runtime works on it), so pages are derived on demand.
+
+/** Multi-page layout requested through form settings (conversational is the default). */
+export function isClassicLayout(settings?: FormSettings): boolean {
+  return settings?.responseLayout === FormResponseLayoutEnum.CLASSIC
+}
+
+export interface ClassicPage {
+  /** Index of the first route field rendered on this page. */
+  startIndex: number
+  /** The group field when this page presents a group, otherwise undefined. */
+  group?: IFormField
+  /** The question fields the respondent answers on this page. */
+  fields: IFormField[]
+}
+
+export function buildClassicPages(fields: IFormField[]): ClassicPage[] {
+  const pages: ClassicPage[] = []
+  let current: ClassicPage | undefined
+
+  fields.forEach((field, index) => {
+    if (field.kind === FieldKindEnum.GROUP) {
+      current = { startIndex: index, group: field, fields: [] }
+      pages.push(current)
+      return
+    }
+
+    if (field.parent) {
+      const parentIsCurrentGroup = !!current?.group && current.group.id === field.parent.id
+
+      // A child whose group row is not the page being built (a group the
+      // respondent backed out of, or an orphan) still needs a page of its own.
+      if (!parentIsCurrentGroup) {
+        current = { startIndex: index, fields: [] }
+        pages.push(current)
+      }
+
+      current!.fields.push(field)
+      return
+    }
+
+    current = { startIndex: index, fields: [field] }
+    pages.push(current)
+  })
+
+  return pages
+}
+
+/** Index of the page the scroll position currently sits on. */
+export function findClassicPageIndex(pages: ClassicPage[], scrollIndex: number): number {
+  let found = 0
+
+  pages.forEach((page, index) => {
+    if (scrollIndex >= page.startIndex) {
+      found = index
+    }
+  })
+
+  return found
+}
+
+export function findClassicPage(
+  pages: ClassicPage[],
+  scrollIndex: number
+): ClassicPage | undefined {
+  return pages[findClassicPageIndex(pages, scrollIndex)]
+}
+
+/** Classic progress runs on page position, not on answered questions. */
+export function getClassicPageProgress(fields: IFormField[], scrollIndex: number): number {
+  const pages = buildClassicPages(fields)
+
+  if (pages.length < 2) {
+    return 0
+  }
+
+  const index = findClassicPageIndex(pages, scrollIndex)
+
+  return Math.round((index / (pages.length - 1)) * 100)
+}
+
+export function isLastClassicPage(fields: IFormField[], scrollIndex: number): boolean {
+  const pages = buildClassicPages(fields)
+
+  return findClassicPageIndex(pages, scrollIndex) >= pages.length - 1
+}
+
+/**
+ * Whether a field is presented on the page the respondent currently sees.
+ * Blocks use it to mark every question of a classic page as active, since the
+ * flat scroll position only points at the page's first field.
+ */
+export function isFieldOnActiveClassicPage(
+  fields: IFormField[],
+  scrollIndex: number,
+  fieldId: string
+): boolean {
+  const page = findClassicPage(buildClassicPages(fields), scrollIndex)
+
+  if (!page) {
+    return false
+  }
+
+  return page.group?.id === fieldId || page.fields.some(field => field.id === fieldId)
 }

@@ -11,13 +11,21 @@ import { useContext } from 'react'
 import {
   LRU,
   LRUMemoryStore,
+  buildClassicPages,
   calculateProgress,
   createStoreContext,
   createStoreReducer,
+  findClassicPageIndex,
+  getClassicPageProgress,
+  getFormOpenToken,
+  isClassicLayout,
   isFile,
+  isLastClassicPage,
   replaceHTML,
   validateLogicField
 } from './utils'
+import type { IAnalytics } from './utils/analytics'
+import { createAnalyticsCollector } from './utils/analytics'
 import { applyLogicToFields } from '@myform/answer-utils'
 import { helper } from '@myform/utils'
 
@@ -114,6 +122,31 @@ export interface IStripe {
   accountId: string
 }
 
+/** Extra context the renderer passes the host when a response is submitted. */
+export interface ISubmitExtras {
+  /** GDPR consent checkbox state, sent when the form asks for consent. */
+  consentAccepted?: boolean
+  /** Save & resume session the submission should be linked to. */
+  sessionToken?: string
+}
+
+/** Quiz scoring the server computed while storing the response. */
+export interface ISubmissionResult {
+  clientSecret?: string
+  score?: number
+  totalScore?: number
+  percentage?: number
+  passed?: boolean
+  correctCount?: number
+  questionCount?: number
+  leaderboardRank?: number
+}
+
+/** Mutable facts the analytics collector reads as it flushes. */
+export interface IAnalyticsRuntime {
+  isCompleted?: boolean
+}
+
 export interface IState {
   formId: string
   instanceId: string
@@ -152,7 +185,21 @@ export interface IState {
   logo?: string
   theme: FormTheme
   stripe?: IStripe
-  onSubmit?: (values: Record<string, any>, isPartial?: boolean, stripe?: IStripe) => Promise<void>
+  /** Batched respondent telemetry; undefined on the server. */
+  analytics?: IAnalytics
+  analyticsRuntime?: IAnalyticsRuntime
+  /** Save & resume session token returned by the first session save. */
+  sessionToken?: string
+  /** GDPR consent checkbox state (unset until the respondent interacts). */
+  consentAccepted?: boolean
+  /** Quiz scoring returned by completeSubmission, shown on the ending. */
+  submissionResult?: ISubmissionResult
+  onSubmit?: (
+    values: Record<string, any>,
+    isPartial?: boolean,
+    stripe?: IStripe,
+    extras?: ISubmitExtras
+  ) => Promise<ISubmissionResult | void>
 }
 
 const actions: any = {
@@ -183,10 +230,20 @@ const actions: any = {
       newValues
     )
 
-    const { questionCount, percentage } = calculateProgress(fields, newValues, state.passedFieldIds)
-
-    const isTouched = validateLogicField(fields[state.scrollIndex!], state.jumpFieldIds, values)
-    const isScrollNextDisabled = !isTouched || state.scrollIndex! >= fields.length - 1
+    // Classic pages move as a whole, so both progress and whether another page
+    // is ahead depend on the page the scroll position sits on, never on the
+    // answer that just changed.
+    const isClassic = isClassicLayout(state.settings)
+    const { questionCount, percentage } = isClassic
+      ? {
+          questionCount: state.questionCount,
+          percentage: getClassicPageProgress(fields, state.scrollIndex!)
+        }
+      : calculateProgress(fields, newValues, state.passedFieldIds)
+    const isScrollNextDisabled = isClassic
+      ? isLastClassicPage(fields, state.scrollIndex!)
+      : !validateLogicField(fields[state.scrollIndex!], state.jumpFieldIds, values) ||
+        state.scrollIndex! >= fields.length - 1
 
     return {
       ...state,
@@ -226,11 +283,56 @@ const actions: any = {
 
   setStripe: (state: IState, { stripe }: any) => ({ ...state, stripe }),
 
+  setConsentAccepted: (state: IState, { consentAccepted }: any) => ({ ...state, consentAccepted }),
+
+  setSessionToken: (state: IState, { sessionToken }: any) => ({ ...state, sessionToken }),
+
+  setSubmissionResult: (state: IState, { submissionResult }: any) => ({
+    ...state,
+    submissionResult
+  }),
+
+  // Classic pages validate as a whole, so a rejected page only has to flag the
+  // offending field for its block to show the inline error; no navigation.
+  setErrorField: (state: IState, { errorFieldId }: any) => ({ ...state, errorFieldId }),
+
+  // Restores a saved session: answers and variables come back first (logic
+  // re-runs over them), then the route jumps to where the respondent stopped.
+  restoreSession: (state: IState, { values, variables, currentFieldId }: any) => {
+    let nextState = state
+
+    if (helper.isValid(values) || helper.isValid(variables)) {
+      nextState = actions.setValues(nextState, {
+        values: values || {}
+      })
+    }
+
+    if (helper.isValid(currentFieldId)) {
+      nextState = actions.scrollToField(nextState, {
+        fieldId: currentFieldId
+      })
+    }
+
+    return nextState
+  },
+
   resetErrorField: (state: IState) => ({ ...state, errorFieldId: undefined }),
 
   scrollPrevious: (state: IState) => {
     if (state.scrollIndex! < 1) {
       return state
+    }
+
+    // Classic pages move as a whole: go back to the start of the previous page.
+    if (isClassicLayout(state.settings)) {
+      const pages = buildClassicPages(state.fields)
+      const currentIndex = findClassicPageIndex(pages, state.scrollIndex!)
+      const targetIndex = currentIndex > 0 ? pages[currentIndex - 1].startIndex : 0
+
+      return actions.scrollTo(state, {
+        scrollIndex: targetIndex,
+        scrollTo: 'previous'
+      })
     }
 
     return actions.scrollTo(state, {
@@ -241,6 +343,25 @@ const actions: any = {
 
   scrollNext: (state: IState) => {
     const { scrollIndex, fields, values, jumpFieldIds } = state
+
+    // Classic pages move as a whole: land on the start of the next page.
+    if (isClassicLayout(state.settings)) {
+      const pages = buildClassicPages(fields)
+      const currentIndex = findClassicPageIndex(pages, scrollIndex!)
+
+      if (currentIndex >= pages.length - 1) {
+        return {
+          ...state,
+          isScrollNextDisabled: true
+        }
+      }
+
+      return actions.scrollTo(state, {
+        scrollIndex: pages[currentIndex + 1].startIndex,
+        scrollTo: 'next'
+      })
+    }
+
     const isTouched = validateLogicField(fields[scrollIndex!], jumpFieldIds, values)
 
     if (!isTouched || scrollIndex! >= fields.length - 1) {
@@ -287,7 +408,14 @@ const actions: any = {
     // Empty when moving backwards, and spans every question a question list jump skips over.
     const passedFields = fields.slice(state.scrollIndex, scrollIndex)
     const passedFieldIds = [...new Set([...state.passedFieldIds, ...passedFields.map(f => f.id)])]
-    const { questionCount, percentage } = calculateProgress(fields, values, passedFieldIds)
+
+    const isClassic = isClassicLayout(state.settings)
+    const { questionCount, percentage } = isClassic
+      ? {
+          questionCount: state.questionCount,
+          percentage: getClassicPageProgress(fields, scrollIndex)
+        }
+      : calculateProgress(fields, values, passedFieldIds)
 
     return {
       ...state,
@@ -297,7 +425,7 @@ const actions: any = {
       questionCount,
       scrollIndex,
       scrollTo,
-      isScrollNextDisabled: false,
+      isScrollNextDisabled: isClassic ? isLastClassicPage(fields, scrollIndex) : false,
       errorFieldId
     }
   }
@@ -325,4 +453,29 @@ export const StoreReducer = createStoreReducer<IState>(actions, (_, newState) =>
 
 export function useStore() {
   return useContext(StoreContext)
+}
+
+/**
+ * Builds the respondent telemetry for a renderer instance. The open token is
+ * resolved on every flush (the host bridges it onto the runtime config once
+ * the form has been opened), and the completion flag is kept on a mutable
+ * runtime object the views keep in sync with the store.
+ */
+export function initAnalytics(
+  formId: string,
+  query?: Record<string, any>
+): { analytics?: IAnalytics; analyticsRuntime: IAnalyticsRuntime } {
+  const analyticsRuntime: IAnalyticsRuntime = { isCompleted: false }
+
+  if (typeof window === 'undefined') {
+    return { analyticsRuntime }
+  }
+
+  const analytics = createAnalyticsCollector({
+    formId,
+    getOpenToken: () => getFormOpenToken(query),
+    isCompleted: () => !!analyticsRuntime.isCompleted
+  })
+
+  return { analytics, analyticsRuntime }
 }
