@@ -57,7 +57,7 @@ async function run() {
       // Every service, model, queue and guard dependency becomes a permissive
       // mock; the schema is built from decorators alone.
       if (typeof token === 'function') {
-        return new token()
+        return new (token as new () => unknown)()
       }
       return {}
     })

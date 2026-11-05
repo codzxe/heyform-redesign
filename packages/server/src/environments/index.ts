@@ -84,8 +84,10 @@ export const MONGO_SSL_CA_PATH: Buffer[] | undefined = process.env.MONGO_SSL_CA_
   ? [fs.readFileSync(process.env.MONGO_SSL_CA_PATH)]
   : undefined
 
-// Redis
-export const REDIS_HOST: string = process.env.REDIS_HOST || '127.0.0.1'
+// Redis — powers the Bull queues. No implicit loopback fallback: the address
+// must come from configuration so a deployment never silently points at the
+// wrong host. Startup validation fails fast when it is missing.
+export const REDIS_HOST: string = process.env.REDIS_HOST
 export const REDIS_PORT: number = +process.env.REDIS_PORT || 6379
 export const REDIS_USERNAME: string = process.env.REDIS_USERNAME
 export const REDIS_PASSWORD: string = process.env.REDIS_PASSWORD
@@ -227,3 +229,12 @@ export function parseTrustProxy(value?: string): boolean | number | string {
 
   return normalized
 }
+
+// Startup validation — re-exported so entry points (API and worker) and tests
+// can import everything environment-related from '@environments'.
+export {
+  hasEnvironmentErrors,
+  validateEnvironment,
+  type EnvironmentProblem,
+  type EnvironmentSeverity
+} from './validate'
