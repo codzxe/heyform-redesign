@@ -7,11 +7,11 @@ import { helper } from '@myform/utils'
 
 import { Button, Dropdown, Tooltip } from '@/components'
 import { VARIABLE_KIND_CONFIGS } from '@/consts'
+import { HELP_CENTER_URL } from '@/consts/env'
 import { QuestionIcon } from '@/pages/form/Builder/LeftSidebar/QuestionList'
 import { useAppStore } from '@/store'
 
 import { useStoreContext } from '../../store'
-import { HELP_CENTER_URL } from '@consts/env'
 
 const ACTIONS = [
   {
@@ -141,7 +141,7 @@ export const Variables: FC = () => {
                 <a
                   key="a"
                   className="hover:text-primary underline underline-offset-4"
-                  href=`${HELP_CENTER_URL}/features/variable`
+                  href={`${HELP_CENTER_URL}/features/variable`}
                   target="_blank"
                   rel="noopener noreferrer"
                 />

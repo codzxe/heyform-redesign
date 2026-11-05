@@ -8,12 +8,12 @@ import { htmlUtils } from '@myform/answer-utils'
 import { helper } from '@myform/utils'
 
 import { Button, Dropdown } from '@/components'
+import { HELP_CENTER_URL } from '@/consts/env'
 import { useAppStore } from '@/store'
 import { FormFieldType } from '@/types'
 
 import { QuestionIcon } from '../../LeftSidebar/QuestionList'
 import { useStoreContext } from '../../store'
-import { HELP_CENTER_URL } from '@consts/env'
 
 interface LogicItemProps {
   fields: FormFieldType[]
@@ -136,7 +136,7 @@ export const Rules: FC = () => {
                 <a
                   key="a"
                   className="hover:text-primary underline underline-offset-4"
-                  href=`${HELP_CENTER_URL}/features/conditional-logic`
+                  href={`${HELP_CENTER_URL}/features/conditional-logic`}
                   target="_blank"
                   rel="noopener noreferrer"
                 />

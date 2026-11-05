@@ -16,13 +16,13 @@ import { cn, useParam } from '@/utils'
 import { helper } from '@myform/utils'
 
 import { Button, Tooltip } from '@/components'
+import { HELP_CENTER_URL } from '@/consts/env'
 import { useAppStore, useModal, useWorkspaceStore } from '@/store'
 
 import ChangelogButton from './ChangelogButton'
 import ProjectItem from './ProjectItem'
 import WorkspaceAccount from './WorkspaceAccount'
 import WorkspaceSwitcher from './WorkspaceSwitcher'
-import { HELP_CENTER_URL } from '@consts/env'
 
 interface LinkProps {
   to: string

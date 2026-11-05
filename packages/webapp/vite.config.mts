@@ -43,6 +43,9 @@ export default ({ mode }: ConfigEnv) => {
     },
     build: {
       target: 'es2015',
+      // Computing gzip sizes for every chunk is the most memory-hungry phase of
+      // the build; disable the report (chunk sizes are still printed).
+      reportCompressedSize: false,
       assetsDir: 'static',
       assetsInlineLimit: 0,
       rollupOptions: {
@@ -71,7 +74,7 @@ export default ({ mode }: ConfigEnv) => {
               'qrcode.react'
             ],
             myform: [
-              '@myform-inc/react-router',
+              '@/lib/router',
               '@myform/answer-utils',
               '@myform/shared-types-enums',
               '@myform/utils'

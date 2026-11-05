@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import { expand } from 'dotenv-expand'
 import { existsSync } from 'fs'
-import { basename, join, normalize, posix } from 'path'
+import { basename, join, posix } from 'path'
 
 const WINDOWS_SLASH_REGEX = /\\/g
 
@@ -18,7 +18,7 @@ function normalizePath(id: string): string {
  * process environment when a file is read are never overwritten, so more
  * specific files (.env.<mode>.local) win over generic ones (.env).
  */
-function getEnvFilesForMode(mode: string, envDir: string): string[] {
+export function getEnvFilesForMode(mode: string, envDir: string): string[] {
   return [
     // default file
     '.env',
@@ -31,7 +31,7 @@ function getEnvFilesForMode(mode: string, envDir: string): string[] {
   ].map(file => normalizePath(join(envDir, file)))
 }
 
-function loadEnv(mode: string, envDir: string): void {
+export function loadEnv(mode: string, envDir: string): void {
   const envFiles = getEnvFilesForMode(mode, envDir)
 
   for (const filePath of envFiles) {
@@ -41,5 +41,3 @@ function loadEnv(mode: string, envDir: string): void {
     }
   }
 }
-
-export { getEnvFilesForMode, loadEnv, normalizePath, slash }

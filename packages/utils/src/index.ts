@@ -1,4 +1,3 @@
-export * from './env'
 export * from 'deep-object-diff'
 export { default as qs } from 'qs'
 export * from './bytes'

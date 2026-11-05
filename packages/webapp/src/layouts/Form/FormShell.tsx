@@ -11,8 +11,8 @@ import { cn, timeFromNow, useParam, useRouter } from '@/utils'
 import IconLink from '@/assets/link.svg?react'
 import IconMoveTo from '@/assets/move-to.svg?react'
 import { Button, Dropdown, Skeleton, Tooltip, useAlert, usePrompt } from '@/components'
+import { FEEDBACK_FORM_URL, HELP_CENTER_URL } from '@/consts/env'
 import { useFormStore, useWorkspaceStore } from '@/store'
-import { FEEDBACK_FORM_URL, HELP_CENTER_URL } from '@consts/env'
 
 const DROPDOWN_OPTIONS = [
   {
@@ -340,7 +340,7 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
               key={n.value}
               className={({ isActive }) =>
                 cn(
-                  'rounded-full px-4 py-1.5 text-sm font-medium whitespace-nowrap transition-colors',
+                  'whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
                   isActive
                     ? 'bg-foreground text-primary shadow-sm'
                     : 'text-secondary hover:text-primary'

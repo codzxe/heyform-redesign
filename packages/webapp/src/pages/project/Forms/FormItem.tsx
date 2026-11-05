@@ -18,9 +18,9 @@ import { cn, timeFromNow, timeToNow, useRouter } from '@/utils'
 import IconLink from '@/assets/link.svg?react'
 import IconMoveTo from '@/assets/move-to.svg?react'
 import { Badge, Button, Dropdown, Tooltip, useAlert, usePrompt } from '@/components'
+import { FEEDBACK_FORM_URL, HELP_CENTER_URL } from '@/consts/env'
 import { useWorkspaceStore } from '@/store'
 import { FormType } from '@/types'
-import { FEEDBACK_FORM_URL, HELP_CENTER_URL } from '@consts/env'
 
 interface FormItemLinkProps extends ComponentProps {
   to: string
@@ -355,7 +355,7 @@ const FormItem: FC<FormItemProps> = ({ form, isInTrash, onChange, compact = fals
             </span>
 
             <div className="absolute inset-x-0 top-0 flex items-start justify-end p-2.5">
-              <div className="flex items-center gap-1 opacity-0 transition-opacity duration-200 group-hover/card:opacity-100 group-focus-within/card:opacity-100">
+              <div className="flex items-center gap-1 opacity-0 transition-opacity duration-200 group-focus-within/card:opacity-100 group-hover/card:opacity-100">
                 {!form.suspended && !isInTrash && (
                   <>
                     <Button.Link
@@ -384,7 +384,7 @@ const FormItem: FC<FormItemProps> = ({ form, isInTrash, onChange, compact = fals
           <div className="p-4">
             <div className="truncate text-sm/6 font-medium">{form.name}</div>
 
-            <div className="mt-1 truncate text-xs/5 text-secondary">
+            <div className="text-secondary mt-1 truncate text-xs/5">
               {isInTrash
                 ? t('form.metadata2', {
                     count: form.submissionCount,
@@ -442,7 +442,7 @@ const FormItem: FC<FormItemProps> = ({ form, isInTrash, onChange, compact = fals
         <>
           <div className="min-w-0 flex-1">
             <div className="break-words text-sm/6 font-medium">{form.name}</div>
-            <div className="mt-1 text-sm/6 text-secondary">
+            <div className="text-secondary mt-1 text-sm/6">
               {isInTrash
                 ? t('form.metadata2', {
                     count: form.submissionCount,

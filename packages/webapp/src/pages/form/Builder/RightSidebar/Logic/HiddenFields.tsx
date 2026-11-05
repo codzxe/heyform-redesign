@@ -7,11 +7,11 @@ import { helper } from '@myform/utils'
 
 import { Button, Dropdown, Tooltip } from '@/components'
 import { CUSTOM_FIELDS_CONFIGS } from '@/consts'
+import { HELP_CENTER_URL } from '@/consts/env'
 import { useAppStore } from '@/store'
 
 import { QuestionIcon } from '../../LeftSidebar/QuestionList'
 import { useStoreContext } from '../../store'
-import { HELP_CENTER_URL } from '@consts/env'
 
 const ACTIONS = [
   {
@@ -138,7 +138,7 @@ export const HiddenFields: FC = () => {
                 <a
                   key="a"
                   className="hover:text-primary underline underline-offset-4"
-                  href=`${HELP_CENTER_URL}/features/hidden-fields`
+                  href={`${HELP_CENTER_URL}/features/hidden-fields`}
                   target="_blank"
                   rel="noopener noreferrer"
                 />
