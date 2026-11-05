@@ -8,8 +8,13 @@ import {
 import { Injectable, ServiceUnavailableException } from '@nestjs/common'
 import got from 'got'
 
-export const TEMPLATE_DETAIL_BASE_URL = 'https://myform.github.io/templates/form/'
-export const TEMPLATE_SUMMARY_URL = 'https://myform.github.io/templates/list_summary.json'
+import { TEMPLATE_CATALOG_URL } from '@environments'
+
+// Catalog layout: <TEMPLATE_CATALOG_URL>list_summary.json for the list and
+// <TEMPLATE_CATALOG_URL>form/<id>.json for each template detail. The base URL
+// is configurable so deployments can mirror the catalog themselves.
+export const TEMPLATE_DETAIL_BASE_URL = `${TEMPLATE_CATALOG_URL}form/`
+export const TEMPLATE_SUMMARY_URL = `${TEMPLATE_CATALOG_URL}list_summary.json`
 type CatalogKind = 'summary'
 const CACHE_TTL = 5 * 60 * 1000
 

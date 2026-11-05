@@ -188,6 +188,12 @@ export const ACCOUNT_DELETION_SCHEDULE_INTERVAL: string =
 // Unsplash
 export const UNSPLASH_CLIENT_ID: string = process.env.UNSPLASH_CLIENT_ID
 
+// Form template catalog (summary JSON + per-template detail files). Point this
+// at a self-hosted mirror to avoid the upstream dependency in air-gapped
+// deployments. Must end with a slash.
+export const TEMPLATE_CATALOG_URL: string =
+  process.env.TEMPLATE_CATALOG_URL || 'https://heyform.github.io/templates/'
+
 // OpenAI
 export const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL
 export const OPENAI_API_KEY = process.env.OPENAI_API_KEY

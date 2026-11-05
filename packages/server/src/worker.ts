@@ -1,9 +1,31 @@
+import { Module } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
+import { MongooseModule } from '@nestjs/mongoose'
+import { RedisModule } from '@svtslv/nestjs-ioredis'
 
+import { GraphqlService, MongoService, RedisService } from '@config'
 import { validateEnvironment } from '@environments'
 import { Logger } from '@utils'
 
 import { ServiceModule } from './app.module'
+
+/**
+ * The worker needs the same connection providers as the API (Mongo/Redis via
+ * forRootAsync) but none of the HTTP surface: no GraphQL, no controllers, no
+ * guards. ServiceModule brings the Bull queues, cron schedules and services.
+ */
+@Module({
+  imports: [
+    RedisModule.forRootAsync({
+      useClass: RedisService
+    }),
+    MongooseModule.forRootAsync({
+      useClass: MongoService
+    }),
+    ServiceModule
+  ]
+})
+class WorkerModule {}
 
 async function bootstrap() {
   // Validate the environment before anything else is created, so a
@@ -33,9 +55,7 @@ async function bootstrap() {
   // The worker runs only the background half of the app (Bull queues +
   // cron schedules), so an application context is enough — no HTTP
   // listener is created.
-  const app = await NestFactory.createApplicationContext(ServiceModule, {
-    bufferLogs: true
-  })
+  const app = await NestFactory.createApplicationContext(WorkerModule)
 
   // Close Bull queues, Redis/Mongo connections and stop cron jobs
   // gracefully on SIGTERM/SIGINT.
