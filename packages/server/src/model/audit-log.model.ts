@@ -22,7 +22,7 @@ export class AuditLogModel extends Document {
   @Prop({ index: true })
   formId?: string
 
-  @Prop({ required: true, enum: Object.values(AuditActorTypeEnum) })
+  @Prop({ type: String, required: true, enum: Object.values(AuditActorTypeEnum) })
   actorType: AuditActorTypeEnum
 
   @Prop()

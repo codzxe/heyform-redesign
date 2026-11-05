@@ -29,7 +29,7 @@ export class DeletionRequestModel extends Document {
   @Prop({ index: true })
   formId?: string
 
-  @Prop({ required: true, enum: Object.values(DeletionRequestTypeEnum) })
+  @Prop({ type: String, required: true, enum: Object.values(DeletionRequestTypeEnum) })
   type: DeletionRequestTypeEnum
 
   @Prop({

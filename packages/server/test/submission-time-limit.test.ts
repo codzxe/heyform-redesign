@@ -54,7 +54,10 @@ function setup(openedAgo: number, formOverride: Record<string, any> = form) {
     { checkIp: async () => undefined } as any,
     { addQueue: () => undefined } as any,
     { addQueue: () => undefined } as any,
-    { createPaymentIntent: async () => 'client_secret_1' } as any
+    { createPaymentIntent: async () => 'client_secret_1' } as any,
+    {} as any,
+    { complete: async () => undefined } as any,
+    { isRecordingKind: () => false, linkSubmission: async () => 0 } as any
   )
 
   return {

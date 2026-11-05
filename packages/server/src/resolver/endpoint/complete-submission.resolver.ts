@@ -15,11 +15,14 @@ import { applyLogicToFields, fieldValuesToAnswers, flattenFields } from '@myform
 import { helper, timestamp } from '@myform/utils'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import {
+  ConsentService,
   EndpointService,
   FormReportService,
   FormService,
   IntegrationService,
+  MediaAssetService,
   PaymentService,
+  ResponseSessionService,
   SubmissionIpLimitService,
   SubmissionService
 } from '@service'
@@ -35,6 +38,7 @@ import {
   resolvePaymentConfiguration,
   selectSubmissionFields
 } from '@utils'
+import { calculateQuizScore } from '@utils'
 
 @Resolver()
 @UseGuards(EndpointAnonymousIdGuard)
@@ -46,7 +50,10 @@ export class CompleteSubmissionResolver {
     private readonly submissionIpLimitService: SubmissionIpLimitService,
     private readonly formReportService: FormReportService,
     private readonly integrationService: IntegrationService,
-    private readonly paymentService: PaymentService
+    private readonly paymentService: PaymentService,
+    private readonly responseSessionService: ResponseSessionService,
+    private readonly consentService: ConsentService,
+    private readonly mediaAssetService: MediaAssetService
   ) {}
 
   @Mutation(returns => CompleteSubmissionType)
@@ -203,6 +210,10 @@ export class CompleteSubmissionResolver {
 
     const paymentAnswer = paymentAnswers[0]
 
+    // Quiz scoring is computed from the published form configuration and the
+    // validated answers; the client never reports its own score
+    const quizScore = calculateQuizScore(form, answers)
+
     const quotaLimit =
       form.settings.enableQuotaLimit &&
       helper.isValid(form.settings.quotaLimit) &&
@@ -226,7 +237,11 @@ export class CompleteSubmissionResolver {
           endAt,
           ip: DISABLE_SUBMISSION_IP ? undefined : client.ip,
           userAgent: client.userAgent,
-          status
+          status,
+          score: quizScore?.score,
+          totalScore: quizScore?.totalScore,
+          scorePercentage: quizScore?.percentage,
+          passed: quizScore?.passed ?? undefined
         },
         quotaLimit,
         choiceLimits
@@ -254,6 +269,45 @@ export class CompleteSubmissionResolver {
           fieldId: paymentAnswer.id
         }
       })
+    }
+
+    // GDPR consent record
+    if (form.settings?.enableResponseConsent === true) {
+      await this.consentService.record({
+        formId: form.id,
+        submissionId,
+        anonymousId,
+        accepted: input.consentAccepted === true,
+        consentText: form.settings.consentText ?? '',
+        consentVersion: form.settings.consentVersion ?? 'v1'
+      })
+    }
+
+    // Link uploaded recordings to this submission
+    const recordingUrls = answers
+      .filter(answer => this.mediaAssetService.isRecordingKind(answer.kind))
+      .map(answer => {
+        const value: any = answer.value
+        return helper.isObject(value) ? value.url : undefined
+      })
+      .filter(helper.isValid)
+
+    if (recordingUrls.length > 0) {
+      await this.mediaAssetService.linkSubmission(form.id, submissionId, recordingUrls)
+    }
+
+    // Close the save & resume session, if one exists
+    if (input.sessionToken) {
+      await this.responseSessionService.complete(form.id, input.sessionToken)
+    }
+
+    if (quizScore) {
+      result.score = quizScore.score
+      result.totalScore = quizScore.totalScore
+      result.percentage = quizScore.percentage
+      result.correctCount = quizScore.correctCount
+      result.questionCount = quizScore.questionCount
+      result.passed = quizScore.passed ?? undefined
     }
 
     // Form report Queue

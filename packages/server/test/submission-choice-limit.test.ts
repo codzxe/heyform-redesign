@@ -1,8 +1,4 @@
-import {
-  CaptchaKindEnum,
-  FieldKindEnum,
-  SubmissionCategoryEnum
-} from '@myform/shared-types-enums'
+import { CaptchaKindEnum, FieldKindEnum, SubmissionCategoryEnum } from '@myform/shared-types-enums'
 import * as assert from 'assert'
 
 import { CompleteSubmissionResolver } from '../src/resolver/endpoint/complete-submission.resolver'
@@ -315,7 +311,10 @@ async function testRejectedChoiceDoesNotUseUpTheIpLimit() {
     } as any,
     { addQueue: () => undefined } as any,
     { addQueue: () => undefined } as any,
-    {} as any
+    {} as any,
+    {} as any,
+    { complete: async () => undefined } as any,
+    { isRecordingKind: () => false, linkSubmission: async () => 0 } as any
   )
   const submit = (choiceId: string) =>
     resolver.completeSubmission(
@@ -397,7 +396,10 @@ async function testPartialSubmissionsRespectAndUseTheLimits() {
     { checkIp: async () => undefined } as any,
     { addQueue: () => undefined } as any,
     { addQueue: () => undefined } as any,
-    {} as any
+    {} as any,
+    {} as any,
+    { complete: async () => undefined } as any,
+    { isRecordingKind: () => false, linkSubmission: async () => 0 } as any
   )
   const submit = (answers: Record<string, any>, partialSubmission?: boolean) =>
     resolver.completeSubmission(

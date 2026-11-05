@@ -132,7 +132,10 @@ async function submit(
         calls.payment++
         return 'secret'
       }
-    } as any
+    } as any,
+    {} as any,
+    { complete: async () => undefined } as any,
+    { isRecordingKind: () => false, linkSubmission: async () => 0 } as any
   )
 
   try {

@@ -48,7 +48,7 @@ export class MediaAssetModel extends Document {
   @Prop({ required: true })
   fieldId: string
 
-  @Prop({ required: true, enum: Object.values(FieldKindEnum) })
+  @Prop({ type: String, required: true, enum: Object.values(FieldKindEnum) })
   kind: FieldKindEnum
 
   @Prop({ required: true })

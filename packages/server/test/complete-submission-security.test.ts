@@ -77,7 +77,10 @@ async function testPaymentUsesPublishedFormConfiguration() {
     { checkIp: async () => undefined } as any,
     { addQueue: () => undefined } as any,
     { addQueue: () => undefined } as any,
-    paymentService as any
+    paymentService as any,
+    {} as any,
+    { complete: async () => undefined } as any,
+    { isRecordingKind: () => false, linkSubmission: async () => 0 } as any
   )
 
   const result = await resolver.completeSubmission(

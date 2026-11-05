@@ -27,7 +27,7 @@ export class ScheduledReportModel extends Document {
   @Prop({ required: true, index: true })
   formId: string
 
-  @Prop({ required: true, enum: Object.values(ScheduledReportFrequencyEnum) })
+  @Prop({ type: String, required: true, enum: Object.values(ScheduledReportFrequencyEnum) })
   frequency: ScheduledReportFrequencyEnum
 
   // 0-6 (Sun-Sat) for weekly; 1-28 for monthly

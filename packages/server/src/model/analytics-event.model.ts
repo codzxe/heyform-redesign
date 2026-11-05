@@ -33,7 +33,7 @@ export class AnalyticsEventModel extends Document {
   @Prop()
   fieldId?: string
 
-  @Prop({ required: true, enum: Object.values(AnalyticsEventKindEnum) })
+  @Prop({ type: String, required: true, enum: Object.values(AnalyticsEventKindEnum) })
   kind: AnalyticsEventKindEnum
 
   // Duration of a field visit, when the event ends one

@@ -74,12 +74,106 @@ export class CompleteSubmissionInput {
   @IsString()
   @IsOptional()
   recaptchaToken?: string
+
+  // Save & resume: links the completed submission to its session
+  @Field({ nullable: true })
+  @IsString()
+  @IsOptional()
+  sessionToken?: string
+
+  // GDPR consent, recorded when the form asks for it
+  @Field({ nullable: true })
+  consentAccepted?: boolean
 }
 
 @ObjectType()
 export class CompleteSubmissionType {
   @Field({ nullable: true })
   clientSecret?: string
+
+  @Field({ nullable: true })
+  score?: number
+
+  @Field({ nullable: true })
+  totalScore?: number
+
+  @Field({ nullable: true })
+  percentage?: number
+
+  @Field({ nullable: true })
+  passed?: boolean
+
+  @Field({ nullable: true })
+  correctCount?: number
+
+  @Field({ nullable: true })
+  questionCount?: number
+
+  @Field({ nullable: true })
+  leaderboardRank?: number
+}
+
+@InputType()
+export class SaveResponseSessionInput {
+  @Field()
+  formId: string
+
+  @Field()
+  openToken: string
+
+  @Field({ nullable: true })
+  sessionToken?: string
+
+  @Field(type => [GraphQLJSONObject], { defaultValue: [] })
+  answers: Record<string, any>[]
+
+  @Field(type => [GraphQLJSONObject], { defaultValue: [] })
+  hiddenFields: Record<string, any>[]
+
+  @Field(type => [GraphQLJSONObject], { defaultValue: [] })
+  variables: Record<string, any>[]
+
+  @Field({ nullable: true })
+  currentFieldId?: string
+
+  @Field({ nullable: true })
+  startAt?: number
+}
+
+@ObjectType()
+export class ResponseSessionSaveType {
+  @Field()
+  sessionToken: string
+
+  @Field()
+  expiresAt: number
+}
+
+@InputType()
+export class ResumeResponseSessionInput {
+  @Field()
+  formId: string
+
+  @Field()
+  token: string
+}
+
+@ObjectType()
+export class ResponseSessionResumeType {
+  @Field(type => [GraphQLJSONObject], { defaultValue: [] })
+  answers: Record<string, any>[]
+
+  @Field(type => [GraphQLJSONObject], { defaultValue: [] })
+  hiddenFields: Record<string, any>[]
+
+  @Field(type => [GraphQLJSONObject], { defaultValue: [] })
+  variables: Record<string, any>[]
+
+  @Field({ nullable: true })
+  currentFieldId?: string
+
+  @Field()
+  expiresAt: number
 }
 
 @ObjectType()

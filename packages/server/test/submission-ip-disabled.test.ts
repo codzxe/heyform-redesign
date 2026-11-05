@@ -66,7 +66,10 @@ async function testSubmissionIsSavedWithoutTheIp() {
     } as any,
     { addQueue: () => undefined } as any,
     { addQueue: () => undefined } as any,
-    {} as any
+    {} as any,
+    {} as any,
+    { complete: async () => undefined } as any,
+    { isRecordingKind: () => false, linkSubmission: async () => 0 } as any
   )
 
   await resolver.completeSubmission(
