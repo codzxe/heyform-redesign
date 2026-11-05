@@ -58,7 +58,7 @@ const WorkspaceSidebarComponent = () => {
   const { workspace } = useWorkspaceStore()
 
   return (
-    <div className="max-lg:bg-foreground flex h-full flex-col max-lg:rounded-lg">
+    <div className="max-lg:bg-foreground flex h-full flex-col max-lg:rounded-2xl">
       <div className="border-accent-light border-b p-4">
         <WorkspaceSwitcher />
       </div>

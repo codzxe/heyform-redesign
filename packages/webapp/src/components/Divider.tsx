@@ -9,7 +9,7 @@ export const Divider: FC<ComponentProps> = ({ className, children, ...restProps 
         <span className="border-input w-full border-t"></span>
       </div>
       <div className="relative flex justify-center text-xs uppercase" data-slot="content">
-        <span className="bg-foreground text-secondary px-2" data-slot="text">
+        <span className="bg-foreground text-secondary dark:text-[rgb(201_198_187)] px-2" data-slot="text">
           {children}
         </span>
       </div>

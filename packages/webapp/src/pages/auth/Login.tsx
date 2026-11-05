@@ -20,9 +20,9 @@ const Login = () => {
   }
 
   return (
-    <div className="mx-auto grid w-[21.875rem] gap-6 py-12 lg:py-0">
+    <div className="mx-auto grid w-full max-w-[21.875rem] gap-6 py-12 lg:py-0">
       <div className="grid gap-2 text-center">
-        <h1 className="text-3xl font-bold">{t('login.headline')}</h1>
+        <h1 className="font-serif text-3xl/10 font-semibold italic tracking-tight">{t('login.headline')}</h1>
         {canSignUp && (
           <p className="text-secondary text-sm">
             <Trans
@@ -32,7 +32,7 @@ const Login = () => {
                 a: (
                   <Link
                     key="sign-up"
-                    className="hover:text-primary underline underline-offset-4"
+                    className="text-primary hover:text-brand dark:text-brand dark:hover:text-primary font-medium underline underline-offset-4 decoration-accent hover:decoration-brand"
                     to="/sign-up"
                   />
                 )
@@ -75,7 +75,7 @@ const Login = () => {
             label={
               <div className="flex items-center justify-between">
                 <span>{t('login.password.label')}</span>
-                <Link to="/forgot-password" className="text-sm underline" tabIndex={-1}>
+                <Link to="/forgot-password" className="text-sm font-medium text-primary underline underline-offset-4 decoration-accent hover:decoration-brand hover:text-brand dark:text-brand dark:hover:text-primary" tabIndex={-1}>
                   {t('login.forgotPassword')}
                 </Link>
               </div>

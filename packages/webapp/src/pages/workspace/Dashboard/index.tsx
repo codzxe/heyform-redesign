@@ -15,8 +15,8 @@ export default function WorkspaceDashboard() {
 
   return (
     <>
-      <h1 className="flex items-center gap-2 text-2xl/8 font-semibold sm:text-xl/8">
-        <img className="-mt-2 h-9 w-9 sm:h-8 sm:w-8" src={IconWavingHand} alt="" />
+      <h1 className="flex items-center gap-3 font-serif text-3xl/9 font-semibold italic tracking-tight sm:text-2xl/8">
+        <img className="-mt-1.5 h-9 w-9 sm:h-8 sm:w-8" src={IconWavingHand} alt="" />
         {t(`dashboard.${getTimePeriod()}`, { name: user.name })}
       </h1>
 

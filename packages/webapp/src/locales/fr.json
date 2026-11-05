@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "Créer un compte",
+    "subHeadline": "Commencez à créer de beaux formulaires dès aujourd'hui",
     "name": {
       "label": "Nom",
       "required": "Le nom ne doit pas être vide"

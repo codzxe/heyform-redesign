@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "Create an account",
+    "subHeadline": "Start building beautiful forms today",
     "name": {
       "label": "Name",
       "required": "The name is not allow to be empty"

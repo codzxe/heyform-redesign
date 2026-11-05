@@ -31,7 +31,7 @@ export const Badge: FC<BadgeProps> = ({ color = 'zinc', className, children }) =
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-x-1.5 rounded-md px-1.5 py-0.5 text-sm/5 font-medium sm:text-xs/5 forced-colors:outline',
+        'inline-flex items-center gap-x-1.5 rounded-full px-2 py-0.5 text-sm/5 font-medium sm:text-xs/5 forced-colors:outline',
         BADGE_COLORS[color],
         className
       )}

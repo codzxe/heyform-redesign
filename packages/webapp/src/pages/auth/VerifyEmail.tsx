@@ -99,9 +99,9 @@ export default function VerifyEmail() {
   )
 
   return (
-    <div className="mx-auto grid w-[21.875rem] gap-6 py-12 lg:py-0">
+    <div className="mx-auto grid w-full max-w-[21.875rem] gap-6 py-12 lg:py-0">
       <div className="grid gap-2 text-center">
-        <h1 className="text-3xl font-bold">{t('verifyEmail.title')}</h1>
+        <h1 className="font-serif text-3xl/10 font-semibold italic tracking-tight">{t('verifyEmail.title')}</h1>
         <p className="text-secondary text-sm">
           {t('verifyEmail.subHeadline', { email: temporaryEmail })}
         </p>

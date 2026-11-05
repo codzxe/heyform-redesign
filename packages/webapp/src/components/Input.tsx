@@ -214,7 +214,7 @@ const InputComponent: FC<InputProps> = ({
       <input
         ref={inputRef}
         className={cn(
-          'placeholder:text-secondary focus:border-input block w-full appearance-none rounded-lg border bg-transparent px-3.5 py-2.5 text-base/[1.4rem] ring-0 focus:shadow-none focus:outline-none focus:ring-0 data-[type=number]:pr-0.5 sm:px-3 sm:py-2 sm:text-sm/[1.4rem] data-[type=number]:sm:pr-0.5',
+          'placeholder:text-secondary focus:border-input block w-full appearance-none rounded-xl border bg-transparent px-3.5 py-2.5 text-base/[1.4rem] ring-0 focus:shadow-none focus:outline-none focus:ring-0 data-[type=number]:pr-0.5 sm:px-3 sm:py-2 sm:text-sm/[1.4rem] data-[type=number]:sm:pr-0.5',
           hasError ? 'border-error focus:border-error' : 'border-input focus:border-input'
         )}
         type={type}
@@ -434,7 +434,7 @@ const TextArea: FC<TextAreaProps> = ({
       <textarea
         ref={inputRef}
         className={cn(
-          'scrollbar placeholder:text-secondary focus:border-input block w-full appearance-none rounded-lg border bg-transparent px-3.5 py-2.5 text-base/[1.4rem] ring-0 focus:shadow-none focus:outline-none focus:ring-0 sm:px-3 sm:py-2 sm:text-sm/[1.4rem]',
+          'scrollbar placeholder:text-secondary focus:border-input block w-full appearance-none rounded-xl border bg-transparent px-3.5 py-2.5 text-base/[1.4rem] ring-0 focus:shadow-none focus:outline-none focus:ring-0 sm:px-3 sm:py-2 sm:text-sm/[1.4rem]',
           hasError ? 'border-error focus:border-error' : 'border-input focus:border-input'
         )}
         data-slot="textarea"

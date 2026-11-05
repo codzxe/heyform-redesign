@@ -220,11 +220,20 @@ export const BaseLayout: FC<LayoutProps> = ({ options, children }) => {
 
   return (
     <LoginGuard>
-      <div className="bg-foreground flex min-h-screen flex-col">
-        <div className="bg-foreground sticky top-0 flex items-center justify-between p-4">
-          <a href="/" className="flex items-center gap-2" title="HeyForm">
+      <div className="bg-background relative flex min-h-screen flex-col">
+        {/* Warm editorial backdrop */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+        >
+          <div className="absolute -top-48 left-1/2 h-[26rem] w-[48rem] -translate-x-1/2 rounded-full bg-brand/[0.05] blur-3xl" />
+          <div className="absolute -bottom-48 -right-32 h-[24rem] w-[24rem] rounded-full bg-[rgb(242_193_78_/_0.1)] blur-3xl" />
+        </div>
+
+        <div className="bg-foreground/0 sticky top-0 z-10 flex items-center justify-between p-4 lg:p-6">
+          <a href="/" className="flex items-center gap-2.5" title="HeyForm">
             <Logo className="h-8 w-auto" />
-            <span className="text-xl font-medium">HeyForm</span>
+            <span className="text-xl font-semibold tracking-tight">HeyForm</span>
           </a>
 
           <WorkspaceAccount
@@ -234,7 +243,11 @@ export const BaseLayout: FC<LayoutProps> = ({ options, children }) => {
           />
         </div>
 
-        <div className="flex flex-1 flex-col justify-center p-4 lg:p-12">{children}</div>
+        <div className="relative z-10 flex flex-1 flex-col justify-center px-4 pb-10 lg:px-12">
+          <div className="bg-foreground border-accent-light mx-auto w-full max-w-xl rounded-3xl border p-6 shadow-[0_1px_2px_rgb(38_53_43_/_0.04),0_24px_48px_-16px_rgb(38_53_43_/_0.12)] sm:p-8">
+            {children}
+          </div>
+        </div>
       </div>
 
       <UserAccountModal />
@@ -278,7 +291,7 @@ const LayoutComponent: FC<LayoutProps> = ({ options, children }) => {
           data-slot="layout-main"
         >
           <div
-            className="lg:bg-foreground lg:ring-accent-light dark:lg:ring-input grow p-6 lg:rounded-lg lg:p-10 lg:shadow-sm lg:ring-1"
+            className="lg:bg-foreground dark:lg:ring-input lg:ring-accent-light grow p-6 lg:rounded-2xl lg:p-10 lg:shadow-[0_1px_2px_rgb(38_53_43_/_0.04),0_16px_40px_-16px_rgb(38_53_43_/_0.1)] lg:ring-1"
             data-slot="layout-container"
           >
             <div className="mx-auto flex min-h-full max-w-6xl flex-col" data-slot="layout-inner">

@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "创建账户",
+    "subHeadline": "从今天开始创建漂亮的表单",
     "name": {
       "label": "姓名",
       "required": "姓名不能为空"

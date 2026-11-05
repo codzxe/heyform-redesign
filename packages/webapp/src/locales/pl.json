@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "Utwórz konto",
+    "subHeadline": "Zacznij tworzyć piękne formularze już dziś",
     "name": {
       "label": "Imię",
       "required": "Imię nie może być puste"

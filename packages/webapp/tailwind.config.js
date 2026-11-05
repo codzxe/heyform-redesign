@@ -11,6 +11,9 @@ module.exports = {
         {
           fontFeatureSettings: '"cv11"'
         }
+      ],
+      serif: [
+        ['"Playfair Display"', 'Georgia', ...defaultTheme.fontFamily.serif]
       ]
     },
     extend: {

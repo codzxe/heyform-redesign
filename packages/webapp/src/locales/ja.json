@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "アカウントを作成",
+    "subHeadline": "今日から美しいフォームを作成しましょう",
     "name": {
       "label": "名前",
       "required": "名前は必須です"

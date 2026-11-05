@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "Ein Konto erstellen",
+    "subHeadline": "Beginnen Sie noch heute, schöne Formulare zu erstellen",
     "name": {
       "label": "Name",
       "required": "Der Name darf nicht leer sein"

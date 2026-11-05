@@ -36,6 +36,32 @@ HeyForm simplifies the creation of conversational forms, making it accessible fo
 - **Insightful Analytics**: Gain insights with detailed analytics, including drop-off rates and completion rates.
 - **Data Export**: Easily export your form results to CSV for further analysis or integration into your systems.
 
+## UI Redesign — Warm Editorial
+
+This fork ships a full UI/UX redesign of the webapp, inspired by the design language of modern editorial SaaS products (see: youform.com, wisprflow.ai).
+
+### Design language
+
+| Token | Light | Dark |
+| --- | --- | --- |
+| Canvas | `#F4F3EE` warm cream | `#161513` warm charcoal |
+| Cards | `#FFFFFF` + soft warm shadow | `#1E1D1A` |
+| Ink (primary text) | `#1C1B17` | `#F5F4EE` cream |
+| Brand (primary actions) | `#26352B` forest green pill | `#F2C14E` warm yellow pill |
+| Accents | butter yellow `#F2C14E`, sage `#7FA98C`, lavender `#E6E2F4` | same pastel family |
+
+### What changed
+
+- **Theme core** (`globals.scss`, `tailwind.config.js`): warm cream/charcoal palettes, yellow text selection, rounded-2xl cards, pill-shaped active states with brand-colored indicator bars
+- **Typography**: Playfair Display (self-hosted, italic weights registered) for editorial serif headlines on auth pages, onboarding and dashboard greeting; Inter remains the UI font
+- **Auth pages**: editorial shell — cream canvas with soft green/yellow radial glows, white rounded-3xl card, serif italic headlines, outlined social buttons (fixes button hierarchy), responsive widths (fixes mobile overflow), yellow link accents in dark mode
+- **Buttons**: fully rounded pill shape; ghost buttons get warm sand borders
+- **Dashboard**: serif greeting + stat cards with pastel icon chips (sage/butter/lavender/peach)
+- **Workspace**: rounded-2xl main container with warm layered shadow, warmer sidebar hover/active states
+- **Brand assets**: logo, favicon, OG image and renderer logo recolored from blue to the forest/yellow/sage palette
+- **Form themes**: default form theme and the first three theme presets now lead with the warm editorial palette (cream canvas, forest green buttons, butter yellow, sage)
+- **i18n**: added `signUp.subHeadline` across all 10 locales
+
 ## Getting started with HeyForm
 
 The simplest and most efficient way to dive into HeyForm is through [our official hosted service](https://my.heyform.net). When you choose this cloud version, you're getting the advantage of high reliability, automatic backups, robust security, and hassle-free maintenance—all carefully managed by us, the passionate duo behind HeyForm.
@@ -65,23 +91,23 @@ To connect a self-hosted identity provider such as Authelia, Authentik, or Keycl
 ### One Click Deployment
 
 <a href="https://zeabur.com/templates/9YAUUO" style="margin-left:8px">
-	<img src="https://zeabur.com/button.svg" alt="Deploy on Zeabur" />
+        <img src="https://zeabur.com/button.svg" alt="Deploy on Zeabur" />
 </a>
 
 <a href="https://cloud.sealos.io/?openapp=system-template%3FtemplateName%3Dheyform" style="margin-left:16px">
-	<img src="https://cdn.jsdelivr.net/gh/labring-actions/templates@main/Deploy-on-Sealos.svg" alt="Deploy on Sealos" height="36" />
+        <img src="https://cdn.jsdelivr.net/gh/labring-actions/templates@main/Deploy-on-Sealos.svg" alt="Deploy on Sealos" height="36" />
 </a>
 
 <a href="https://repocloud.io/details/?app_id=283" style="margin-left:24px">
-	<img src="https://d16t0pc4846x52.cloudfront.net/deploylobe.svg" alt="Deploy to RepoCloud" height="36" />
+        <img src="https://d16t0pc4846x52.cloudfront.net/deploylobe.svg" alt="Deploy to RepoCloud" height="36" />
 </a>
 
 <a href="https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&ServiceId=service-a47e56f0ea9f460d8d33" style="margin-left:24px">
-	<img src="https://service-info-public.oss-cn-hangzhou.aliyuncs.com/computenest-en.svg" alt="Deploy on Alibaba Cloud" height="36" />
+        <img src="https://service-info-public.oss-cn-hangzhou.aliyuncs.com/computenest-en.svg" alt="Deploy on Alibaba Cloud" height="36" />
 </a>
 
 <a href="https://zop.dev/zopday/app/deploy?image=heyform/community-edition&port=9157" style="margin-left:24px">
-	<img src="https://zop.dev/deploytozopday-inkhard.svg" alt="Deploy on ZopDay" height="36" />
+        <img src="https://zop.dev/deploytozopday-inkhard.svg" alt="Deploy on ZopDay" height="36" />
 </a>
 
 ## Local development

@@ -470,6 +470,7 @@
   },
   "signUp": {
     "title": "Crea un account",
+    "subHeadline": "Inizia a creare moduli splendidi oggi",
     "name": {
       "label": "Nome",
       "required": "Il nome non può essere vuoto"

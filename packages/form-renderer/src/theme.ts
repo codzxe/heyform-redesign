@@ -68,11 +68,11 @@ function getSafeCSSValue(value?: string, fallback?: string): string | undefined 
 
 export const DEFAULT_THEME: FormTheme = {
   fontFamily: GOOGLE_FONTS[0],
-  questionTextColor: '#000',
-  answerTextColor: '#0445AF',
-  buttonBackground: '#0445AF',
+  questionTextColor: '#1C1B17',
+  answerTextColor: '#26352B',
+  buttonBackground: '#26352B',
   buttonTextColor: '#fff',
-  backgroundColor: '#fff'
+  backgroundColor: '#F7F5EF'
 }
 
 function isGoogleFontsEnabled() {

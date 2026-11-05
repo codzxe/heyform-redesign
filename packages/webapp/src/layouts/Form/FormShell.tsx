@@ -311,7 +311,7 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
                 key={n.value}
                 className={({ isActive }) =>
                   cn('hover:text-primary text-nowrap py-3', {
-                    'text-primary after:bg-primary relative after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full':
+                    'text-primary after:bg-brand relative after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full':
                       isActive
                   })
                 }

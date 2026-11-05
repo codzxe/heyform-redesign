@@ -6,42 +6,54 @@
 
 @layer base {
   :root {
-    --hf-background: 244, 244, 245;
+    /* Warm editorial palette — cream canvas, warm ink, forest green brand */
+    --hf-background: 244, 243, 238;
     --hf-foreground: 255, 255, 255;
-    --hf-input: 9, 9, 11, 15%;
-    --hf-primary: 9, 9, 11;
+    --hf-input: 38, 53, 43, 18%;
+    --hf-primary: 28, 27, 23;
     --hf-primary-light: 255, 255, 255;
-    --hf-secondary: 113, 113, 122;
-    --hf-secondary-light: 9, 9, 11, 2.5%;
-    --hf-accent: 230, 230, 230;
-    --hf-accent-light: 9, 9, 11, 5%;
+    --hf-secondary: 96, 94, 85;
+    --hf-secondary-light: 38, 53, 43, 4%;
+    --hf-accent: 229, 226, 216;
+    --hf-accent-light: 38, 53, 43, 6%;
     --hf-error: 220, 38, 38;
-    --hf-brand: 9, 9, 11;
+    --hf-brand: 38, 53, 43;
 
-    --hf-dashboard-zone: 9, 9, 11, 5%;
-    --hf-dashboard-border: 229, 231, 235;
-    --hf-dashboard-muted: 107, 114, 128;
-    --hf-dashboard-radius: 0.75rem;
-    --hf-dashboard-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --hf-dashboard-zone: 241, 239, 231;
+    --hf-dashboard-border: 229, 226, 216;
+    --hf-dashboard-muted: 107, 104, 92;
+    --hf-dashboard-radius: 1rem;
+    --hf-dashboard-shadow:
+      0 1px 2px 0 rgb(38 53 43 / 0.04),
+      0 12px 32px -12px rgb(38 53 43 / 0.1);
   }
 
   .dark {
-    --hf-background: 9, 9, 11;
-    --hf-foreground: 24, 24, 27;
-    --hf-input: 255, 255, 255, 10%;
-    --hf-primary: 255, 255, 255;
-    --hf-primary-light: 24, 24, 27;
-    --hf-secondary: 161, 161, 170;
-    --hf-secondary-light: 255, 255, 255, 2.5%;
-    --hf-accent: 230, 230, 230;
-    --hf-accent-light: 255, 255, 255, 5%;
-    --hf-error: 220, 38, 38;
-    --hf-brand: 37, 99, 235;
+    /* Warm charcoal — cream text, signature yellow brand */
+    --hf-background: 22, 21, 19;
+    --hf-foreground: 30, 29, 26;
+    --hf-input: 245, 243, 235, 14%;
+    --hf-primary: 245, 244, 238;
+    --hf-primary-light: 28, 27, 23;
+    --hf-secondary: 154, 151, 140;
+    --hf-secondary-light: 245, 243, 235, 4%;
+    --hf-accent: 245, 243, 235, 14%;
+    --hf-accent-light: 245, 243, 235, 7%;
+    --hf-error: 248, 113, 113;
+    --hf-brand: 242, 193, 78;
 
-    --hf-dashboard-zone: 26, 36, 50;
-    --hf-dashboard-border: 57, 57, 63;
-    --hf-dashboard-muted: 161, 161, 170;
+    --hf-dashboard-zone: 38, 36, 33;
+    --hf-dashboard-border: 57, 54, 48;
+    --hf-dashboard-muted: 154, 151, 140;
     --hf-dashboard-shadow: none;
+  }
+
+  ::selection {
+    background: rgb(242 193 78 / 0.35);
+  }
+
+  .dark ::selection {
+    background: rgb(242 193 78 / 0.3);
   }
 }
 
@@ -121,19 +133,19 @@ body {
   }
 
   .hf-card {
-    @apply rounded-xl border bg-foreground;
+    @apply rounded-2xl border bg-foreground;
     border-color: rgba(var(--hf-dashboard-border));
     box-shadow: var(--hf-dashboard-shadow);
   }
 
   .hf-card-muted {
-    @apply rounded-xl border;
+    @apply rounded-2xl border;
     border-color: rgba(var(--hf-dashboard-border));
     background: rgba(var(--hf-dashboard-zone));
   }
 
   .hf-sidebar-link {
-    @apply relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-primary transition-colors sm:px-2 sm:py-1.5 lg:py-2;
+    @apply relative flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-primary transition-colors sm:px-2 sm:py-1.5 lg:py-2;
   }
 
   .hf-sidebar-link:hover {
@@ -142,14 +154,19 @@ body {
 
   .hf-sidebar-link[data-state='active'],
   .hf-sidebar-link-active {
-    @apply bg-transparent;
+    @apply bg-transparent font-semibold;
+  }
+
+  .hf-sidebar-link[data-state='active']:hover,
+  .hf-sidebar-link-active:hover {
+    background: rgba(var(--hf-dashboard-zone));
   }
 
   .hf-sidebar-link[data-state='active']::before,
   .hf-sidebar-link-active::before {
-    @apply absolute inset-y-2 -left-4 w-0.5 rounded-full;
+    @apply absolute inset-y-2 -left-4 w-1 rounded-full;
     content: '';
-    background: rgba(var(--hf-primary));
+    background: rgba(var(--hf-brand));
   }
 
   .hf-sidebar-link-icon {
@@ -162,13 +179,13 @@ body {
   }
 
   .hf-empty-state {
-    @apply rounded-xl border border-dashed p-10;
+    @apply rounded-2xl border border-dashed p-10;
     border-color: rgba(var(--hf-dashboard-border));
     background: rgba(var(--hf-dashboard-zone), 0.55);
   }
 
   .hf-table-shell {
-    @apply overflow-auto rounded-xl border;
+    @apply overflow-auto rounded-2xl border;
     border-color: rgba(var(--hf-dashboard-border));
     background: rgba(var(--hf-foreground));
   }
@@ -204,7 +221,7 @@ body {
   }
 
   .hf-anchor-item {
-    @apply inline-flex h-8 items-center justify-start whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium;
+    @apply inline-flex h-8 items-center justify-start whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium;
   }
 
   .hf-anchor-item[data-state='active'] {

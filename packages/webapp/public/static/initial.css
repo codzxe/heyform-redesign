@@ -41,7 +41,7 @@ body {
 #loading .loading-icon {
   width: 1.25rem;
   height: 1.25rem;
-  color: #0252d7;
+  color: #26352B;
   -webkit-animation: loading-spin 1s linear infinite;
   animation: loading-spin 1s linear infinite;
 }
