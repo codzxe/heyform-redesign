@@ -191,6 +191,17 @@ export const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL
 export const OPENAI_API_KEY = process.env.OPENAI_API_KEY
 export const OPENAI_GPT_MODEL = process.env.OPENAI_GPT_MODEL || 'gpt-3.5-turbo-0125'
 
+// Media transcription (voice recordings). Falls back to the OpenAI credentials so one
+// provider configuration serves both chat and audio transcription unless dedicated
+// transcription settings are supplied.
+export const TRANSCRIPTION_MODEL: string = process.env.TRANSCRIPTION_MODEL || 'whisper-1'
+export const TRANSCRIPTION_BASE_URL: string | undefined =
+  process.env.TRANSCRIPTION_BASE_URL || OPENAI_BASE_URL
+export const TRANSCRIPTION_API_KEY: string | undefined =
+  process.env.TRANSCRIPTION_API_KEY || OPENAI_API_KEY
+export const TRANSCRIPTION_LANGUAGE: string | undefined =
+  process.env.TRANSCRIPTION_LANGUAGE || undefined
+
 // S3
 export const S3_ENDPOINT = process.env.S3_ENDPOINT
 export const S3_REGION = process.env.S3_REGION

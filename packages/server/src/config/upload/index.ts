@@ -50,6 +50,11 @@ const isOfficeOpenXml = (buffer: Buffer, directory: string): boolean =>
 const isLegacyOffice = (buffer: Buffer): boolean =>
   startsWith(buffer, [0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1])
 
+// Browser media recordings arrive as webm (MediaRecorder) or mp4 containers. They are
+// admitted for recording fields even when the operator's UPLOAD_FILE_TYPES list omits
+// them, so respondents can answer voice/video questions on default installs.
+const RECORDING_UPLOAD_MIME_TYPES = ['audio/webm', 'audio/mp4', 'video/webm']
+
 const UPLOAD_TYPES: Record<string, UploadType> = {
   'image/jpeg': {
     extensions: ['.jpg', '.jpeg'],
@@ -102,6 +107,18 @@ const UPLOAD_TYPES: Record<string, UploadType> = {
     extensions: ['.mp4'],
     signature: buffer => buffer.length >= 12 && buffer.subarray(4, 8).equals(Buffer.from('ftyp'))
   },
+  'audio/webm': {
+    extensions: ['.webm'],
+    signature: buffer => startsWith(buffer, [0x1a, 0x45, 0xdf, 0xa3])
+  },
+  'audio/mp4': {
+    extensions: ['.m4a', '.mp4'],
+    signature: buffer => buffer.length >= 12 && buffer.subarray(4, 8).equals(Buffer.from('ftyp'))
+  },
+  'video/webm': {
+    extensions: ['.webm'],
+    signature: buffer => startsWith(buffer, [0x1a, 0x45, 0xdf, 0xa3])
+  },
   'video/x-ms-wmv': {
     extensions: ['.wmv'],
     signature: buffer => startsWith(buffer, [0x30, 0x26, 0xb2, 0x75, 0x8e, 0x66, 0xcf, 0x11])
@@ -117,7 +134,7 @@ const UPLOAD_TYPES: Record<string, UploadType> = {
   }
 }
 
-function getS3Client(): S3Client {
+export function getS3Client(): S3Client {
   return new S3Client({
     endpoint: S3_ENDPOINT,
     region: S3_REGION,
@@ -128,7 +145,7 @@ function getS3Client(): S3Client {
   })
 }
 
-function isS3Configured(): boolean {
+export function isS3Configured(): boolean {
   return (
     helper.isValid(S3_ENDPOINT) &&
     helper.isValid(S3_REGION) &&
@@ -163,12 +180,11 @@ export function getUploadType(filename: unknown, mimeType: unknown): UploadType 
   const normalizedMimeType = normalizeMimeType(mimeType)
   const uploadType = UPLOAD_TYPES[normalizedMimeType]
   const extension = extname(String(filename || '')).toLowerCase()
+  const isAllowedMimeType =
+    UPLOAD_FILE_TYPES.includes(normalizedMimeType) ||
+    RECORDING_UPLOAD_MIME_TYPES.includes(normalizedMimeType)
 
-  if (
-    !uploadType ||
-    !UPLOAD_FILE_TYPES.includes(normalizedMimeType) ||
-    !uploadType.extensions.includes(extension)
-  ) {
+  if (!uploadType || !isAllowedMimeType || !uploadType.extensions.includes(extension)) {
     return
   }
 

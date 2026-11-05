@@ -1,16 +1,12 @@
-import {
-  Answer,
-  SubmissionCategoryEnum,
-  SubmissionStatusEnum
-} from '@myform/shared-types-enums'
+import { Answer, SubmissionCategoryEnum, SubmissionStatusEnum } from '@myform/shared-types-enums'
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
-import { Model } from 'mongoose'
+import { Model, Types } from 'mongoose'
 
 import { FormService } from './form.service'
 import { RedisService } from './redis.service'
-import { date, helper } from '@myform/utils'
 import { SubmissionModel, clearFormAnalyticCache } from '@model'
+import { date, helper } from '@myform/utils'
 import { ChoiceLimit, getUpdateQuery } from '@utils'
 
 const { isValid } = helper
@@ -512,5 +508,56 @@ export class SubmissionService {
         }
       }
     ])
+  }
+
+  /**
+   * One cursor page of a form's submissions, ordered by _id ascending, for
+   * streaming exports of large result sets. Callers advance the cursor by
+   * passing the last row's id as `lastId` until a batch comes back short.
+   * `from`/`to` (unix seconds) filter on the submission's endAt, falling back
+   * to createdAt for rows without one.
+   */
+  public async findAllByFormBatched(
+    formId: string,
+    withIp = false,
+    from?: number,
+    to?: number,
+    batchSize = 500,
+    lastId?: string
+  ): Promise<SubmissionModel[]> {
+    const conditions: Record<string, any> = {
+      formId,
+      status: SubmissionStatusEnum.PUBLIC
+    }
+
+    if (helper.isValid(from) || helper.isValid(to)) {
+      // endAt is unix seconds while createdAt is a Date, so both are compared
+      // in seconds after the conversion.
+      const submittedAt = {
+        $ifNull: ['$endAt', { $divide: [{ $toLong: '$createdAt' }, 1000] }]
+      }
+
+      conditions.$expr = {
+        $and: [
+          ...(helper.isValid(from) ? [{ $gte: [submittedAt, from!] }] : []),
+          ...(helper.isValid(to) ? [{ $lte: [submittedAt, to!] }] : [])
+        ]
+      }
+    }
+
+    // _id is an ObjectId: compare against a real ObjectId, never a string
+    if (helper.isValid(lastId) && Types.ObjectId.isValid(lastId!)) {
+      conditions._id = {
+        $gt: new Types.ObjectId(lastId)
+      }
+    }
+
+    return this.submissionModel
+      .find(conditions)
+      .select(withIp ? {} : { ip: 0 })
+      .sort({
+        _id: 1
+      })
+      .limit(batchSize)
   }
 }

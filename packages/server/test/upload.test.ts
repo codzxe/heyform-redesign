@@ -114,7 +114,10 @@ async function testUploadAdmissionAndDistributedQuota() {
     } as any,
     {} as any,
     {} as any,
-    redisService as any
+    redisService as any,
+    { isRecordingKind: () => false } as any,
+    {} as any,
+    {} as any
   )
 
   await (authenticatedController as any).assertUploadAllowed({
@@ -143,7 +146,10 @@ async function testUploadAdmissionAndDistributedQuota() {
         suspended: false
       })
     } as any,
-    redisService as any
+    redisService as any,
+    { isRecordingKind: () => false } as any,
+    {} as any,
+    {} as any
   )
   const headers: Record<string, string> = {
     'x-myform-field-id': 'file_1',

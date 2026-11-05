@@ -2,7 +2,6 @@ import { Transform } from 'class-transformer'
 import {
   IsInt,
   IsOptional,
-  IsString,
   IsUrl,
   Max,
   Min,
@@ -120,7 +119,4 @@ export class ImageResizingDto {
   h?: number
 }
 
-export class ExportSubmissionsDto {
-  @IsString()
-  formId: string
-}
+export { ExportSubmissionsDto, EXPORT_SUBMISSION_FORMATS } from './export-submissions.dto'

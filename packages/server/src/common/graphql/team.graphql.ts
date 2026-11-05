@@ -12,10 +12,18 @@ import {
   Length
 } from 'class-validator'
 
-import { FormType, ProjectType } from '@graphql'
+import type { FormType as FormTypeRef } from './form.graphql'
+import type { ProjectType as ProjectTypeRef } from './project.graphql'
 import { FormModel, ProjectModel, TeamRoleEnum } from '@model'
 import { Field, InputType, ObjectType } from '@nestjs/graphql'
 import { GraphQLJSONObject } from 'graphql-type-json'
+
+// Deferred accessors: form.graphql and project.graphql both import this file
+// (they extend TeamDetailInput), so evaluating them at import time creates a
+// module-initialization cycle. The decorators below only need the values when
+// the GraphQL schema is built, long after both modules finished loading.
+const FormType = (): typeof FormTypeRef => require('./form.graphql').FormType
+const ProjectType = (): typeof ProjectTypeRef => require('./project.graphql').ProjectType
 
 @InputType()
 export class CreateTeamInput {
@@ -240,7 +248,7 @@ export class TeamType extends PublicTeamType {
   @Field({ nullable: true })
   isOwner?: boolean
 
-  @Field(type => [ProjectType], { nullable: true })
+  @Field(type => [ProjectType()], { nullable: true })
   projects?: ProjectModel[]
 
   @Field(type => [BrandKitType], { nullable: true })
@@ -309,7 +317,7 @@ class DocType {
 
 @ObjectType()
 export class SearchTeamType {
-  @Field(type => [FormType], { nullable: true })
+  @Field(type => [FormType()], { nullable: true })
   forms: FormModel[]
 
   @Field(type => [DocType], { nullable: true })

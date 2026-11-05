@@ -92,6 +92,7 @@
   "devDependencies": {
     "@nestjs/cli": "10.4.9",
     "@nestjs/schematics": "10.2.3",
+    "@nestjs/testing": "^10.4.22",
     "@swc/cli": "^0.8.2",
     "@swc/core": "^1.16.20",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",

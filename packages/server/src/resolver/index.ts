@@ -99,3 +99,13 @@ export { UseTemplateResolver } from './template/use-template.resolver'
 
 export { UnsplashSearchResolver } from './unsplash/unsplash-search.resolver'
 export { UnsplashTrackDownloadResolver } from './unsplash/unsplash-track-download.resolver'
+
+export { SaveResponseSessionResolver } from './endpoint/save-response-session.resolver'
+export { ResumeResponseSessionResolver } from './endpoint/resume-response-session.resolver'
+export { PublicLeaderboardResolver } from './endpoint/public-leaderboard.resolver'
+export { PrivacyResolver } from './privacy.resolver'
+export { MediaAssetsResolver } from './form/media-assets.resolver'
+export { AnalyticsV2Resolver } from './form/analytics-v2.resolver'
+export { FormLeaderboardResolver } from './form/leaderboard.resolver'
+export { ScheduledReportResolver } from './form/scheduled-report.resolver'
+export { PrivacyAdminResolver } from './team/privacy-admin.resolver'
