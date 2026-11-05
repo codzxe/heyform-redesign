@@ -7,7 +7,6 @@ import { isRegistrationDisabled } from '@/consts'
 import { AuthLayout, BaseLayout, WorkspaceGuard, WorkspaceLayout } from '@/layouts'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
 import Login from '@/pages/auth/Login'
-import OAuth from '@/pages/auth/OAuth'
 import ResetPassword from '@/pages/auth/ResetPassword'
 import SignUp from '@/pages/auth/SignUp'
 import VerifyEmail from '@/pages/auth/VerifyEmail'
@@ -71,15 +70,6 @@ const routes = [
     layout: BaseLayout,
     options: {
       title: 'verifyEmail.title',
-      loginRequired: true
-    }
-  },
-  {
-    path: '/oauth/authorize',
-    component: OAuth,
-    layout: BaseLayout,
-    options: {
-      title: 'oauth.title',
       loginRequired: true
     }
   },

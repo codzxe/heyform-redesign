@@ -353,7 +353,7 @@
 
     &:empty:before {
       @apply pointer-events-none absolute opacity-70;
-      content: attr(placeholder);
+      content: attr(data-placeholder);
     }
 
     a {

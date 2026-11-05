@@ -1,8 +1,6 @@
 import { FC } from 'react'
 import { Trans } from 'react-i18next'
 
-import { useTranslation } from '../utils'
-
 import { LogoIcon } from '../components'
 import { useStore } from '../store'
 
@@ -10,7 +8,6 @@ export const Branding: FC = () => {
   const websiteURL: string =
     (typeof window !== 'undefined' && (window as any).myform?.websiteURL) || '#'
   const { state } = useStore()
-  const { t } = useTranslation()
 
   if (state.settings?.removeBranding) {
     return null
@@ -19,7 +16,6 @@ export const Branding: FC = () => {
   return (
     <a className="myform-branding" href={websiteURL} target="_blank" rel="noreferrer">
       <Trans
-        t={t}
         i18nKey="Made with MyForm"
         components={{
           icon: <LogoIcon className="inline h-4 w-4" />,

@@ -18,8 +18,8 @@ import {
   PermissionGuard,
   RoleGuard
 } from '@guard'
-import { hs } from '@myform/utils'
 import { FormBodyMiddleware, JsonBodyMiddleware, RawBodyMiddleware } from '@middleware'
+import { hs } from '@myform/utils'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ScheduleModule } from '@nestjs/schedule'
 import { LowerCaseScalar } from '@utils'
@@ -35,7 +35,7 @@ import { QueueModules, QueueProviders } from './queue'
   ],
   exports: [...Object.values(Services)]
 })
-class ServiceModule {}
+export class ServiceModule {}
 
 @Module({
   imports: [

@@ -506,24 +506,6 @@
     "resendCountdown": "Resend in {{seconds}}s",
     "resendCooldown": "You can request a new code in {{seconds}}s."
   },
-  "oauth": {
-    "title": "Authorize",
-    "headline": "Connect with {{name}}",
-    "subHeadline": "Use {{name}} to integrate MyForm with your favorite apps, like Chat, Email, or SMS.",
-    "would": "{{name}} would like to:",
-    "scopes": [
-      "Workspace Read",
-      "Retrieve data about all the workspaces in your MyForm account",
-      "Project Read",
-      "Retrieve data about all the project in your MyForm workspace",
-      "Form Read",
-      "Retrieve data about all the forms in your MyForm project",
-      "Submission Read",
-      "Retrieve form submissions you collected",
-      "Accounts Read",
-      "Retrieve your MyForm account information"
-    ]
-  },
   "workspace": {
     "notExist": "This workspace does not exist.",
     "noAccess": "You don't have access to this workspace.",
@@ -905,6 +887,85 @@
         "submission2_one": "{{count}} submission · {{average}} average",
         "submission2_other": "{{count}} submissions · {{average}} average",
         "noOtherText": "Everyone who chose “Other” left it blank."
+      },
+      "visits": "Visits",
+      "responses": "Responses",
+      "completionRate": "Completion rate",
+      "abandonmentRate": "Abandonment rate",
+      "avgCompletionTime": "Avg. completion time",
+      "responseTrend": "Responses over time",
+      "deviceBreakdown": "Devices",
+      "browserBreakdown": "Browsers",
+      "mediaCounts": {
+        "label": "Media responses",
+        "voice": "Voice",
+        "video": "Video",
+        "screen": "Screen recordings",
+        "file": "File uploads"
+      },
+      "quizPerformance": {
+        "label": "Quiz performance",
+        "avgScore": "Average score",
+        "passingRate": "Passing rate",
+        "scoresDistribution": "Score distribution"
+      },
+      "heatmap": {
+        "title": "Question heatmap",
+        "description": "Where respondents spend time, change answers, hit validation errors or leave.",
+        "question": "Question",
+        "visits": "Visits",
+        "avgTime": "Avg. time",
+        "answerChanges": "Answer changes",
+        "validationErrors": "Validation errors",
+        "abandonments": "Abandonments",
+        "empty": "No interaction data yet. The heatmap fills in as respondents visit your form.",
+        "legend": {
+          "moreTime": "More time spent",
+          "moreIssues": "More issues / drop-off"
+        }
+      },
+      "share": {
+        "title": "Share dashboard",
+        "description": "Create a public, read-only link to this dashboard.",
+        "create": "Create share link",
+        "created": "Share link created. Copy it now — it is shown only once.",
+        "copy": "Copy",
+        "copied": "Copied",
+        "revoke": "Revoke",
+        "revoked": "Revoked",
+        "expiresAt": "Expires",
+        "neverExpires": "No expiry",
+        "expiresInDays": "Expires after (days)",
+        "expiresNever": "Never expires",
+        "metrics": {
+          "label": "Shared metrics",
+          "hint": "Only the selected metrics are visible on the public dashboard."
+        },
+        "empty": "No share links yet.",
+        "invalidOrExpired": "This shared dashboard is invalid, expired or was revoked."
+      },
+      "scheduledReports": {
+        "title": "Scheduled reports",
+        "description": "Email a summary of this form on a recurring schedule.",
+        "create": "New scheduled report",
+        "name": "Name",
+        "schedule": {
+          "label": "Schedule",
+          "weekly": "Weekly",
+          "monthly": "Monthly"
+        },
+        "dayOfWeek": "Send on",
+        "dayOfMonth": "Day of month",
+        "time": "Send at",
+        "timezone": "Timezone",
+        "recipients": "Recipients",
+        "recipientsHint": "Comma-separated email addresses.",
+        "enabled": "Enabled",
+        "empty": "No scheduled reports yet.",
+        "lastSentAt": "Last sent",
+        "neverSent": "Not sent yet",
+        "delete": "Delete",
+        "saved": "Scheduled report saved"
       }
     },
     "customReport": {
@@ -1384,6 +1445,49 @@
         "antiSpam": {
           "headline": "Anti-spam",
           "subHeadline": "You can enable it to prevent spam submissions."
+        }
+      },
+      "responseLayout": {
+        "label": "Response layout",
+        "description": "Choose how respondents experience your form.",
+        "conversational": "One question at a time",
+        "conversationalDescription": "Questions appear one by one with keyboard navigation and a progress bar.",
+        "classic": "Classic pages",
+        "classicDescription": "Questions are grouped into pages with configurable page breaks."
+      },
+      "quiz": {
+        "title": "Quiz & gamification",
+        "description": "Score answers, set timers and show a leaderboard.",
+        "showResultsOnCompletion": "Show score on completion",
+        "quizPassingScore": "Passing score (%)",
+        "timer": {
+          "label": "Time limit",
+          "enable": "Enable a time limit for the whole quiz",
+          "minutes": "Limit (minutes)"
+        },
+        "leaderboard": {
+          "label": "Leaderboard",
+          "show": "Show a leaderboard to respondents",
+          "size": "Entries shown",
+          "anonymous": "Hide respondent names on the leaderboard"
+        },
+        "scoringHint": "Points per choice are configured on each choice question in the builder."
+      },
+      "privacy": {
+        "title": "Privacy & data lifecycle",
+        "description": "Response consent (GDPR) and automatic data retention.",
+        "consent": {
+          "enable": "Require respondent consent before submitting",
+          "text": "Consent text",
+          "textPlaceholder": "Explain how the responses will be used and stored.",
+          "version": "Consent version",
+          "versionHint": "Bump the version when you change the consent text; each version is recorded with a timestamp."
+        },
+        "retention": {
+          "label": "Response retention",
+          "enable": "Automatically delete responses after a period",
+          "days": "Keep responses for (days)",
+          "hint": "Applies to this form only. Media files linked to deleted responses are removed too."
         }
       }
     },

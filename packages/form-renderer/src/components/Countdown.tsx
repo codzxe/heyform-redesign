@@ -20,7 +20,7 @@ function parseTime(t: number) {
 
 export const Countdown: FC<CountdownProps> = ({ settings, onEnd }) => {
   const [timeLimit, setTimeLimit] = useState(settings.timeLimit!)
-  const timer = useRef<any>()
+  const timer = useRef<number | undefined>(undefined)
 
   function stopTimer() {
     if (timer.current) {
@@ -36,7 +36,7 @@ export const Countdown: FC<CountdownProps> = ({ settings, onEnd }) => {
   }, [timeLimit])
 
   useEffect(() => {
-    timer.current = setInterval(() => {
+    timer.current = window.setInterval(() => {
       setTimeLimit(t => t - 1)
     }, 1000)
 

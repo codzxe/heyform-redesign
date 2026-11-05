@@ -23,12 +23,14 @@ import {
   DELETE_FORM_FIELD_GQL,
   DELETE_FORM_GQL,
   DUPLICATE_FORM_GQL,
+  EXPORT_FORM_TO_JSON_GQL,
   FORMS_GQL,
   FORM_ANALYTIC_GQL,
   FORM_DETAIL_GQL,
   FORM_INTEGRATIONS_GQL,
   FORM_REPORT_GQL,
   FORM_SUMMARY_GQL,
+  IMPORT_FORM_FROM_JSON_GQL,
   IMPORT_FORM_GQL,
   MOVE_FORM_TO_PROJECT_GQL,
   MOVE_FORM_TO_TRASH_GQL,
@@ -153,6 +155,29 @@ export class FormService {
         input: {
           projectId,
           url
+        }
+      }
+    })
+  }
+
+  static importFromJSON(projectId: string, formJson: string) {
+    return apollo.mutate({
+      mutation: IMPORT_FORM_FROM_JSON_GQL,
+      variables: {
+        input: {
+          projectId,
+          formJson
+        }
+      }
+    })
+  }
+
+  static exportToJSON(formId: string) {
+    return apollo.query({
+      query: EXPORT_FORM_TO_JSON_GQL,
+      variables: {
+        input: {
+          formId
         }
       }
     })

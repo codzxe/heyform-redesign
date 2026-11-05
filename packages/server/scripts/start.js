@@ -4,16 +4,25 @@ const { existsSync } = require('fs')
 const { spawnSync } = require('child_process')
 const { join } = require('path')
 
+const args = process.argv.slice(2)
+const isWorker = args[0] === 'worker' || args.includes('--worker')
+
+// `main.js` boots the HTTP server, `worker.js` boots the background
+// worker (queues + cron schedules) without the HTTP layer.
+const entryFile = isWorker ? 'worker.js' : 'main.js'
+
 const candidates = [
-  join(__dirname, '..', 'dist', 'main.js'),
-  join(__dirname, '..', 'dist', 'src', 'main.js'),
-  join(__dirname, '..', 'dist', 'packages', 'server', 'main.js')
+  join(__dirname, '..', 'dist', entryFile),
+  join(__dirname, '..', 'dist', 'src', entryFile),
+  join(__dirname, '..', 'dist', 'packages', 'server', entryFile)
 ]
 
 const entry = candidates.find(file => existsSync(file))
 
 if (!entry) {
-  process.stderr.write('Unable to locate the built server entrypoint in dist/.\n')
+  process.stderr.write(
+    `Unable to locate the built ${isWorker ? 'worker' : 'server'} entrypoint in dist/.\n`
+  )
   process.exit(1)
 }
 

@@ -671,6 +671,18 @@ export const IMPORT_FORM_GQL = gql`
   }
 `
 
+export const IMPORT_FORM_FROM_JSON_GQL = gql`
+  mutation importFormFromJSON($input: ImportFormFromJSONInput!) {
+    importFormFromJSON(input: $input)
+  }
+`
+
+export const EXPORT_FORM_TO_JSON_GQL = gql`
+  query exportFormToJSON($input: ExportFormToJSONInput!) {
+    exportFormToJSON(input: $input)
+  }
+`
+
 export const UPDATE_FORM_SCHEMAS_GQL = gql`
   mutation updateFormSchemas($input: UpdateFormSchemasInput!) {
     updateFormSchemas(input: $input) {

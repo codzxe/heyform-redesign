@@ -111,6 +111,9 @@ export function removeStorage(formId: string) {
 
 export type ScrollDestination = 'next' | 'previous' | string
 
+// Stripe.js v3 API surface the renderer host implements for payment blocks.
+// Referenced through the @types/stripe-v3 ambient declarations.
+/// <reference types="@types/stripe-v3" />
 export interface IStripe {
   elements: stripe.elements.Elements
   confirmCardPayment: (
