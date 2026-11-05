@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:form": "vite build --config vite.form.config.mts",
+    "build:form": "vite build",
     "test:unit": "vitest run --config vitest.config.mts",
     "type-check": "tsc --noEmit"
   },

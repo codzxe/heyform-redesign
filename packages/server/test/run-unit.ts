@@ -44,6 +44,7 @@ const tests = [
   'notification-recipients.test.ts',
   'notification-options.test.ts',
   'export-file.service.test.ts',
+  'export-submissions.controller.test.ts',
   'form-report.service.test.ts',
   'webhook.test.ts',
   'submission-ip.test.ts',

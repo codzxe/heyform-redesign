@@ -24,15 +24,15 @@ export default ({ mode }: ConfigEnv) => {
     resolve: {
       alias: [
         {
-          find: /^@myform-inc\/form-renderer\/style\.css$/,
+          find: /^@myform\/form-renderer\/style\.css$/,
           replacement: resolve(__dirname, '../form-renderer/src/style.scss')
         },
         {
-          find: /^@myform-inc\/form-renderer\/src$/,
+          find: /^@myform\/form-renderer\/src$/,
           replacement: resolve(__dirname, '../form-renderer/src/index.ts')
         },
         {
-          find: /^@myform-inc\/form-renderer$/,
+          find: /^@myform\/form-renderer$/,
           replacement: resolve(__dirname, '../form-renderer/src/index.ts')
         },
         {

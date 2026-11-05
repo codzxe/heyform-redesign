@@ -8,7 +8,6 @@ import {
 import {
   IconAdjustmentsHorizontal,
   IconCheck,
-  IconDownload,
   IconMaximize,
   IconMinimize,
   IconTrash
@@ -40,6 +39,7 @@ import { isSubmissionIpDisabled } from '@/consts'
 import { useAppStore, useFormStore } from '@/store'
 import { SubmissionType } from '@/types'
 
+import ExportMenu from './ExportMenu'
 import SubmissionCell, { SubmissionHeaderCell } from './SubmissionCell'
 import SubmissionDetailModal from './SubmissionDetailModal'
 
@@ -246,10 +246,6 @@ export default function FormSubmissions() {
     toggle()
   }
 
-  function handleDownload() {
-    window.open(`/api/export/submissions?formId=${encodeURIComponent(formId)}`)
-  }
-
   function handleClose() {
     closeModal('SubmissionDetailModal')
     tableRef.current?.unexpand()
@@ -304,11 +300,7 @@ export default function FormSubmissions() {
           </div>
 
           <div className="flex items-center gap-x-2.5">
-            <Tooltip label={t('form.submissions.downloadCSV')}>
-              <Button.Ghost size="md" iconOnly onClick={handleDownload}>
-                <IconDownload className="h-5 w-5" />
-              </Button.Ghost>
-            </Tooltip>
+            <ExportMenu formId={formId} />
 
             <Tooltip
               label={isMaximized ? t('form.submissions.minimize') : t('form.submissions.maximize')}
