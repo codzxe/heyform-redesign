@@ -83,7 +83,7 @@ export const Toaster = () => {
       {toasts.map(row => (
         <Root
           key={row.id}
-          className="bg-foreground ring-accent data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full relative w-full rounded-lg px-3 py-2 opacity-100 shadow-lg ring-1 data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none"
+          className="bg-foreground ring-accent data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full relative w-full rounded-2xl px-3 py-2 opacity-100 shadow-lg ring-1 data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none"
           duration={row.duration}
           onOpenChange={open => !open && remove(row.id)}
         >

@@ -92,12 +92,12 @@ const SegmentedControl: FC<TabsProps> = ({ className, tabs, defaultTab, action, 
 
   return (
     <Root className={className} value={activeTab} onValueChange={setActiveTab}>
-      <div className="bg-accent-light text-secondary grid h-10 rounded-md p-1" data-slot="nav">
+      <div className="bg-accent-light text-secondary grid h-10 rounded-full p-1" data-slot="nav">
         <List className="flex items-center gap-x-1" data-slot="tablist">
           {tabs.map(t => (
             <Trigger
               key={t.value}
-              className="text-secondary hover:text-primary aria-selected:bg-foreground aria-selected:text-primary w-full flex-1 rounded-md px-3 py-1 text-sm/6 font-medium"
+              className="text-secondary hover:text-primary aria-selected:bg-foreground aria-selected:text-primary w-full flex-1 rounded-full px-3 py-1 text-sm/6 font-medium"
               data-slot="tab"
               data-tab={t.value}
               role="tab"

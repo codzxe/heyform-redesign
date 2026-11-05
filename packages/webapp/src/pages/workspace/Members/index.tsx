@@ -23,30 +23,23 @@ export default function WorkspaceMembers() {
 
   return (
     <>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <h1 className="text-2xl/8 font-semibold sm:text-xl/8">{t('members.title')}</h1>
-        <Button className="rounded-lg" size="md" onClick={() => openModal('InvitationModal')}>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="hf-page-title">{t('members.title')}</h1>
+        <Button size="md" onClick={() => openModal('InvitationModal')}>
           {t('members.invite.title')}
         </Button>
       </div>
 
-      <div className="-mx-6 mt-8 overflow-x-auto whitespace-nowrap lg:-mx-10">
-        <div className="inline-block min-w-full align-middle sm:px-10">
-          <table className="min-w-full text-left text-sm/6">
-            <thead className="text-secondary">
-              <tr>
-                <th className="border-b-accent-light border-b px-4 py-2 font-medium sm:first:pl-1 sm:last:pr-1">
-                  {t('members.name')}
-                </th>
-                <th className="border-b-accent-light border-b px-4 py-2 font-medium sm:first:pl-1 sm:last:pr-1">
-                  {t('members.role')}
-                </th>
-                <th className="border-b-accent-light border-b px-4 py-2 font-medium sm:first:pl-1 sm:last:pr-1">
-                  {t('members.lastSeen')}
-                </th>
-                <th className="border-b-accent-light border-b px-4 py-2 font-medium sm:first:pl-1 sm:last:pr-1"></th>
-              </tr>
-            </thead>
+      <div className="hf-table-shell mt-6">
+        <table className="hf-table min-w-full text-left text-sm/6">
+          <thead>
+            <tr>
+              <th>{t('members.name')}</th>
+              <th>{t('members.role')}</th>
+              <th>{t('members.lastSeen')}</th>
+              <th></th>
+            </tr>
+          </thead>
 
             <tbody>
               <Async
@@ -64,7 +57,6 @@ export default function WorkspaceMembers() {
               </Async>
             </tbody>
           </table>
-        </div>
       </div>
 
       <InvitationModal />

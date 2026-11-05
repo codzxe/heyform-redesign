@@ -122,7 +122,7 @@ const ModalComponent = () => {
       <div className="scrollbar border-accent-light bg-foreground h-full w-full border-r px-4 py-6 sm:w-80">
         <Form initialValues={brandKit} onValuesChange={handleValuesChange} onFinish={run}>
           <div className="flex items-center justify-between">
-            <h2 className="text-base/6 font-semibold">{t('settings.branding.brandKitHeadline')}</h2>
+            <h2 className="font-serif text-lg font-semibold">{t('settings.branding.brandKitHeadline')}</h2>
 
             <Button.Link
               className="text-secondary hover:text-primary hidden !p-0 hover:bg-transparent sm:flex"

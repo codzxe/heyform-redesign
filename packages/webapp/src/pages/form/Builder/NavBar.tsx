@@ -123,7 +123,10 @@ export default function BuilderNavBar() {
   }
 
   return (
-    <div className="flex h-14 items-center justify-between px-2">
+    <div
+      className="flex h-14 items-center justify-between px-2"
+      style={{ borderBottom: '1px solid rgba(var(--hf-dashboard-border))' }}
+    >
       <nav aria-label="breadcrumb" className="flex">
         <ol className="text-secondary flex flex-wrap items-center gap-1.5 break-words text-sm">
           {window.heyform.device.mobile ? (

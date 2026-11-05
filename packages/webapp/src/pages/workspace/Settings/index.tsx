@@ -16,7 +16,7 @@ export default function WorkspaceSettings() {
     <>
       <div className="w-full">
         <div>
-          <h1 className="text-2xl/8 font-semibold sm:text-xl/8">{t('settings.title')}</h1>
+          <h1 className="hf-page-title">{t('settings.title')}</h1>
 
           <hr className="border-accent-light my-6 w-full border-t" />
 

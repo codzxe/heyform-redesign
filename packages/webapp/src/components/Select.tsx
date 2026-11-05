@@ -135,7 +135,7 @@ const NativeSelect: FC<NativeSelectProps> = ({
   return (
     <select
       className={cn(
-        'placeholder:text-secondary inline-flex appearance-none items-center gap-x-4 rounded-lg border bg-transparent px-3.5 py-2 text-base/[1.4rem] focus:outline-none sm:px-3 sm:py-1.5 sm:text-sm/[1.4rem] [&_[data-slot=value]]:flex [&_[data-slot=value]]:flex-1 [&_[data-slot=value]]:items-center [&_[data-slot=value]]:gap-x-2.5 [&_[data-slot=value]]:pl-1 [&_[data-slot=value]]:sm:gap-x-2',
+        'placeholder:text-secondary inline-flex appearance-none items-center gap-x-4 rounded-xl border bg-transparent px-3.5 py-2 text-base/[1.4rem] focus:outline-none sm:px-3 sm:py-1.5 sm:text-sm/[1.4rem] [&_[data-slot=value]]:flex [&_[data-slot=value]]:flex-1 [&_[data-slot=value]]:items-center [&_[data-slot=value]]:gap-x-2.5 [&_[data-slot=value]]:pl-1 [&_[data-slot=value]]:sm:gap-x-2',
         hasError ? 'border-error' : 'border-input',
         className
       )}
@@ -223,7 +223,7 @@ const SelectComponent: FC<SelectProps> = ({
     <Root value={value} disabled={loading || disabled} onValueChange={handleChange}>
       <Trigger
         className={cn(
-          'disabled:bg-secondary-light [&_[data-slot=placeholder]]:text-secondary inline-flex max-h-[22rem] appearance-none items-center gap-x-4 rounded-lg border bg-transparent px-3.5 py-2 text-base/[1.4rem] focus:outline-none disabled:cursor-not-allowed sm:max-h-[20rem] sm:px-3 sm:py-1.5 sm:text-sm/[1.4rem] [&_[data-slot=placeholder]]:flex [&_[data-slot=placeholder]]:flex-1 [&_[data-slot=placeholder]]:items-center [&_[data-slot=placeholder]]:gap-x-2.5 [&_[data-slot=placeholder]]:truncate [&_[data-slot=placeholder]]:pl-1 [&_[data-slot=value]]:flex [&_[data-slot=value]]:flex-1 [&_[data-slot=value]]:items-center [&_[data-slot=value]]:gap-x-2.5 [&_[data-slot=value]]:truncate [&_[data-slot=value]]:pl-1 [&_[data-slot=value]]:sm:gap-x-2',
+          'disabled:bg-secondary-light [&_[data-slot=placeholder]]:text-secondary inline-flex max-h-[22rem] appearance-none items-center gap-x-4 rounded-xl border bg-transparent px-3.5 py-2 text-base/[1.4rem] focus:outline-none disabled:cursor-not-allowed sm:max-h-[20rem] sm:px-3 sm:py-1.5 sm:text-sm/[1.4rem] [&_[data-slot=placeholder]]:flex [&_[data-slot=placeholder]]:flex-1 [&_[data-slot=placeholder]]:items-center [&_[data-slot=placeholder]]:gap-x-2.5 [&_[data-slot=placeholder]]:truncate [&_[data-slot=placeholder]]:pl-1 [&_[data-slot=value]]:flex [&_[data-slot=value]]:flex-1 [&_[data-slot=value]]:items-center [&_[data-slot=value]]:gap-x-2.5 [&_[data-slot=value]]:truncate [&_[data-slot=value]]:pl-1 [&_[data-slot=value]]:sm:gap-x-2',
           hasError ? 'border-error' : 'border-input',
           className
         )}
@@ -364,7 +364,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
       <Popover.Trigger disabled={disabled} asChild>
         <div
           className={cn(
-            'placeholder:text-secondary inline-flex min-w-36 cursor-pointer appearance-none items-center gap-x-4 rounded-lg border bg-transparent px-2.5 py-1.5 text-base/[1.4rem] focus:outline-none disabled:pointer-events-none disabled:opacity-50 sm:px-2 sm:py-1 sm:text-sm/[1.4rem] [&_[data-slot=value]]:flex [&_[data-slot=value]]:flex-1 [&_[data-slot=value]]:items-center [&_[data-slot=value]]:gap-x-2.5 [&_[data-slot=value]]:pl-1 [&_[data-slot=value]]:sm:gap-x-2',
+            'placeholder:text-secondary inline-flex min-w-36 cursor-pointer appearance-none items-center gap-x-4 rounded-xl border bg-transparent px-2.5 py-1.5 text-base/[1.4rem] focus:outline-none disabled:pointer-events-none disabled:opacity-50 sm:px-2 sm:py-1 sm:text-sm/[1.4rem] [&_[data-slot=value]]:flex [&_[data-slot=value]]:flex-1 [&_[data-slot=value]]:items-center [&_[data-slot=value]]:gap-x-2.5 [&_[data-slot=value]]:pl-1 [&_[data-slot=value]]:sm:gap-x-2',
             hasError ? 'border-error' : 'border-input',
             className
           )}

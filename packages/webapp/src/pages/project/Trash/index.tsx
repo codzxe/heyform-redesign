@@ -53,22 +53,23 @@ export default function ProjectTrash() {
         fetch={fetch}
         refreshDeps={[projectId]}
         loader={
-          <div className="mt-4">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             <Repeat count={3}>
               <FormItem.Skeleton />
             </Repeat>
           </div>
         }
         emptyRender={() => (
-          <div className="border-accent-light flex flex-1 items-center justify-center rounded-lg border border-dashed py-36 shadow-sm">
+          <div className="mt-6">
             <EmptyState
+              className="py-20 sm:py-28"
               headline={t('project.trash.headline')}
               subHeadline={t('project.trash.subHeadline')}
             />
           </div>
         )}
       >
-        <div className="divide-accent-light mt-4 divide-y">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {forms.map(f => (
             <FormItem key={f.id} form={f} compact isInTrash onChange={handleChange} />
           ))}

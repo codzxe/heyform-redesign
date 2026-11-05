@@ -11,7 +11,7 @@ export default function WorkspaceDeletion() {
 
   return (
     <section id="deletion" className="pt-10">
-      <h2 className="hf-section-title">{t('settings.deletion.title')}</h2>
+      <h2 className="hf-section-title font-serif">{t('settings.deletion.title')}</h2>
       <p data-slot="text" className="text-secondary mt-1 text-base/5 sm:text-sm/5">
         {t('settings.deletion.description')}
       </p>

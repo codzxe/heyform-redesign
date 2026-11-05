@@ -146,8 +146,8 @@ const MemberItem: FC<{ member: MemberType }> = ({ member }) => {
   }, [workspace?.isOwner, t, isYou])
 
   return (
-    <tr className="hover:bg-primary/[2.5%]">
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">
+    <tr>
+      <td className="h-auto py-3">
         <div className="flex items-center gap-4">
           <Avatar
             className="flex-shrink-0"
@@ -167,15 +167,15 @@ const MemberItem: FC<{ member: MemberType }> = ({ member }) => {
         </div>
       </td>
 
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">
+      <td className="h-auto py-3">
         {member.isOwner ? t('members.owner') : t('members.member')}
       </td>
 
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">
+      <td className="h-auto py-3">
         {member.lastSeenAt ? timeFromNow(member.lastSeenAt, i18n.language) : ''}
       </td>
 
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">{Action}</td>
+      <td className="h-auto py-3">{Action}</td>
     </tr>
   )
 }
@@ -183,7 +183,7 @@ const MemberItem: FC<{ member: MemberType }> = ({ member }) => {
 const Skeleton = () => {
   return (
     <tr>
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">
+      <td className="h-auto py-3">
         <div className="flex items-center gap-4">
           <div className="skeleton h-10 w-10 rounded-full"></div>
           <div>
@@ -197,19 +197,19 @@ const Skeleton = () => {
         </div>
       </td>
 
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">
+      <td className="h-auto py-3">
         <div className="py-[0.3125rem]">
           <div className="skeleton h-3.5 w-36 rounded-sm"></div>
         </div>
       </td>
 
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1">
+      <td className="h-auto py-3">
         <div className="py-[0.3125rem]">
           <div className="skeleton h-3.5 w-36 rounded-sm"></div>
         </div>
       </td>
 
-      <td className="p-4 sm:first:pl-1 sm:last:pr-1"></td>
+      <td className="h-auto py-3"></td>
     </tr>
   )
 }

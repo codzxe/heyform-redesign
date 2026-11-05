@@ -60,8 +60,16 @@ export const ProjectShell: FC<ProjectShellProps> = ({ children }) => {
 
   return (
     <>
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl/8 font-semibold sm:text-xl/8">{project?.name}</h1>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex min-w-0 items-center gap-3">
+          <div
+            className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xl sm:flex"
+            style={{ background: 'rgba(var(--hf-brand), 0.1)' }}
+          >
+            <span className="font-serif text-lg italic leading-none text-brand">F</span>
+          </div>
+          <h1 className="hf-page-title truncate">{project?.name}</h1>
+        </div>
 
         <Button size="md" onClick={() => openModal('CreateFormModal')}>
           {t('form.creation.title')}
@@ -70,16 +78,21 @@ export const ProjectShell: FC<ProjectShellProps> = ({ children }) => {
 
       <ProjectMembers />
 
-      <div className="border-accent-light mt-5 border-b">
-        <nav className="text-secondary flex items-center gap-6 text-sm font-medium">
+      <div className="mt-6">
+        <nav
+          className="inline-flex items-center gap-1 rounded-full p-1"
+          style={{ background: 'rgba(var(--hf-dashboard-zone))' }}
+        >
           {navigations.map(n => (
             <NavLink
               key={n.value}
               className={({ isActive }) =>
-                cn('hover:text-primary py-3', {
-                  'text-primary after:bg-primary relative after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full':
-                    isActive
-                })
+                cn(
+                  'rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+                  isActive
+                    ? 'bg-foreground text-primary shadow-sm'
+                    : 'text-secondary hover:text-primary'
+                )
               }
               to={n.to}
               end

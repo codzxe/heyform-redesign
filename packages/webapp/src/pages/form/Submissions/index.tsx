@@ -343,17 +343,20 @@ export default function FormSubmissions() {
             ref={tableRef}
             classNames={{
               container: cn(
-                'scrollbar overflow-auto rounded-md border border-accent text-sm',
+                'scrollbar overflow-auto rounded-2xl border text-sm',
                 isMaximized ? 'h-[calc(100vh-9rem)]' : 'h-[calc(100vh-23.45rem)]'
               ),
               table:
-                '[&_tbody_td]:max-w-60 [&_tbody_td]:h-10 [&_tbody_td]:font-normal [&_thead]:bg-foreground [&_thead_th]:h-10 [&_thead_th]:font-normal [&_thead_th]:truncate [&_thead_th]:max-w-60',
+                '[&_tbody_td]:max-w-60 [&_tbody_td]:h-11 [&_tbody_td]:font-normal [&_thead]:bg-[rgba(var(--hf-dashboard-zone))] [&_thead_th]:h-11 [&_thead_th]:font-medium [&_thead_th]:text-secondary [&_thead_th]:truncate [&_thead_th]:max-w-60',
               footer: 'justify-end text-sm'
             }}
             columns={columns}
             loader={
               <Repeat count={20}>
-                <div className="border-accent flex h-10 items-center gap-x-8 border-b px-4">
+                <div
+                  className="flex h-11 items-center gap-x-8 border-b px-4"
+                  style={{ borderColor: 'rgba(var(--hf-dashboard-border))' }}
+                >
                   <div className="skeleton h-4 w-4 rounded-md" />
                   <div className="skeleton h-4 w-20 rounded-md" />
                   <div className="skeleton h-4 w-60 rounded-md" />

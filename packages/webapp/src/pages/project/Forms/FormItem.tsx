@@ -90,6 +90,34 @@ interface FormItemProps {
   onChange?: (type: 'rename' | 'trash' | 'restore' | 'delete' | 'move', form: FormType) => void
 }
 
+/* Editorial gradient tiles — deterministic per form id */
+const FORM_TILE_THEMES = [
+  'linear-gradient(135deg, #26352B 0%, #3D5744 100%)',
+  'linear-gradient(135deg, #B4653F 0%, #D68A5E 100%)',
+  'linear-gradient(135deg, #8A7B5C 0%, #B7A87F 100%)',
+  'linear-gradient(135deg, #44586B 0%, #6B8095 100%)',
+  'linear-gradient(135deg, #5F4567 0%, #8A6A93 100%)',
+  'linear-gradient(135deg, #2E6157 0%, #4C897B 100%)',
+  'linear-gradient(135deg, #A05C4E 0%, #C4806F 100%)',
+  'linear-gradient(135deg, #51624C 0%, #73866B 100%)'
+]
+
+function formTileTheme(id: string): string {
+  let hash = 0
+
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) | 0
+  }
+
+  return FORM_TILE_THEMES[Math.abs(hash) % FORM_TILE_THEMES.length]
+}
+
+function formInitial(name: string): string {
+  const char = (name || '').trim().charAt(0)
+
+  return char ? char.toUpperCase() : 'H'
+}
+
 const FormItem: FC<FormItemProps> = ({ form, isInTrash, onChange, compact = false }) => {
   const { t, i18n } = useTranslation()
 
@@ -303,94 +331,176 @@ const FormItem: FC<FormItemProps> = ({ form, isInTrash, onChange, compact = fals
   return (
     <FormItemLink
       className={cn(
-        'group flex items-center justify-between',
+        'group',
         compact
-          ? 'hover:bg-secondary-light has-[[data-state=open]]:bg-secondary-light gap-3 py-4 sm:gap-6'
-          : 'gap-6 px-6 py-6 hover:bg-[#f8fafc] has-[[data-state=open]]:bg-[#f8fafc] dark:hover:bg-[#374151]'
+          ? 'block'
+          : 'hover:bg-secondary-light has-[[data-state=open]]:bg-secondary-light flex items-center justify-between gap-6 rounded-xl px-4 py-4'
       )}
       to={`/workspace/${form.teamId}/project/${form.projectId}/form/${form.id}/analytics`}
       isInTrash={isInTrash}
       isSuspended={form.suspended}
     >
-      <div className={cn('min-w-0 flex-1', compact && 'pl-2')}>
-        <div className="break-words text-sm/6 font-medium">{form.name}</div>
-        <div className={cn('text-secondary text-sm/6', !compact && 'mt-1')}>
-          {isInTrash
-            ? t('form.metadata2', {
-                count: form.submissionCount,
-                date: timeToNow(form.retentionAt, i18n.language)
-              })
-            : t('form.metadata', {
-                count: form.submissionCount,
-                date: timeFromNow(form.updatedAt, i18n.language)
-              })}
-        </div>
-      </div>
-
-      <div className={cn('flex shrink-0 items-center', compact ? 'gap-2 sm:gap-4' : 'gap-4')}>
-        {!isInTrash && !form.suspended && (
+      {compact ? (
+        <div className="hf-card group/card overflow-hidden transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-lg">
           <div
-            className={cn(
-              'items-center',
-              compact ? 'hidden group-focus-within:sm:flex group-hover:sm:flex' : 'flex'
-            )}
+            className="relative flex h-24 items-end overflow-hidden p-4"
+            style={{ background: formTileTheme(form.id) }}
           >
-            <Tooltip label={t('components.edit')}>
-              <Button.Link size="sm" iconOnly onClick={handleEdit}>
-                <IconPencil className="h-5 w-5" />
-              </Button.Link>
-            </Tooltip>
+            <span
+              className="font-serif text-4xl italic leading-none text-white/95"
+              style={{ textShadow: '0 1px 8px rgb(0 0 0 / 0.18)' }}
+            >
+              {formInitial(form.name)}
+            </span>
 
-            <Button.Copy
-              size="sm"
-              className="text-primary order-last sm:order-first [&_svg]:h-[1.125rem] [&_svg]:w-[1.125rem]"
-              text={`${sharingURLPrefix}/form/${form.id}`}
-              label={t('form.copyLinkToShare')}
-              icon={<IconLink strokeWidth={2.2} />}
-            />
+            <div className="absolute inset-x-0 top-0 flex items-start justify-end p-2.5">
+              <div className="flex items-center gap-1 opacity-0 transition-opacity duration-200 group-hover/card:opacity-100 group-focus-within/card:opacity-100">
+                {!form.suspended && !isInTrash && (
+                  <>
+                    <Button.Link
+                      size="sm"
+                      className="bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
+                      iconOnly
+                      onClick={handleEdit}
+                    >
+                      <IconPencil className="h-4 w-4" />
+                    </Button.Link>
+
+                    <Button.Link
+                      size="sm"
+                      className="bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
+                      iconOnly
+                      onClick={() => handleShare()}
+                    >
+                      <IconShare className="h-4 w-4" />
+                    </Button.Link>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
-        )}
 
-        <FormStatus form={form} />
+          <div className="p-4">
+            <div className="truncate text-sm/6 font-medium">{form.name}</div>
 
-        {!form.suspended && (
-          <Dropdown
-            contentProps={{
-              className:
-                'min-w-36 [&_[data-value=delete]]:text-error [&_[data-value=trash]]:text-error',
-              side: 'bottom',
-              sideOffset: 8,
-              align: 'end'
-            }}
-            options={options}
-            multiLanguage
-            onClick={handleClick}
-          >
-            <Button.Link size="sm" className="data-[state=open]:bg-accent-light" iconOnly>
-              <Tooltip label={t('form.menuTip')}>
-                <IconDots className="h-4 w-4" />
-              </Tooltip>
-            </Button.Link>
-          </Dropdown>
-        )}
-      </div>
+            <div className="mt-1 truncate text-xs/5 text-secondary">
+              {isInTrash
+                ? t('form.metadata2', {
+                    count: form.submissionCount,
+                    date: timeToNow(form.retentionAt, i18n.language)
+                  })
+                : t('form.metadata', {
+                    count: form.submissionCount,
+                    date: timeFromNow(form.updatedAt, i18n.language)
+                  })}
+            </div>
+
+            <div className="mt-3 flex items-center justify-between gap-2">
+              <FormStatus form={form} />
+
+              {!form.suspended && (
+                <div className="flex items-center">
+                  {!isInTrash && (
+                    <Button.Copy
+                      size="sm"
+                      className="text-secondary"
+                      text={`${sharingURLPrefix}/form/${form.id}`}
+                      label={t('form.copyLinkToShare')}
+                      icon={<IconLink className="h-4 w-4" strokeWidth={2.2} />}
+                    />
+                  )}
+
+                  <Dropdown
+                    contentProps={{
+                      className:
+                        'min-w-36 [&_[data-value=delete]]:text-error [&_[data-value=trash]]:text-error',
+                      side: 'bottom',
+                      sideOffset: 8,
+                      align: 'end'
+                    }}
+                    options={options}
+                    multiLanguage
+                    onClick={handleClick}
+                  >
+                    <Button.Link
+                      size="sm"
+                      className="text-secondary data-[state=open]:bg-accent-light"
+                      iconOnly
+                    >
+                      <Tooltip label={t('form.menuTip')}>
+                        <IconDots className="h-4 w-4" />
+                      </Tooltip>
+                    </Button.Link>
+                  </Dropdown>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="min-w-0 flex-1">
+            <div className="break-words text-sm/6 font-medium">{form.name}</div>
+            <div className="mt-1 text-sm/6 text-secondary">
+              {isInTrash
+                ? t('form.metadata2', {
+                    count: form.submissionCount,
+                    date: timeToNow(form.retentionAt, i18n.language)
+                  })
+                : t('form.metadata', {
+                    count: form.submissionCount,
+                    date: timeFromNow(form.updatedAt, i18n.language)
+                  })}
+            </div>
+          </div>
+
+          <div className="flex shrink-0 items-center gap-2">
+            <FormStatus form={form} />
+
+            {!form.suspended && (
+              <Dropdown
+                contentProps={{
+                  className:
+                    'min-w-36 [&_[data-value=delete]]:text-error [&_[data-value=trash]]:text-error',
+                  side: 'bottom',
+                  sideOffset: 8,
+                  align: 'end'
+                }}
+                options={options}
+                multiLanguage
+                onClick={handleClick}
+              >
+                <Button.Link
+                  size="sm"
+                  className="text-secondary data-[state=open]:bg-accent-light"
+                  iconOnly
+                >
+                  <Tooltip label={t('form.menuTip')}>
+                    <IconDots className="h-4 w-4" />
+                  </Tooltip>
+                </Button.Link>
+              </Dropdown>
+            )}
+          </div>
+        </>
+      )}
     </FormItemLink>
   )
 }
 
 const Skeleton = () => {
   return (
-    <div className="group flex items-center justify-between gap-6 px-4 py-4">
-      <div className="flex-1">
-        <div className="py-[0.3125rem]">
-          <div className="skeleton h-3.5 w-24 rounded-sm"></div>
+    <div>
+      <div className="hf-card overflow-hidden">
+        <div className="skeleton h-24 rounded-none" />
+        <div className="p-4">
+          <div className="skeleton h-4 w-3/4 rounded-md" />
+          <div className="skeleton mt-2 h-3 w-1/2 rounded-md" />
+          <div className="mt-4 flex items-center justify-between">
+            <div className="skeleton h-5 w-16 rounded-full" />
+            <div className="skeleton h-5 w-12 rounded-md" />
+          </div>
         </div>
-        <div className="py-[0.3125rem]">
-          <div className="skeleton h-3.5 w-52 rounded-sm"></div>
-        </div>
-      </div>
-      <div className="flex items-center gap-4">
-        <div className="skeleton h-5 w-24 rounded-sm"></div>
       </div>
     </div>
   )

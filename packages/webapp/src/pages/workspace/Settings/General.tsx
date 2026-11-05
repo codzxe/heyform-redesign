@@ -46,7 +46,7 @@ export default function WorkspaceGeneral() {
 
   return (
     <section id="general" className="border-accent-light border-b pb-10">
-      <h2 className="hf-section-title">{t('settings.general.title')}</h2>
+      <h2 className="hf-section-title font-serif">{t('settings.general.title')}</h2>
 
       <div className="mt-4 space-y-8">
         <div className="space-y-2">

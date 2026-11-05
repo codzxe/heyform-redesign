@@ -38,7 +38,7 @@ export const BuilderLeftSidebarModal = () => {
 
 export default function BuilderLeftSidebar() {
   return (
-    <div className="builder-sidebar bg-foreground lg:ring-primary/5 flex h-full w-[16rem] flex-col max-lg:hidden lg:rounded-lg lg:shadow-sm lg:ring-1">
+    <div className="builder-sidebar bg-foreground flex h-full w-[16rem] flex-col max-lg:hidden lg:rounded-2xl lg:border lg:shadow-sm" style={{ borderColor: 'rgba(var(--hf-dashboard-border))' }}>
       <BuilderLeftSidebarComponent />
     </div>
   )

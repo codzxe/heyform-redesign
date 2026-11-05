@@ -146,7 +146,14 @@ export default function FormSettings() {
             <FormSettingsTranslations />
             <FormSettingsProtection />
 
-            <div className="border-accent bg-foreground/80 sticky bottom-0 mt-10 flex items-center justify-end gap-x-4 border-t px-4 py-4">
+            <div
+              className="sticky bottom-0 mt-10 flex items-center justify-end gap-x-4 rounded-2xl border px-4 py-4"
+              style={{
+                borderColor: 'rgba(var(--hf-dashboard-border))',
+                background: 'rgba(var(--hf-foreground), 0.92)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
               {error && !loading && <div className="text-error text-sm/6">{error.message}</div>}
 
               <Button type="submit" loading={loading} disabled={isDisabled}>

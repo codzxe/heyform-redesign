@@ -43,7 +43,10 @@ export default function BuilderRightSidebar() {
   }
 
   return (
-    <div className="lg:bg-foreground lg:ring-primary/5 h-full w-[20rem] max-lg:hidden lg:rounded-lg lg:shadow-sm lg:ring-1">
+    <div
+      className="lg:bg-foreground h-full w-[20rem] max-lg:hidden lg:rounded-2xl lg:border lg:shadow-sm"
+      style={{ borderColor: 'rgba(var(--hf-dashboard-border))' }}
+    >
       <Tabs
         className="[&_[data-slot=content]]:scrollbar flex h-full flex-col [&_[data-slot=content]]:flex-1"
         tabs={tabs}

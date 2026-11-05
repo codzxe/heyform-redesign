@@ -74,7 +74,13 @@ export default function FormShare() {
     <>
       <div className="mt-10 space-y-10">
         {form?.canPublish && (
-          <div className="border-accent-light flex items-center justify-center gap-x-2 rounded-lg border bg-red-50 py-2">
+          <div
+            className="flex items-center justify-center gap-x-2 rounded-2xl border py-3"
+            style={{
+              borderColor: 'rgb(220 38 38 / 0.25)',
+              background: 'rgb(220 38 38 / 0.06)'
+            }}
+          >
             <IconExclamationCircle className="h-5 w-5 text-red-700" />
             <span className="text-sm/6 font-medium text-red-700">
               {t('form.share.unpublishedTip')}
@@ -83,16 +89,22 @@ export default function FormShare() {
         )}
 
         <section id="link">
-          <h2 className="text-base/6 font-semibold">{t('form.share.link.headline')}</h2>
+          <h2 className="hf-section-title font-serif">{t('form.share.link.headline')}</h2>
           <div className="mt-4">
             <div className="flex flex-col gap-2 text-sm/6 sm:flex-row sm:items-center">
-              <div className="border-input flex items-center gap-x-4 rounded-lg border">
-                <div className="h-10 flex-1 truncate pl-4 leading-10">{shareLink}</div>
+              <div
+                className="flex items-center gap-x-4 rounded-xl border"
+                style={{
+                  borderColor: 'rgba(var(--hf-dashboard-border))',
+                  background: 'rgba(var(--hf-dashboard-zone))'
+                }}
+              >
+                <div className="h-11 flex-1 truncate pl-4 text-sm/6 leading-11">{shareLink}</div>
                 <Button.Copy className="rounded-l-none" text={shareLink} />
               </div>
             </div>
 
-            <div className="mt-2 flex items-center gap-x-2">
+            <div className="mt-3 flex items-center gap-x-2">
               <Tooltip label={t('form.share.link.viaX')}>
                 <div>
                   <Button.Link size="md" iconOnly onClick={handleShareTwitter}>
@@ -139,22 +151,28 @@ export default function FormShare() {
         <LinkSettings />
 
         <section id="embed">
-          <h2 className="text-base/6 font-semibold">{t('form.share.embed.headline')}</h2>
-          <p className="text-secondary text-sm/6">{t('form.share.embed.subHeadline')}</p>
+          <h2 className="hf-section-title font-serif">{t('form.share.embed.headline')}</h2>
+          <p className="text-secondary mt-1 text-sm/6">{t('form.share.embed.subHeadline')}</p>
 
-          <div className="mt-4 flex gap-4 sm:gap-8">
+          <div className="mt-4 flex gap-4 sm:gap-6">
             {FORM_EMBED_OPTIONS.map(row => (
               <button
                 key={row.value}
                 type="button"
                 tabIndex={-1}
-                className="text-secondary hover:text-primary w-32 text-sm/6"
+                className="text-secondary hover:text-primary group w-32 text-sm/6"
                 onClick={() => handleOpenEmbed(row.value)}
               >
-                <div className="border-input rounded-md border">
-                  <row.icon className="w-full rounded-md" />
+                <div
+                  className="overflow-hidden rounded-xl border transition-all group-hover:-translate-y-0.5"
+                  style={{
+                    borderColor: 'rgba(var(--hf-dashboard-border))',
+                    background: 'rgba(var(--hf-foreground))'
+                  }}
+                >
+                  <row.icon className="w-full" />
                 </div>
-                <div className="mt-1.5 text-center">{t(row.label)}</div>
+                <div className="mt-2 text-center font-medium">{t(row.label)}</div>
               </button>
             ))}
           </div>

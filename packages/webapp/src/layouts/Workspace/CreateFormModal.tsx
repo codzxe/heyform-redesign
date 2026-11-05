@@ -90,21 +90,32 @@ const CreateFormComponent = () => {
   } else {
     return (
       <>
-        <h2 className="text-primary text-balance text-xl/6 font-semibold sm:text-lg/6">
+        <h2 className="font-serif text-primary text-balance text-2xl/8 font-semibold tracking-tight">
           {t('form.creation.headline')}
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-4 sm:w-[42rem] sm:grid-cols-3">
           {FORM_TYPES.map(row => (
             <Button.Link
               key={row.id}
-              className="border-input flex h-auto border py-8 sm:aspect-square sm:h-auto sm:py-0 [&_[data-slot=button]]:h-full [&_[data-slot=button]]:flex-col"
+              className="group h-auto rounded-2xl border py-8 transition-all hover:-translate-y-0.5 hover:shadow-md sm:aspect-square sm:h-auto sm:py-0 [&_[data-slot=button]]:h-full [&_[data-slot=button]]:flex-col"
+              style={{
+                borderColor: 'rgba(var(--hf-dashboard-border))',
+                background: 'rgba(var(--hf-foreground))'
+              }}
               loading={row.id === 'scratch' && loading}
               disabled={loading}
               onClick={() => handleClick(row.id)}
             >
-              <row.icon className="non-scaling-stroke h-9 w-9" />
-              <div className="mt-2 text-sm/6 font-semibold">{t(row.headline)}</div>
-              <div className="text-secondary mt-1 text-xs">{t(row.subHeadline)}</div>
+              <span
+                className="flex h-12 w-12 items-center justify-center rounded-2xl transition-transform group-hover:scale-105"
+                style={{ background: 'rgba(var(--hf-brand), 0.1)' }}
+              >
+                <row.icon className="non-scaling-stroke h-6 w-6 text-brand" />
+              </span>
+              <div className="mt-3 text-sm/6 font-semibold">{t(row.headline)}</div>
+              <div className="text-secondary mt-1 px-2 text-center text-xs">
+                {t(row.subHeadline)}
+              </div>
             </Button.Link>
           ))}
         </div>

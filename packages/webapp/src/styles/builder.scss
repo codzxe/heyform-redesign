@@ -46,7 +46,8 @@
 }
 
 .react-flow {
-  @apply h-full flex-1 bg-foreground lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-primary/5;
+  @apply h-full flex-1 bg-foreground lg:rounded-2xl lg:shadow-sm lg:border;
+    border-color: rgba(var(--hf-dashboard-border));
 }
 
 

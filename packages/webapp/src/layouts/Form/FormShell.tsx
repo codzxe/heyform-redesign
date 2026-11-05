@@ -236,14 +236,40 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
           <span>{project?.name}</span>
         </Link>
       </div>
-      <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="sm:flex-1">
+      <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0 sm:flex-1">
           <Skeleton
             className="h-8 [&_[data-slot=skeleton]]:h-5 [&_[data-slot=skeleton]]:w-44 [&_[data-slot=skeleton]]:sm:h-6"
             loading={loading}
           >
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl/8 font-semibold sm:text-xl/8">{form?.name}</h1>
+            <div className="flex items-center gap-2.5">
+              <h1 className="hf-page-title truncate">{form?.name}</h1>
+
+              <span
+                className="hidden shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium sm:inline-flex"
+                style={{
+                  background: 'rgba(var(--hf-dashboard-zone))',
+                  color:
+                    status === 'active'
+                      ? 'rgb(22 122 86)'
+                      : status === 'suspended'
+                        ? 'rgb(200 53 52)'
+                        : 'rgba(var(--hf-secondary))'
+                }}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{
+                    background:
+                      status === 'active'
+                        ? 'rgb(22 122 86)'
+                        : status === 'suspended'
+                          ? 'rgb(200 53 52)'
+                          : 'rgba(var(--hf-secondary))'
+                  }}
+                />
+                {t(`form.${status}`)}
+              </span>
 
               <Dropdown
                 contentProps={{
@@ -270,8 +296,8 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
             </div>
           </Skeleton>
 
-          <Skeleton className="[&_[data-slot=skeleton]]:w-64" loading={loading}>
-            <div className="text-secondary text-sm/6">
+          <Skeleton className="mt-0.5 [&_[data-slot=skeleton]]:w-64" loading={loading}>
+            <div className="text-secondary mt-1 text-sm/6">
               <Trans
                 t={t}
                 i18nKey="form.metadata3"
@@ -288,7 +314,7 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
           </Skeleton>
         </div>
 
-        <div className="flex items-center gap-2 sm:flex-row">
+        <div className="flex shrink-0 items-center gap-2 sm:flex-row">
           <Button.Copy
             size="md"
             className="order-last sm:order-first"
@@ -303,25 +329,28 @@ export const FormShell: FC<ComponentProps> = ({ children }) => {
         </div>
       </div>
 
-      <div className="mt-5 overflow-x-auto">
-        <div className="border-accent-light border-b">
-          <nav className="text-secondary flex items-center gap-6 text-sm font-medium">
-            {navigations.map(n => (
-              <NavLink
-                key={n.value}
-                className={({ isActive }) =>
-                  cn('hover:text-primary text-nowrap py-3', {
-                    'text-primary after:bg-brand relative after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full':
-                      isActive
-                  })
-                }
-                to={n.to}
-              >
-                {n.label}
-              </NavLink>
-            ))}
-          </nav>
-        </div>
+      <div className="mt-6 overflow-x-auto">
+        <nav
+          className="inline-flex items-center gap-1 rounded-full p-1"
+          style={{ background: 'rgba(var(--hf-dashboard-zone))' }}
+        >
+          {navigations.map(n => (
+            <NavLink
+              key={n.value}
+              className={({ isActive }) =>
+                cn(
+                  'rounded-full px-4 py-1.5 text-sm font-medium whitespace-nowrap transition-colors',
+                  isActive
+                    ? 'bg-foreground text-primary shadow-sm'
+                    : 'text-secondary hover:text-primary'
+                )
+              }
+              to={n.to}
+            >
+              {n.label}
+            </NavLink>
+          ))}
+        </nav>
       </div>
 
       {children}

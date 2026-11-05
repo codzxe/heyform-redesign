@@ -113,7 +113,7 @@ export default function WorkspaceConnectedAccounts() {
 
   return (
     <section id="connected-accounts" className="border-accent-light border-b py-10">
-      <h2 className="hf-section-title">{t('settings.connectedAccounts.title')}</h2>
+      <h2 className="hf-section-title font-serif">{t('settings.connectedAccounts.title')}</h2>
       <p data-slot="text" className="text-secondary mt-1 text-base/5 sm:text-sm/5">
         {t('settings.connectedAccounts.description')}
       </p>
