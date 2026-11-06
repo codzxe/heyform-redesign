@@ -8,6 +8,24 @@ export default ({ mode }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd())
   const plugins = [react(), svgr()]
 
+  // Vite >= 5.4.12 only serves requests whose Host header matches its
+  // allowlist. Reverse-proxied previews (e.g. cloud sandbox gateways) reach
+  // the dev server under an external hostname and are blocked unless it is
+  // allowed explicitly:
+  //   VITE_ALLOWED_HOSTS=true                 -> allow any host (development only)
+  //   VITE_ALLOWED_HOSTS=a.example.com,b.com  -> allow specific hosts
+  // Unset keeps Vite's safe defaults (localhost and .localhost subdomains).
+  const allowedHostsValue = env.VITE_ALLOWED_HOSTS?.trim()
+  const allowedHosts =
+    allowedHostsValue === 'true'
+      ? true
+      : allowedHostsValue
+        ? allowedHostsValue
+            .split(',')
+            .map(host => host.trim())
+            .filter(Boolean)
+        : undefined
+
   if (process.env.ANALYZER) {
     plugins.push(analyzer())
   }
@@ -86,6 +104,7 @@ export default ({ mode }: ConfigEnv) => {
     server: {
       host: '0.0.0.0',
       port: 3000,
+      allowedHosts,
       proxy: {
         '/graphql': {
           target: env.VITE_PROXY_TARGET,
@@ -97,7 +116,9 @@ export default ({ mode }: ConfigEnv) => {
           
           configure: (proxy: any) => {
             proxy.on('proxyRes', function(proxyRes: any) {
-              const removeSecure = (str: string) => str.replace(/; Secure|; SameSite=[^;]/gi, '')
+              // [^;]* removes the whole SameSite value: a single [^;] ate one
+              // character and corrupted Set-Cookie into "HttpOnlyax".
+              const removeSecure = (str: string) => str.replace(/; Secure|; SameSite=[^;]*/gi, '')
               const set = proxyRes.headers['set-cookie']
 
               if (set) {

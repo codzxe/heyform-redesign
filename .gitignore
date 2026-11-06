@@ -32,7 +32,7 @@ docker.env
 
 # production
 dist
-lib
+/lib
 packages/server/static
 *.tsbuildinfo
 /.claude
