@@ -2,6 +2,16 @@
 
 Based on the [local development guide](https://github.com/codzxe/myform#readme/open-source/local-development).
 
+## Agent skills
+
+### Issue tracker
+
+GitHub issues on this repo; tickets are sub-issues of spec issues with native blocked-by dependencies. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context: audit history, decisions and the implementation plan live in the agent wiki at `docs/agents/wiki/` — read `docs/agents/wiki/index.md` before starting work. The master plan and current frontier are GitHub issue #50.
+
 ## Requirements
 
 - Node.js 22
